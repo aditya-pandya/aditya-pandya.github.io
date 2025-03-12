@@ -4,24 +4,24 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Aditya Pandya - Product Leader & Advisor</title>
-  
+
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="manifest" href="site.webmanifest">
-  
+
   <meta name="description" content="Aditya Pandya - Product leader & advisor with 15+ years of experience building products that help 100M+ people globally.">
   <meta name="keywords" content="product leader, product management, Aditya Pandya">
   <meta name="author" content="Aditya Pandya">
-  
+
   <meta name="robots" content="noai, noimageai">
   <meta name="googlebot" content="noai, noimageai">
   <meta name="Bingbot" content="noai, noimageai">
-  
+
   <meta property="og:title" content="Aditya Pandya - Product Leader">
   <meta property="og:description" content="Product leader with 15+ years of experience building products that help 100M+ people globally.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://aditya.pandya.co">
+  <meta property="og:url" content="https://yoursite.com">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDCMBB8TEX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -29,18 +29,18 @@
     gtag('js', new Date());
     gtag('config', 'G-NDCMBB8TEX');
   </script>
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600&family=Over+the+Rainbow&family=Raleway:wght@300;400;500;600&family=Rock+Salt&family=Reenie+Beanie&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  
+
   <style>
     /* Color themes with CSS variables */
     :root {
       --spacing: 8px;
     }
-    
+
     /* Dark theme (default) */
     html[data-theme="dark"] {
       --bg-dark: #0a0a0a;
@@ -58,7 +58,7 @@
       --toggle-bg: #252525;
       --toggle-icon: #FFFFFE;
     }
-    
+
     /* Light theme */
     html[data-theme="light"] {
       --bg-dark: #FFFFFF;
@@ -76,13 +76,13 @@
       --toggle-bg: #EAEAEA;
       --toggle-icon: #121212;
     }
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
     body {
       font-family: 'Raleway', sans-serif;
       line-height: 1.7;
@@ -94,12 +94,12 @@
       font-weight: 400;
       transition: background-color 0.3s ease, color 0.3s ease;
     }
-    
+
     h1, h2, h3, h4, h5, h6 {
       font-family: 'Merriweather', serif;
       font-weight: 600;
     }
-    
+
     .container {
       width: 90%;
       max-width: 1140px;
@@ -107,14 +107,14 @@
       padding: 0 var(--spacing);
       position: relative;
     }
-    
+
     header {
       padding: 120px 0 60px;
       position: relative;
       background-color: var(--bg-dark);
       transition: background-color 0.3s ease;
     }
-    
+
     .nav {
       position: fixed;
       top: 0;
@@ -127,15 +127,15 @@
       border-bottom: 1px solid var(--border);
       transition: background-color 0.3s ease, transform 0.3s ease;
     }
-    
+
     html[data-theme="dark"] .nav {
       background-color: rgba(10, 10, 10, 0.95);
     }
-    
+
     html[data-theme="light"] .nav {
       background-color: rgba(255, 255, 255, 0.95);
     }
-    
+
     .progress-container {
       position: absolute;
       bottom: 0;
@@ -144,14 +144,14 @@
       height: 3px;
       background-color: transparent;
     }
-    
+
     .progress-bar {
       height: 3px;
       background: linear-gradient(90deg, var(--primary), var(--accent-3));
       width: 0%;
       transition: width 0.1s ease;
     }
-    
+
     .nav-container {
       display: flex;
       justify-content: space-between;
@@ -160,7 +160,7 @@
       max-width: 1140px;
       margin: 0 auto;
     }
-    
+
     .nav-logo {
       font-family: 'Over the Rainbow', 'Rock Salt', 'Reenie Beanie', 'Helvetica Neue', Tahoma, cursive;
       font-size: 1.1rem;
@@ -168,13 +168,13 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    
+
     .nav-links {
       display: flex;
       gap: 24px;
       align-items: center;
     }
-    
+
     .nav-link {
       color: var(--text-muted);
       text-decoration: none;
@@ -184,19 +184,19 @@
       border-radius: 30px;
       transition: all 0.3s ease;
     }
-    
+
     .nav-link:hover {
       color: var(--primary);
       background-color: var(--bg-hover);
     }
-    
+
     .nav-link.active {
       color: var(--primary);
       background-color: var(--bg-hover);
     }
-    
+
     .mobile-menu-toggle {
-      display: none;
+      display: none; /* Hidden by default on larger screens */
       background: none;
       border: none;
       color: var(--text);
@@ -205,11 +205,11 @@
       padding: 8px;
       transition: color 0.3s ease;
     }
-    
+
     .mobile-menu-toggle:hover {
       color: var(--primary);
     }
-    
+
     .theme-toggle {
       display: flex;
       align-items: center;
@@ -224,12 +224,12 @@
       color: var(--toggle-icon);
       transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
     }
-    
+
     .theme-toggle:hover {
       transform: scale(1.1);
       background-color: var(--bg-hover);
     }
-    
+
     .theme-toggle i {
       font-size: 1rem;
     }
@@ -254,8 +254,8 @@
         flex: 1; /* Allow the text to grow and fill available space */
         text-align: left; /* Ensure text is left-aligned */
     }
-    
-    
+
+
     .header-intro {
       font-size: 1.2rem;
       color: var(--accent-1);
@@ -263,7 +263,7 @@
       font-family: 'Raleway', sans-serif;
       transition: color 0.3s ease;
     }
-    
+
     .name-title {
       font-family: 'Over the Rainbow', 'Rock Salt', 'Reenie Beanie', 'Helvetica Neue', Tahoma, cursive;
       font-size: 64px;
@@ -277,7 +277,7 @@
       z-index: 2;
       transition: color 0.3s ease;
     }
-    
+
     .header-subtitle {
       font-size: 1.4rem;
       line-height: 1.5;
@@ -287,14 +287,14 @@
       font-weight: 300;
       transition: color 0.3s ease;
     }
-    
+
     .section {
       padding: 100px 0;
       position: relative;
       border-top: 1px solid var(--border);
       transition: background-color 0.3s ease, border-color 0.3s ease;
     }
-    
+
     .section-heading {
       font-size: 2.4rem;
       margin-bottom: 32px;
@@ -309,11 +309,11 @@
       padding-bottom: 8px;
       transition: color 0.3s ease;
     }
-    
+
     html[data-theme="light"] .section-heading {
       color: #121212;
     }
-    
+
     .timeline {
       display: flex;
       flex-direction: column;
@@ -322,7 +322,7 @@
       max-width: 780px;
       position: relative;
     }
-    
+
     .timeline::before {
       content: "";
       position: absolute;
@@ -333,18 +333,18 @@
       background-color: var(--border);
       transition: background-color 0.3s ease;
     }
-    
+
     .timeline-item {
       padding-left: 24px;
       position: relative;
       padding-bottom: 30px;
       text-align: left;
     }
-    
+
     .timeline-item:last-child {
       padding-bottom: 0;
     }
-    
+
     .timeline-item::before {
       content: "";
       position: absolute;
@@ -357,7 +357,7 @@
       z-index: 1;
       transition: background-color 0.3s ease;
     }
-    
+
     .timeline-date {
       font-size: 0.9rem;
       color: var(--text-muted);
@@ -365,7 +365,7 @@
       font-weight: 500;
       transition: color 0.3s ease;
     }
-    
+
     .timeline-title {
       font-size: 1.3rem;
       margin-bottom: 8px;
@@ -373,7 +373,7 @@
       font-weight: 600;
       transition: color 0.3s ease;
     }
-    
+
     .timeline-subtitle {
       font-size: 1rem;
       margin-bottom: 8px;
@@ -381,12 +381,12 @@
       font-weight: 500;
       transition: color 0.3s ease;
     }
-    
+
     html[data-theme="light"] .timeline-subtitle {
       color: #D97700;
       font-weight: 600;
     }
-    
+
     .timeline-icon {
       position: absolute;
       right: 15px;
@@ -396,14 +396,14 @@
       opacity: 0.8;
       transition: color 0.3s ease;
     }
-    
+
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 28px;
       margin: 40px 0;
     }
-    
+
     .card {
       background-color: var(--bg-card);
       border-radius: 16px;
@@ -416,13 +416,13 @@
       flex-direction: column;
       overflow: hidden;
     }
-    
+
     .card:hover {
       transform: translateY(-5px);
       box-shadow: 0 15px 30px rgba(127, 90, 240, 0.15);
       border-color: var(--primary);
     }
-    
+
     .card-number-bg {
       position: absolute;
       right: -20px;
@@ -433,31 +433,31 @@
       opacity: 0.07;
       color: var(--primary);
       line-height: 1;
-      z-index: 0;
+      z-index: 0
       transition: color 0.3s ease, opacity 0.3s ease;
     }
-    
+
     html[data-theme="light"] .card-number-bg {
       opacity: 0.15;
     }
-    
+
     .grid .card:nth-child(3n+1) .card-number-bg {
       color: var(--primary);
     }
-    
+
     .grid .card:nth-child(3n+2) .card-number-bg {
       color: var(--accent-1);
     }
-    
+
     .grid .card:nth-child(3n+3) .card-number-bg {
       color: var(--accent-3);
     }
-    
+
     .card-content {
       position: relative;
       z-index: 2;
     }
-    
+
     .card-number {
       display: inline-block;
       font-family: 'Merriweather', serif;
@@ -471,13 +471,13 @@
       align-self: flex-start;
       transition: color 0.3s ease, background-color 0.3s ease;
     }
-    
+
     html[data-theme="light"] .card-number {
       background-color: rgba(0, 0, 0, 0.07);
       color: #D97700;
       font-weight: 600;
     }
-    
+
     .card-title {
       font-size: 1.5rem;
       margin-bottom: 20px;
@@ -486,15 +486,15 @@
       font-weight: 600;
       transition: color 0.3s ease;
     }
-    
+
     .tag-container {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin: 32px 0;
-      justify-content: center;
+      /* justify-content: center; Removed to allow left alignment */
     }
-    
+
     .tag {
       padding: 8px 16px;
       background-color: var(--bg-alternate);
@@ -504,21 +504,21 @@
       border: 1px solid var(--border);
       transition: all 0.3s ease;
     }
-    
+
     .tag:hover {
       background-color: var(--bg-hover);
       border-color: var(--primary);
       color: var(--primary);
       transform: translateY(-2px);
     }
-    
+
     html[data-theme="light"] .tag:hover {
       background-color: #E0E0E0;
       border-color: #5038A1;
       color: #5038A1;
       font-weight: 500;
     }
-    
+
     .accent-section {
       background-color: var(--bg-alternate);
       padding: 100px 0;
@@ -528,7 +528,7 @@
       overflow: hidden;
       transition: background-color 0.3s ease, border-color 0.3s ease;
     }
-    
+
     .mission-quote {
       position: absolute;
       font-size: 180px;
@@ -544,7 +544,7 @@
       transform: translateY(-50%);
       transition: color 0.3s ease, opacity 0.3s ease;
     }
-    
+
     .accent-content {
       display: flex;
       flex-direction: column;
@@ -554,7 +554,7 @@
       position: relative;
       z-index: 2;
     }
-    
+
     .accent-heading {
       font-size: 2.4rem;
       margin-bottom: 28px;
@@ -562,7 +562,7 @@
       font-weight: 600;
       transition: color 0.3s ease;
     }
-    
+
     .accent-text {
       font-size: 2rem;
       line-height: 1.4;
@@ -573,11 +573,11 @@
       margin: 0 auto;
       transition: color 0.3s ease;
     }
-    
+
     html[data-theme="light"] .accent-text {
       color: #D97700;
     }
-    
+
     .quote-mark {
       position: absolute;
       font-size: 12rem;
@@ -589,19 +589,19 @@
       z-index: 1;
       transition: color 0.3s ease, opacity 0.3s ease;
     }
-    
+
     .quote-left {
       top: 0;
       left: 50px;
       transform: translateY(-30%);
     }
-    
+
     .quote-right {
       bottom: 0;
       right: 50px;
       transform: translateY(30%) rotate(180deg);
     }
-    
+
     .about-content {
       max-width: 780px;
       margin: 0 auto;
@@ -617,7 +617,6 @@
       transform: rotate(-30deg) skewX(30deg);
       border-radius: 1.5em;
     }
-    
     .r-hex *, .r-hex *:before {
       display: block;
       overflow: hidden;
@@ -625,7 +624,6 @@
       height: inherit;
       border-radius: inherit;
     }
-    
     .r-hex-inner {
       transform: skewX(-30deg) rotate(60deg) skewX(30deg);
       opacity: 1;
@@ -635,7 +633,6 @@
     .r-hex-inner-2 { /* This is the correct selector for the image */
       transform: skewX(-30deg) rotate(60deg) skewX(30deg); /* Correct transformation */
     }
-    
     .r-hex-inner-2:before {
       margin-top: -1.5em;
       height: 20em;
@@ -644,8 +641,7 @@
       background-size: cover;
       content: ''; /*  Needed for the pseudo-element to appear */
     }
-    
-    * { margin: 0; }
+
 
     .highlight-box {
       background-color: var(--bg-alternate);
@@ -726,7 +722,6 @@
       align-items: center;
 
     }
-    
     .footer-links {
         margin-bottom: 20px; /* Space between links and copyright */
         display: flex;
@@ -749,6 +744,182 @@
     .copyright {
         color: var(--text-muted);
         font-size: 0.9rem;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* Hide links by default on mobile */
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Adjust as needed for your navbar height */
+        left: 0;
+        right: 0;
+        background-color: var(--bg-dark); /* Match navbar background */
+        backdrop-filter: blur(10px);
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 99; /* Ensure it's above other content */
+      }
+
+       html[data-theme="dark"] .nav-links {
+          background-color: rgba(10, 10, 10, 0.95);
+        }
+
+        html[data-theme="light"] .nav-links {
+          background-color: rgba(255, 255, 255, 0.95);
+        }
+
+      .nav-links.active {
+        display: flex; /* Show links when menu is active */
+      }
+
+      .nav-link {
+        padding: 10px 16px; /* Larger padding for touch targets */
+        text-align: center; /* Center-align links */
+      }
+
+      .mobile-menu-toggle {
+        display: block; /* Show the toggle button on mobile */
+      }
+
+      .header-content {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center; /* Center-align header content */
+      }
+        .header-photo{
+            margin-bottom: var(--spacing);
+        }
+
+      .header-text {
+        text-align: center; /* Center-align text on mobile */
+      }
+
+      .name-title {
+        font-size: 48px; /* Smaller font size for name on mobile */
+      }
+
+      .header-subtitle {
+        font-size: 1.2rem; /* Smaller font size for subtitle on mobile */
+      }
+
+      .section {
+        padding: 60px 0; /* Reduced padding on sections */
+      }
+
+      .section-heading {
+        font-size: 2rem; /* Smaller section headings */
+      }
+
+      .timeline::before {
+        left: 5px; /* Adjust timeline line position */
+      }
+
+      .timeline-item {
+        padding-left: 32px; /* Adjust padding for timeline items */
+      }
+
+      .timeline-item::before {
+        left: 0; /* Adjust dot position */
+      }
+
+      .timeline-icon{
+        right: 5px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr; /* Single column grid on mobile */
+      }
+
+      .card {
+        padding: 24px; /* Reduced padding in cards */
+      }
+        .card-number-bg{
+            font-size: 120px;
+            right: -10px;
+            bottom: -20px;
+        }
+
+      .card-title {
+        font-size: 1.3rem; /* Smaller card titles */
+      }
+
+      .tag-container {
+         justify-content: flex-start;
+      }
+
+      .accent-section {
+        padding: 60px 0; /* Reduced padding on accent section */
+      }
+
+      .accent-heading {
+        font-size: 2rem; /* Smaller accent heading */
+      }
+
+      .accent-text {
+        font-size: 1.8rem; /* Smaller accent text */
+      }
+
+      .quote-mark {
+        font-size: 6rem; /* Smaller quote marks */
+        opacity: 0.05;
+      }
+
+      .quote-left {
+        left: 20px;
+        transform: translateY(-20%);
+      }
+
+      .quote-right {
+        right: 20px;
+        transform: translateY(20%) rotate(180deg);
+      }
+
+       .r-hex {
+          margin: 2em auto; /* Center and reduce margin */
+          width: 15em;     /* Smaller hexagon */
+          height: 12.99em;  /* Proportional height */
+        }
+
+        .r-hex-inner-2:before {
+            margin-top: -1.125em;
+            height: 15em;
+        }
+        .highlight-box {
+            padding: 16px; /* Reduced padding */
+          }
+
+        .form-control{
+            font-size: 0.9rem;
+        }
+
+        .btn{
+            font-size: 0.9rem;
+            padding: 10px 18px;
+        }
+        .footer-links{
+            flex-direction: column;
+        }
+    }
+    @media (max-width: 480px){
+        .name-title{
+            font-size: 36px;
+        }
+        .timeline-date, .timeline-subtitle{
+            font-size: 0.8rem;
+        }
+        .timeline-title{
+            font-size: 1.1rem;
+        }
+          .r-hex {
+          width: 12em;     /* Even Smaller hexagon */
+          height: 10.392em;  /* Proportional height */
+        }
+
+        .r-hex-inner-2:before {
+            margin-top: -0.89em;
+            height: 12em;
+        }
     }
 
   </style>
@@ -774,7 +945,7 @@
       <div class="progress-bar" id="progressBar"></div>
     </div>
   </nav>
-  
+
   <header id="home">
     <div class="container">
       <div class="header-content">
@@ -795,7 +966,7 @@
       </div>
     </div>
   </header>
-  
+
   <section id="about" class="section">
     <div class="container">
       <div class="about-content">
@@ -814,7 +985,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="skills-section">
     <div class="container">
       <h3 class="section-heading">Skills</h3>
@@ -835,7 +1006,7 @@
       </div>
     </div>
   </section>
-  
+
   <section class="accent-section">
     <div class="container">
       <div class="mission-quote"></div>
@@ -849,7 +1020,7 @@
       </div>
     </div>
   </section>
-  
+
   <section id="experience" class="section">
     <div class="container">
       <h2 class="section-heading">Experience</h2>
@@ -899,7 +1070,7 @@
       </div>
     </div>
   </section>
-  
+
   <section id="achievements" class="section">
     <div class="container">
       <h2 class="section-heading">Career Highlights</h2>
@@ -934,7 +1105,7 @@
       </div>
     </div>
   </section>
-  
+
   <section id="contact" class="section">
     <div class="container">
       <h2 class="section-heading">Get In Touch</h2>
@@ -963,7 +1134,7 @@
       </form>
     </div>
   </section>
-  
+
   <footer>
     <div class="container">
       <div class="footer-content">
@@ -977,7 +1148,7 @@
       </div>
     </div>
   </footer>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const themeToggles = document.querySelectorAll('.theme-toggle');
@@ -985,7 +1156,7 @@
       const savedTheme = localStorage.getItem('theme') || 'dark';
       htmlElement.setAttribute('data-theme', savedTheme);
       updateThemeIcons(savedTheme);
-      
+
       themeToggles.forEach(toggle => {
         toggle.addEventListener('click', () => {
           const currentTheme = htmlElement.getAttribute('data-theme');
@@ -995,45 +1166,45 @@
           updateThemeIcons(newTheme);
         });
       });
-      
+
       function updateThemeIcons(theme) {
         themeToggles.forEach(toggle => {
           const icon = toggle.querySelector('i');
           icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
         });
       }
-      
+
       const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
       const navLinks = document.querySelector('.nav-links');
       const hamburgerIcon = mobileMenuToggle.querySelector('i');
-      
+
       mobileMenuToggle.addEventListener('click', function(event) {
         event.stopPropagation();
         navLinks.classList.toggle('active');
         hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
       });
-      
+
       document.addEventListener('click', function(event) {
-        if (navLinks.classList.contains('active') && 
-            !navLinks.contains(event.target) && 
+        if (navLinks.classList.contains('active') &&
+            !navLinks.contains(event.target) &&
             event.target !== mobileMenuToggle) {
           navLinks.classList.remove('active');
           hamburgerIcon.className = 'fas fa-bars';
         }
       });
-      
+
       window.addEventListener('scroll', function() {
         updateProgressBar();
         highlightActiveSection();
       });
-      
+
       function updateProgressBar() {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         const scrolled = (winScroll / height) * 100;
         document.getElementById("progressBar").style.width = scrolled + "%";
       }
-      
+
       function highlightActiveSection() {
         const sections = document.querySelectorAll('.section');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -1051,7 +1222,7 @@
           }
         });
       }
-      
+
       updateProgressBar();
       highlightActiveSection();
     });
