@@ -1,1252 +1,1060 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aditya Pandya - Product Leader & Advisor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Pandya - Product Leader & Advisor</title>
+  
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+  <link rel="manifest" href="site.webmanifest">
+  
+  <meta name="description" content="Aditya Pandya - Product leader & advisor with 15+ years of experience building products that help 100M+ people globally.">
+  <meta name="keywords" content="product leader, product management, Aditya Pandya">
+  <meta name="author" content="Aditya Pandya">
+  
+  <meta name="robots" content="noai, noimageai">
+  <meta name="googlebot" content="noai, noimageai">
+  <meta name="Bingbot" content="noai, noimageai">
+  
+  <meta property="og:title" content="Aditya Pandya - Product Leader">
+  <meta property="og:description" content="Product leader with 15+ years of experience building products that help 100M+ people globally.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aditya.pandya.co">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDCMBB8TEX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NDCMBB8TEX');
+  </script>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600&family=Over+the+Rainbow&family=Raleway:wght@300;400;500;600&family=Rock+Salt&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  
+  <style>
+    /* Color themes with CSS variables */
+    :root {
+      --spacing: 8px;
+    }
     
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    /* Dark theme (default) */
+    html[data-theme="dark"] {
+      --bg-dark: #0a0a0a;
+      --bg-card: #121212;
+      --bg-alternate: #1a1a1a;
+      --bg-hover: #252525;
+      --primary: #7F5AF0;
+      --secondary: #2CB67D;
+      --accent-1: #FF8906;
+      --accent-2: #E53170;
+      --accent-3: #4CC9F0;
+      --text: #FFFFFE;
+      --text-muted: #94A1B2;
+      --border: #2D2D2D;
+      --toggle-bg: #252525;
+      --toggle-icon: #FFFFFE;
+    }
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Aditya Pandya - Product leader & advisor with 15+ years of experience building products that help 100M+ people globally.">
-    <meta name="keywords" content="product leader, product management, Aditya Pandya">
-    <meta name="author" content="Aditya Pandya">
+    /* Light theme */
+    html[data-theme="light"] {
+      --bg-dark: #FFFFFF;
+      --bg-card: #F5F5F5;
+      --bg-alternate: #EAEAEA;
+      --bg-hover: #E0E0E0;
+      --primary: #5038A1;
+      --secondary: #008B69;
+      --accent-1: #D97700;
+      --accent-2: #C30052;
+      --accent-3: #0066AD;
+      --text: #121212;
+      --text-muted: #494949;
+      --border: #CCCCCC;
+      --toggle-bg: #EAEAEA;
+      --toggle-icon: #121212;
+    }
     
-    <!-- Prevent AI crawlers/bots from scraping content -->
-    <meta name="robots" content="noai, noimageai">
-    <meta name="googlebot" content="noai, noimageai">
-    <meta name="Bingbot" content="noai, noimageai">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     
-    <!-- Open Graph / Social Media Meta Tags -->
-    <meta property="og:title" content="Aditya Pandya - Product Leader">
-    <meta property="og:description" content="Product leader with 15+ years of experience building products that help 100M+ people globally.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://yoursite.com">
-    <!-- UPDATE: Add your actual URL when you deploy to GitHub Pages -->
+    body {
+      font-family: 'Raleway', sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg-dark);
+      max-width: 100%;
+      overflow-x: hidden;
+      font-size: 16px;
+      font-weight: 400;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
     
-    <!-- Google Analytics (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDCMBB8TEX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NDCMBB8TEX');
-    </script>
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Merriweather', serif;
+      font-weight: 600;
+    }
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600&family=Over+the+Rainbow&family=Raleway:wght@300;400;500;600&family=Rock+Salt&family=Reenie+Beanie&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Color themes with CSS variables */
-        :root {
-            /* Default spacing */
-            --spacing: 8px;
-        }
-        
-        /* Dark theme (default) */
-        html[data-theme="dark"] {
-            /* Main colors */
-            --bg-dark: #0a0a0a;          /* Main black background */
-            --bg-card: #121212;          /* Slightly lighter black for cards */
-            --bg-alternate: #1a1a1a;     /* Dark gray for alternate sections */
-            --bg-hover: #252525;         /* Medium gray for hover states */
-            
-            /* Accent colors */
-            --primary: #7F5AF0;          /* Vibrant purple */
-            --secondary: #2CB67D;        /* Bright teal */
-            --accent-1: #FF8906;         /* Warm orange */
-            --accent-2: #E53170;         /* Bright pink */
-            --accent-3: #4CC9F0;         /* Bright blue */
-            
-            /* Text colors */
-            --text: #FFFFFE;             /* Bright white for main text */
-            --text-muted: #94A1B2;       /* Light gray for secondary text */
-            --border: #2D2D2D;           /* Dark gray for subtle borders */
-            
-            /* Mode toggle colors */
-            --toggle-bg: #252525;
-            --toggle-icon: #FFFFFE;
-        }
-        
-        /* Light theme */
-        html[data-theme="light"] {
-            /* Main colors */
-            --bg-dark: #FFFFFF;          /* White background */
-            --bg-card: #F5F5F5;          /* Light gray for cards */
-            --bg-alternate: #EAEAEA;     /* Slightly darker gray for sections */
-            --bg-hover: #E0E0E0;         /* Medium gray for hover states */
-            
-            /* Accent colors - more muted/darker versions for better contrast in light mode */
-            --primary: #5038A1;          /* Toned down purple that's less bright */
-            --secondary: #008B69;        /* Darker teal */
-            --accent-1: #D97700;         /* Darker orange */
-            --accent-2: #C30052;         /* Darker pink */
-            --accent-3: #0066AD;         /* Deeper, less bright blue */
-            
-            /* Text colors - much darker for better contrast */
-            --text: #121212;             /* Nearly black text for readability */
-            --text-muted: #494949;       /* Dark gray for secondary text */
-            --border: #CCCCCC;           /* Medium gray for subtle borders */
-            
-            /* Mode toggle colors */
-            --toggle-bg: #EAEAEA;
-            --toggle-icon: #121212;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Raleway', sans-serif;
-            line-height: 1.7;
-            color: var(--text);
-            background-color: var(--bg-dark);
-            max-width: 100%;
-            overflow-x: hidden;
-            font-size: 16px;
-            font-weight: 400;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Merriweather', serif;
-            font-weight: 600;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1140px;
-            margin: 0 auto;
-            padding: 0 var(--spacing);
-            position: relative;
-        }
-        
-        header {
-            padding: 120px 0 60px;
-            position: relative;
-            background-color: var(--bg-dark);
-            transition: background-color 0.3s ease;
-        }
-        
-        .nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 100;
-            padding: 15px 0;
-            background-color: var(--bg-dark);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        
-        html[data-theme="dark"] .nav {
-            background-color: rgba(10, 10, 10, 0.95); /* Dark with opacity */
-        }
-        
-        html[data-theme="light"] .nav {
-            background-color: rgba(255, 255, 255, 0.95); /* Light with opacity */
-        }
-        
-        .progress-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: transparent;
-        }
-        
-        .progress-bar {
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent-3));
-            width: 0%;
-            transition: width 0.1s ease;
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 90%;
-            max-width: 1140px;
-            margin: 0 auto;
-        }
-        
-        .nav-logo {
-            font-family: 'Over the Rainbow', 'Rock Salt', 'Reenie Beanie', 'Helvetica Neue', Tahoma, cursive;
-            font-size: 1.1rem;
-            color: var(--text);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-        
-        .nav-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            padding: 6px 16px;
-            border-radius: 30px;
-            transition: all 0.3s ease;
-        }
-        
-        .nav-link:hover {
-            color: var(--primary);
-            background-color: var(--bg-hover);
-        }
-        
-        .nav-link.active {
-            color: var(--primary);
-            background-color: var(--bg-hover);
-        }
-        
-        /* Hamburger menu styles */
-        .mobile-menu-toggle {
-            display: none; /* Hidden by default on desktop */
-            background: none;
-            border: none;
-            color: var(--text);
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 8px;
-            transition: color 0.3s ease;
-        }
-        
-        .mobile-menu-toggle:hover {
-            color: var(--primary);
-        }
-        
-        /* Theme toggle button */
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--toggle-bg);
-            cursor: pointer;
-            margin-left: 16px;
-            border: none;
-            color: var(--toggle-icon);
-            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
-        }
-        
-        .theme-toggle:hover {
-            transform: scale(1.1);
-            background-color: var(--bg-hover);
-        }
-        
-        .theme-toggle i {
-            font-size: 1rem;
-        }
-        
-        .header-content {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 40px;
-            max-width: 1000px;
-            margin: 0 auto;
-            align-items: center;
-            padding-bottom: 20px;
-        }
-        
-        .header-text {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-            text-align: left;
-        }
-        
-        .header-intro {
-            font-size: 1.2rem;
-            color: var(--accent-1);
-            font-weight: 500;
-            font-family: 'Raleway', sans-serif;
-            transition: color 0.3s ease;
-        }
-        
-        .name-title {
-            font-family: 'Over the Rainbow', 'Rock Salt', 'Reenie Beanie', 'Helvetica Neue', Tahoma, cursive;
-            font-size: 64px;
-            line-height: 1.4;
-            margin-bottom: 28px;
-            padding-bottom: 10px;
-            color: var(--primary);
-            font-weight: normal;
-            display: inline-block;
-            position: relative;
-            z-index: 2;
-            transition: color 0.3s ease;
-        }
-        
-        .header-subtitle {
-            font-size: 1.4rem;
-            line-height: 1.5;
-            max-width: 580px;
-            margin-bottom: 32px;
-            color: var(--text-muted);
-            font-weight: 300;
-            transition: color 0.3s ease;
-        }
-        
-        .section {
-            padding: 100px 0;
-            position: relative;
-            border-top: 1px solid var(--border);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .section-heading {
-            font-size: 2.4rem;
-            margin-bottom: 32px;
-            color: var(--text);
-            font-weight: 600;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            border-bottom: 2px solid;
-            border-image: linear-gradient(to right, var(--primary), var(--accent-3)) 1;
-            display: inline-block;
-            padding-bottom: 8px;
-            transition: color 0.3s ease;
-        }
-        
-        /* Improve section headings contrast in light mode */
-        html[data-theme="light"] .section-heading {
-            color: #121212;
-        }
-        
-        .timeline {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            margin: 40px auto;
-            max-width: 780px;
-            position: relative;
-        }
-        
-        .timeline::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 6px;
-            bottom: 6px;
-            width: 1px;
-            background-color: var(--border);
-            transition: background-color 0.3s ease;
-        }
-        
-        .timeline-item {
-            padding-left: 24px;
-            position: relative;
-            padding-bottom: 30px;
-            text-align: left;
-        }
-        
-        .timeline-item:last-child {
-            padding-bottom: 0;
-        }
-        
-        .timeline-item::before {
-            content: "";
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color: var(--primary);
-            left: -6px;
-            top: 6px;
-            z-index: 1;
-            transition: background-color 0.3s ease;
-        }
-        
-        .timeline-date {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        .timeline-title {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
-            color: var(--text);
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        .timeline-subtitle {
-            font-size: 1rem;
-            margin-bottom: 8px;
-            color: var(--accent-1);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        
-        /* Improve contrast for the timeline items */
-        html[data-theme="light"] .timeline-subtitle {
-            color: #D97700; /* Darker orange for better contrast */
-            font-weight: 600;
-        }
-        
-        .timeline-icon {
-            position: absolute;
-            right: 15px;
-            top: 6px;
-            color: var(--primary);
-            font-size: 1.5rem;
-            opacity: 0.8;
-            transition: color 0.3s ease;
-        }
-        
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 28px;
-            margin: 40px 0;
-        }
-        
-        .card {
-            background-color: var(--bg-card);
-            border-radius: 16px;
-            padding: 36px;
-            transition: all 0.3s ease;
-            border: 1px solid var(--border);
-            height: 100%;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-        
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(127, 90, 240, 0.15);
-            border-color: var(--primary);
-        }
-        
-        .card-number-bg {
-            position: absolute;
-            right: -20px;
-            bottom: -40px;
-            font-size: 180px;
-            font-family: 'Merriweather', serif;
-            font-weight: 600;
-            opacity: 0.07;
-            color: var(--primary);
-            line-height: 1;
-            z-index: 0;
-            transition: color 0.3s ease, opacity 0.3s ease;
-        }
-        
-        /* Card background opacity adjustment for light mode */
-        html[data-theme="light"] .card-number-bg {
-            opacity: 0.15; /* Increased opacity for better visibility */
-        }
-        
-        .grid .card:nth-child(3n+1) .card-number-bg {
-            color: var(--primary);
-        }
+    .container {
+      width: 90%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 var(--spacing);
+      position: relative;
+    }
+    
+    header {
+      padding: 120px 0 60px;
+      position: relative;
+      background-color: var(--bg-dark);
+      transition: background-color 0.3s ease;
+    }
+    
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 15px 0;
+      background-color: var(--bg-dark);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    html[data-theme="dark"] .nav {
+      background-color: rgba(10, 10, 10, 0.95);
+    }
+    
+    html[data-theme="light"] .nav {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
+    
+    .progress-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: transparent;
+    }
+    
+    .progress-bar {
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--accent-3));
+      width: 0%;
+      transition: width 0.1s ease;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    
+    .nav-logo {
+      font-family: 'Over the Rainbow', 'Rock Salt', 'Reenie Beanie', 'Helvetica Neue', Tahoma, cursive;
+      font-size: 1.1rem;
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+    
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: 30px;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+      color: var(--primary);
+      background-color: var(--bg-hover);
+    }
+    
+    .nav-link.active {
+      color: var(--primary);
+      background-color: var(--bg-hover);
+    }
+    
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 8px;
+      transition: color 0.3s ease;
+    }
+    
+    .mobile-menu-toggle:hover {
+      color: var(--primary);
+    }
+    
+    .theme-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: var(--toggle-bg);
+      cursor: pointer;
+      margin-left: 16px;
+      border: none;
+      color: var(--toggle-icon);
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    }
+    
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      background-color: var(--bg-hover);
+    }
+    
+    .theme-toggle i {
+      font-size: 1rem;
+    }
 
-        .grid .card:nth-child(3n+2) .card-number-bg {
-            color: var(--accent-1);
-        }
+    /* Key change: Flexbox layout for header */
+    .header-content {
+        display: flex; /* Use flexbox */
+        align-items: center; /* Vertically center items */
+        justify-content: space-between; /* Space between image and text */
+        max-width: 1000px;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        gap: 40px; /* Space between elements, adjust as needed */
+    }
 
-        .grid .card:nth-child(3n+3) .card-number-bg {
-            color: var(--accent-3);
-        }
-        
-        .card-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .card-number {
-            display: inline-block;
-            font-family: 'Merriweather', serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--accent-1);
-            margin-bottom: 20px;
-            background-color: var(--bg-hover);
-            padding: 6px 12px;
-            border-radius: 20px;
-            align-self: flex-start;
-            transition: color 0.3s ease, background-color 0.3s ease;
-        }
-        
-        /* Card number background darker for better contrast */
-        html[data-theme="light"] .card-number {
-            background-color: rgba(0, 0, 0, 0.07);
-            color: #D97700;
-            font-weight: 600;
-        }
-        
-        .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-            color: var(--text);
-            line-height: 1.3;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        .tag-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin: 32px 0;
-            justify-content: center;
-        }
-        
-        .tag {
-            padding: 8px 16px;
-            background-color: var(--bg-alternate);
-            color: var(--text);
-            border-radius: 30px;
-            font-size: 0.9rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-        
-        .tag:hover {
-            background-color: var(--bg-hover);
-            border-color: var(--primary);
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-        
-        /* Tags in light mode */
-        html[data-theme="light"] .tag:hover {
-            background-color: #E0E0E0;
-            border-color: #5038A1;
-            color: #5038A1;
-            font-weight: 500;
-        }
-        
-        .accent-section {
-            background-color: var(--bg-alternate);
-            padding: 100px 0;
-            border-top: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-            position: relative;
-            overflow: hidden;
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .mission-quote {
-            position: absolute;
-            font-size: 180px;
-            font-family: 'Merriweather', serif;
-            font-weight: 600;
-            opacity: 0.05;
-            color: var(--text);
-            line-height: 1;
-            z-index: 1;
-            text-align: center;
-            width: 100%;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: color 0.3s ease, opacity 0.3s ease;
-        }
-        
-        .accent-content {
-            display: flex;
-            flex-direction: column;
-            max-width: 780px;
-            margin: 0 auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .accent-heading {
-            font-size: 2.4rem;
-            margin-bottom: 28px;
-            color: var(--text);
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        .accent-text {
-            font-size: 2rem;
-            line-height: 1.4;
-            font-weight: 600;
-            font-family: 'Merriweather', serif;
-            color: var(--accent-1);
-            padding: 10px 0;
-            margin: 0 auto;
-            transition: color 0.3s ease;
-        }
-        
-        /* Accent text in light mode */
-        html[data-theme="light"] .accent-text {
-            color: #D97700; /* Darker orange for better contrast */
-        }
-        
-        .quote-mark {
-            position: absolute;
-            font-size: 12rem;
-            font-family: 'Merriweather', serif;
-            font-weight: 600;
-            opacity: 0.07;
-            color: var(--text);
-            line-height: 1;
-            z-index: 1;
-            transition: color 0.3s ease, opacity 0.3s ease;
-        }
-        
-        .quote-left {
-            top: 0;
-            left: 50px;
-            transform: translateY(-30%);
-        }
-        
-        .quote-right {
-            bottom: 0;
-            right: 50px;
-            transform: translateY(30%) rotate(180deg);
-        }
-        
-        .about-content {
-            max-width: 780px;
-            margin: 0 auto;
-        }
-        
-        .profile-image {
-            width: 220px;
-            height: 220px;
-            aspect-ratio: 1;
-            overflow: hidden;
-            border-radius: 50%;
-            border: 1px solid var(--border);
-            background-color: var(--bg-card);
-            transition: border-color 0.3s ease, background-color 0.3s ease;
-        }
-        
-        .profile-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .highlight-box {
-            background-color: var(--bg-card);
-            padding: 32px;
-            border-radius: 6px;
-            margin: 32px 0;
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--secondary);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        .contact-form {
-            max-width: 580px;
-            margin: 40px auto;
-            text-align: center;
-        }
-        
-        .form-group {
-            margin-bottom: 24px;
-            text-align: left;
-        }
-        
-        .form-label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 500;
-            color: var(--text);
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px 16px;
-            background-color: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-size: 1rem;
-            color: var(--text);
-            font-family: 'Raleway', sans-serif;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
-        .btn {
-            display: inline-block;
-            padding: 12px 28px;
-            background-color: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-family: 'Raleway', sans-serif;
-        }
-        
-        .btn:hover {
-            background-color: #8F6AF8; /* Slightly lighter purple */
-            box-shadow: 0 5px 15px rgba(127, 90, 240, 0.3);
-        }
-        
-        /* Button hover state in light mode */
-        html[data-theme="light"] .btn {
-            background-color: #5038A1; /* Toned down purple */
-            color: white;
-        }
-        
-        html[data-theme="light"] .btn:hover {
-            background-color: #634DB8; /* Slightly lighter but still muted */
-            box-shadow: 0 5px 15px rgba(80, 56, 161, 0.3);
-        }
-        
-        footer {
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            background-color: var(--bg-dark);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        html[data-theme="dark"] footer {
-            background-color: black;
-        }
-        
-        html[data-theme="light"] footer {
-            background-color: var(--bg-alternate);
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 780px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-        }
-        
-        .footer-link {
-            color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-size: 0.9rem;
-        }
-        
-        .footer-link:hover {
-            color: var(--primary);
-        }
-        
-        .copyright {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-        
-        /* Section backgrounds - with theme transitions */
-        #about {
-            background-color: var(--bg-dark);
-            transition: background-color 0.3s ease;
-        }
-        
-        .skills-section {
-            background-color: var(--bg-alternate);
-            padding: 60px 0;
-            border-top: 1px solid var(--border);
-            transition: background-color 0.3s ease, border-color 0.3s ease;
-        }
-        
-        #experience {
-            background: linear-gradient(to bottom, var(--bg-dark), var(--bg-alternate));
-            transition: background-color 0.3s ease;
-        }
-        
-        #achievements {
-            background-color: var(--bg-dark);
-            transition: background-color 0.3s ease;
-        }
-        
-        #contact {
-            background: linear-gradient(to bottom, var(--bg-alternate), var(--bg-dark));
-            transition: background-color 0.3s ease;
-        }
-        
-        /* Mobile media query with hamburger menu */
-        @media (max-width: 768px) {
-            header {
-                padding: 100px 0 40px;
-            }
-            
-            .header-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 20px;
-            }
-            
-            .header-photo {
-                margin: 0 auto;
-            }
-            
-            .name-title {
-                font-size: 48px;
-            }
-            
-            .header-subtitle {
-                font-size: 1.2rem;
-            }
-            
-            .section {
-                padding: 70px 0;
-            }
-            
-            .section-heading {
-                font-size: 2rem;
-            }
-            
-            .profile-section {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .profile-image {
-                max-width: 280px;
-                margin: 0 auto;
-            }
-            
-            .accent-text {
-                font-size: 1.2rem;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-            
-            .footer-links {
-                justify-content: center;
-            }
-            
-            .mobile-menu-toggle {
-                display: block;
-                position: relative;
-                z-index: 101;
-            }
-            
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                flex-direction: column;
-                background-color: var(--bg-dark);
-                padding: 20px;
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-                border-bottom: 1px solid var(--border);
-                z-index: 100;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links .theme-toggle {
-                margin: 16px auto 0;
-            }
-            
-            .nav-link {
-                padding: 12px 16px;
-                width: 100%;
-                text-align: center;
-            }
-        }
-        
-        @media (min-width: 769px) {
-            .mobile-menu-toggle {
-                display: none;
-            }
-            
-            .nav-links {
-                display: flex;
-            }
-        }
-    </style>
+    /* Make sure the image and text containers have appropriate widths */
+    .header-photo {
+        flex: 0 0 auto; /* Do not grow or shrink, keep intrinsic size */
+    }
+
+    .header-text {
+        flex: 1; /* Allow the text to grow and fill available space */
+        text-align: left; /* Ensure text is left-aligned */
+    }
+    
+    
+    .header-intro {
+      font-size: 1.2rem;
+      color: var(--accent-1);
+      font-weight: 500;
+      font-family: 'Raleway', sans-serif;
+      transition: color 0.3s ease;
+    }
+    
+    .name-title {
+      font-family: 'Over the Rainbow', 'Rock Salt', 'Reenie Beanie', 'Helvetica Neue', Tahoma, cursive;
+      font-size: 64px;
+      line-height: 1.4;
+      margin-bottom: 28px;
+      padding-bottom: 10px;
+      color: var(--primary);
+      font-weight: normal;
+      display: inline-block;
+      position: relative;
+      z-index: 2;
+      transition: color 0.3s ease;
+    }
+    
+    .header-subtitle {
+      font-size: 1.4rem;
+      line-height: 1.5;
+      max-width: 580px;
+      margin-bottom: 32px;
+      color: var(--text-muted);
+      font-weight: 300;
+      transition: color 0.3s ease;
+    }
+    
+    .section {
+      padding: 100px 0;
+      position: relative;
+      border-top: 1px solid var(--border);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .section-heading {
+      font-size: 2.4rem;
+      margin-bottom: 32px;
+      color: var(--text);
+      font-weight: 600;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      border-bottom: 2px solid;
+      border-image: linear-gradient(to right, var(--primary), var(--accent-3)) 1;
+      display: inline-block;
+      padding-bottom: 8px;
+      transition: color 0.3s ease;
+    }
+    
+    html[data-theme="light"] .section-heading {
+      color: #121212;
+    }
+    
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 40px auto;
+      max-width: 780px;
+      position: relative;
+    }
+    
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 1px;
+      background-color: var(--border);
+      transition: background-color 0.3s ease;
+    }
+    
+    .timeline-item {
+      padding-left: 24px;
+      position: relative;
+      padding-bottom: 30px;
+      text-align: left;
+    }
+    
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+    
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: var(--primary);
+      left: -6px;
+      top: 6px;
+      z-index: 1;
+      transition: background-color 0.3s ease;
+    }
+    
+    .timeline-date {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .timeline-title {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: var(--text);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .timeline-subtitle {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--accent-1);
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    html[data-theme="light"] .timeline-subtitle {
+      color: #D97700;
+      font-weight: 600;
+    }
+    
+    .timeline-icon {
+      position: absolute;
+      right: 15px;
+      top: 6px;
+      color: var(--primary);
+      font-size: 1.5rem;
+      opacity: 0.8;
+      transition: color 0.3s ease;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px;
+      margin: 40px 0;
+    }
+    
+    .card {
+      background-color: var(--bg-card);
+      border-radius: 16px;
+      padding: 36px;
+      transition: all 0.3s ease;
+      border: 1px solid var(--border);
+      height: 100%;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(127, 90, 240, 0.15);
+      border-color: var(--primary);
+    }
+    
+    .card-number-bg {
+      position: absolute;
+      right: -20px;
+      bottom: -40px;
+      font-size: 180px;
+      font-family: 'Merriweather', serif;
+      font-weight: 600;
+      opacity: 0.07;
+      color: var(--primary);
+      line-height: 1;
+      z-index: 0;
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
+    
+    html[data-theme="light"] .card-number-bg {
+      opacity: 0.15;
+    }
+    
+    .grid .card:nth-child(3n+1) .card-number-bg {
+      color: var(--primary);
+    }
+    
+    .grid .card:nth-child(3n+2) .card-number-bg {
+      color: var(--accent-1);
+    }
+    
+    .grid .card:nth-child(3n+3) .card-number-bg {
+      color: var(--accent-3);
+    }
+    
+    .card-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .card-number {
+      display: inline-block;
+      font-family: 'Merriweather', serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--accent-1);
+      margin-bottom: 20px;
+      background-color: var(--bg-hover);
+      padding: 6px 12px;
+      border-radius: 20px;
+      align-self: flex-start;
+      transition: color 0.3s ease, background-color 0.3s ease;
+    }
+    
+    html[data-theme="light"] .card-number {
+      background-color: rgba(0, 0, 0, 0.07);
+      color: #D97700;
+      font-weight: 600;
+    }
+    
+    .card-title {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      color: var(--text);
+      line-height: 1.3;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .tag-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 32px 0;
+      justify-content: center;
+    }
+    
+    .tag {
+      padding: 8px 16px;
+      background-color: var(--bg-alternate);
+      color: var(--text);
+      border-radius: 30px;
+      font-size: 0.9rem;
+      border: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+    
+    .tag:hover {
+      background-color: var(--bg-hover);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-2px);
+    }
+    
+    html[data-theme="light"] .tag:hover {
+      background-color: #E0E0E0;
+      border-color: #5038A1;
+      color: #5038A1;
+      font-weight: 500;
+    }
+    
+    .accent-section {
+      background-color: var(--bg-alternate);
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    
+    .mission-quote {
+      position: absolute;
+      font-size: 180px;
+      font-family: 'Merriweather', serif;
+      font-weight: 600;
+      opacity: 0.05;
+      color: var(--text);
+      line-height: 1;
+      z-index: 1;
+      text-align: center;
+      width: 100%;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .accent-content {
+      display: flex;
+      flex-direction: column;
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .accent-heading {
+      font-size: 2.4rem;
+      margin-bottom: 28px;
+      color: var(--text);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    
+    .accent-text {
+      font-size: 2rem;
+      line-height: 1.4;
+      font-weight: 600;
+      font-family: 'Merriweather', serif;
+      color: var(--accent-1);
+      padding: 10px 0;
+      margin: 0 auto;
+      transition: color 0.3s ease;
+    }
+    
+    html[data-theme="light"] .accent-text {
+      color: #D97700;
+    }
+    
+    .quote-mark {
+      position: absolute;
+      font-size: 12rem;
+      font-family: 'Merriweather', serif;
+      font-weight: 600;
+      opacity: 0.07;
+      color: var(--text);
+      line-height: 1;
+      z-index: 1;
+      transition: color 0.3s ease, opacity 0.3s ease;
+    }
+    
+    .quote-left {
+      top: 0;
+      left: 50px;
+      transform: translateY(-30%);
+    }
+    
+    .quote-right {
+      bottom: 0;
+      right: 50px;
+      transform: translateY(30%) rotate(180deg);
+    }
+    
+    .about-content {
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* Keep the hexagon structure */
+    .r-hex {
+      overflow: hidden;
+      display: inline-block;
+      margin: 4em 0;
+      width: 20em;
+      height: 17.32em;
+      transform: rotate(-30deg) skewX(30deg);
+      border-radius: 1.5em;
+    }
+    
+    .r-hex *, .r-hex *:before {
+      display: block;
+      overflow: hidden;
+      width: inherit;
+      height: inherit;
+      border-radius: inherit;
+    }
+    
+    .r-hex-inner {
+      transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+      opacity: 1;
+      cursor: pointer;
+    }
+
+    .r-hex-inner-2 { /* This is the correct selector for the image */
+      transform: skewX(-30deg) rotate(60deg) skewX(30deg); /* Correct transformation */
+    }
+    
+    .r-hex-inner-2:before {
+      margin-top: -1.5em;
+      height: 20em;
+      transform: skewX(-30deg) rotate(-90deg);
+      background: url(ap.jpeg); /* Replace with your actual image path */
+      background-size: cover;
+      content: ''; /*  Needed for the pseudo-element to appear */
+    }
+    
+    * { margin: 0; }
+
+    .highlight-box {
+      background-color: var(--bg-alternate);
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 24px;
+    }
+    .highlight-box p {
+       margin-bottom: 0; /* Remove bottom margin from the last paragraph */
+    }
+
+    /* Form Styles */
+    .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 8px;
+        color: var(--text-muted);
+        font-weight: 500;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background-color: var(--bg-card);
+        color: var(--text);
+        font-family: inherit;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 5px rgba(127, 90, 240, 0.5);
+    }
+
+    .btn {
+        background: linear-gradient(90deg, var(--primary), var(--accent-3));
+        color: #fff;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: inline-block; /* Or block, depending on layout needs */
+        margin-top: 16px; /* Add some space between text area and button */
+
+    }
+
+    .btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+    }
+
+    /* Footer Styles */
+    footer {
+        padding: 40px 0;
+        background-color: var(--bg-dark); /* Consistent background */
+        text-align: center; /* Center-align content */
+        border-top: 1px solid var(--border);
+    }
+
+    .footer-content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+    
+    .footer-links {
+        margin-bottom: 20px; /* Space between links and copyright */
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+    }
+
+    .footer-link {
+        color: var(--text-muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s ease;
+    }
+
+    .footer-link:hover {
+        color: var(--primary);
+    }
+
+    .copyright {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+    }
+
+  </style>
 </head>
 <body>
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">Aditya Pandya</a>
-            
-            <!-- Mobile menu toggle with hamburger icon -->
-            <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
-                <i class="fas fa-bars"></i>
-            </button>
-            
-            <div class="nav-links">
-                <a href="#about" class="nav-link">About Me</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#achievements" class="nav-link">Career Highlights</a>
-                <a href="#contact" class="nav-link">Get In Touch</a>
-                <button class="theme-toggle" id="themeToggle"aria-label="Toggle dark/light mode">
-                    <i class="fas fa-sun"></i>
-                </button>
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">Aditya Pandya</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#achievements" class="nav-link">Career Highlights</a>
+        <a href="#contact" class="nav-link">Get In Touch</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+          <i class="fas fa-sun"></i>
+        </button>
+      </div>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </nav>
+  
+  <header id="home">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-photo">
+          <div class='r-hex'>
+              <div class='r-hex-inner'>
+                <div class='r-hex-inner-2'></div>
+              </div>
             </div>
         </div>
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
+        <div class="header-text">
+          <div class="header-intro">Hello, I'm</div>
+          <h1 class="name-title">Aditya Pandya</h1>
+          <p class="header-subtitle">
+            A product leader with 15+ years building impactful experiences used by over 100M people globally. Driving growth, simplifying complexity, and putting people first.
+          </p>
         </div>
-    </nav>
-
-    <header id="home">
-        <div class="container">
-            <div class="header-content">
-                <div class="header-photo">
-                    <div class="profile-image">
-                        <img src="ap.jpeg" alt="Aditya Pandya">
-                    </div>
-                </div>
-                <div class="header-text">
-                    <div class="header-intro">Hello, I'm</div>
-                    <h1 class="name-title">Aditya Pandya</h1>
-                    <p class="header-subtitle">
-                        A product leader with 15+ years building impactful experiences used by over 100M people globally. Driving growth, simplifying complexity, and putting people first.
-                    </p>
-                </div>
-            </div>
+      </div>
+    </div>
+  </header>
+  
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-content">
+        <h2 class="section-heading">About Me</h2>
+        <p>
+          I'm passionate about creating products that truly matter in people's lives. Throughout my career at Indeed, MakeMyTrip, and Directi, I've focused on understanding genuine customer needs and translating those insights into experiences that drive remarkable business results.
+        </p>
+        <p><br>
+          My journey across India, Japan, and the US has given me a unique perspective on building globally resonant products. Whether helping people find meaningful work, plan their travel, or connect with each other, I've seen how technology transforms lives when we prioritize what matters most to the people using our products.
+        </p>
+        <div class="highlight-box">
+          <p>
+            At the heart of my approach is a simple philosophy: listen carefully to customers, let evidence guide decisions, and empower teams to create products that drive extraordinary results. This mindset has served me well whether leading small, focused teams or large organizations of 150+ people.
+          </p>
         </div>
-    </header>
-    
-    <section id="about" class="section">
-        <div class="container">
-            <div class="about-content">
-                <h2 class="section-heading">About Me</h2>
-                <p>
-                    I'm passionate about creating products that truly matter in people's lives. Throughout my career at Indeed, MakeMyTrip, and Directi, I've focused on understanding genuine customer needs and translating those insights into experiences that drive remarkable business results.
-                </p>
-                <p><br>
-                    My journey across India, Japan, and the US has given me a unique perspective on building globally resonant products. Whether helping people find meaningful work, plan their travel, or connect with each other, I've seen how technology transforms lives when we prioritize what matters most to the people using our products.
-                </p>
-                <div class="highlight-box">
-                    <p>
-                        At the heart of my approach is a simple philosophy: listen carefully to customers, let evidence guide decisions, and empower teams to create products that drive extraordinary results. This mindset has served me well whether leading small, focused teams or large organizations of 150+ people.
-                    </p>
-                </div>
-            </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="skills-section">
+    <div class="container">
+      <h3 class="section-heading">Skills</h3>
+      <div class="tag-container">
+        <div class="tag">Vision & Strategy</div>
+        <div class="tag">Change Management</div>
+        <div class="tag">Leading Distributed Teams</div>
+        <div class="tag">Managing Managers</div>
+        <div class="tag">Hiring</div>
+        <div class="tag">AI/ML</div>
+        <div class="tag">Evidence-Driven Development</div>
+        <div class="tag">A/B Testing</div>
+        <div class="tag">UX Design</div>
+        <div class="tag">User Research</div>
+        <div class="tag">Market Analysis</div>
+        <div class="tag">Business Model Innovation</div>
+        <div class="tag">Partnerships</div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="accent-section">
+    <div class="container">
+      <div class="mission-quote"></div>
+      <div class="quote-mark quote-left">“</div>
+      <div class="quote-mark quote-right">“</div>
+      <div class="accent-content">
+        <h2 class="accent-heading">My Mission</h2>
+        <p class="accent-text">
+          Create meaningful societal impact through thoughtful technology, simplify everyday experiences and inspire teams to achieve what once seemed impossible.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  <section id="experience" class="section">
+    <div class="container">
+      <h2 class="section-heading">Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">May 2023 - Present</div>
+          <h3 class="timeline-title">Product Advisor</h3>
+          <div class="timeline-subtitle">Various Startups</div>
+          <p>Currently partnering with innovative startups to overcome challenges and accelerate growth. I love helping founders translate their vision into products that customers genuinely value.</p>
         </div>
-    </section>
-    
-    <section class="skills-section">
-        <div class="container">
-            <h3 class="section-heading">Skills</h3>
-            <div class="tag-container">
-                <div class="tag">Vision & Strategy</div>
-                <div class="tag">Change Management</div>
-                <div class="tag">Leading Distributed Teams</div>
-                <div class="tag">Managing Managers</div>
-                <div class="tag">Hiring</div>
-                <div class="tag">AI/ML</div>
-                <div class="tag">Evidence-Driven Development</div>
-                <div class="tag">A/B Testing</div>
-                <div class="tag">UX Design</div>
-                <div class="tag">User Research</div>
-                <div class="tag">Market Analysis</div>
-                <div class="tag">Business Model Innovation</div>
-                <div class="tag">Partnerships</div>
-            </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Jul 2022 - May 2023</div>
+          <h3 class="timeline-title">Senior Director of Product</h3>
+          <div class="timeline-subtitle">Indeed</div>
+          <p>Directed a phenomenal team of 12 PMs and leaders, creating experiences that connected millions of job seekers with the right employers. Revitalized Indeed's Profile platform and pioneered AI-driven experiences that made job seeking more personal and productive.</p>
         </div>
-    </section>
-    
-    <section class="accent-section">
-        <div class="container">
-            <div class="mission-quote"></div>
-            <div class="quote-mark quote-left">"</div>
-            <div class="quote-mark quote-right">"</div>
-            <div class="accent-content">
-                <h2 class="accent-heading">My Mission</h2>
-                <p class="accent-text">
-                    Create meaningful societal impact through thoughtful technology, simplify everyday experiences and inspire teams to achieve what once seemed impossible.
-                </p>
-            </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Oct 2019 - Jun 2022</div>
+          <h3 class="timeline-title">Director of Product</h3>
+          <div class="timeline-subtitle">Indeed</div>
+          <p>Led a team of 8 PMs to transform how people apply for jobs worldwide by reimagining Indeed's application experience. Seeing our Interview Scheduling product grow from concept to facilitating 10M+ interviews annually showed how the right product can remove friction that holds people back.</p>
         </div>
-    </section>
-    
-    <section id="experience" class="section">
-        <div class="container">
-            <h2 class="section-heading">Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">May 2023 - Present</div>
-                    <h3 class="timeline-title">Product Advisor</h3>
-                    <div class="timeline-subtitle">Various Startups</div>
-                    <p>Currently partnering with innovative startups to overcome challenges and accelerate growth. I love helping founders translate their vision into products that customers genuinely value.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Jul 2022 - May 2023</div>
-                    <h3 class="timeline-title">Senior Director of Product</h3>
-                    <div class="timeline-subtitle">Indeed</div>
-                    <p>Directed a phenomenal team of 12 PMs and leaders, creating experiences that connected millions of job seekers with the right employers. Revitalized Indeed's Profile platform and pioneered AI-driven experiences that made job seeking more personal and productive.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Oct 2019 - Jun 2022</div>
-                    <h3 class="timeline-title">Director of Product</h3>
-                    <div class="timeline-subtitle">Indeed</div>
-                    <p>Led a team of 8 PMs to transform how people apply for jobs worldwide by reimagining Indeed's application experience. Seeing our Interview Scheduling product grow from concept to facilitating 10M+ interviews annually showed how the right product can remove friction that holds people back.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Jan 2018 - Sep 2019</div>
-                    <h3 class="timeline-title">Senior Manager of Product</h3>
-                    <div class="timeline-subtitle">Indeed</div>
-                    <p>Guided a talented team of 5 PMs to transform Indeed's job application platform, growing from 300M to over 1B applications annually. Pioneered machine learning approaches that significantly improved match quality, creating better connections between job seekers and employers while driving substantial revenue growth.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2016 - Dec 2017</div>
-                    <h3 class="timeline-title">Product Manager</h3>
-                    <div class="timeline-subtitle">Indeed</div>
-                    <p>Reimagined Indeed's flagship "Easily Apply" platform, focusing on creating seamless experiences that helped more people find meaningful work. Launched an innovative developer program that extended our reach to partner career sites, significantly expanding job opportunities while generating new revenue streams.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">Apr 2014 - Jan 2016</div>
-                    <h3 class="timeline-title">Product Manager</h3>
-                    <div class="timeline-subtitle">MakeMyTrip</div>
-                    <p>Drove product vision for India's #1 travel platform, creating mobile-first experiences that delighted travelers and significantly increased engagement. Seeing our apps featured by both Apple and Google validated my focus on creating intuitive, enjoyable booking experiences.</p>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-date">May 2010 - Feb 2014</div>
-                    <h3 class="timeline-title">Product & UX Manager</h3>
-                    <div class="timeline-subtitle">Directi</div>
-                    <p>Managed growth for Flock and BigRock, helping people communicate more effectively and establish their online presence. Grew Flock to 1.5M monthly active users by focusing on creating genuine value for teams looking to collaborate more effectively.</p>
-                </div>
-            </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Jan 2018 - Sep 2019</div>
+          <h3 class="timeline-title">Senior Manager of Product</h3>
+          <div class="timeline-subtitle">Indeed</div>
+          <p>Guided a talented team of 5 PMs to transform Indeed's job application platform, growing from 300M to over 1B applications annually. Pioneered machine learning approaches that significantly improved match quality, creating better connections between job seekers and employers while driving substantial revenue growth.</p>
         </div>
-    </section>
-    
-    <section id="achievements" class="section">
-        <div class="container">
-            <h2 class="section-heading">Career Highlights</h2>
-            <div class="grid">
-                <div class="card">
-                    <div class="card-number-bg">01</div>
-                    <div class="card-content">
-                        <h3 class="card-title">Redefining Job Search</h3>
-                        <p>
-                            When I took on Indeed's job application platform, I saw an opportunity to initiate a massive cultural shift from 'ease of use' to 'quality'. The 'Smart Apply' initiative I created helped job seekers make more meaningful connections with employers, resulting in over 1M additional hires annually and $1B+ in additional revenue. Watching the platform grow from 150M to over 2B applications yearly wasn't just about metrics - it represented tens of millions of people finding meaningful work and millions of SMBs and large enterprises finding talent.
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-number-bg">02</div>
-                    <div class="card-content">
-                        <h3 class="card-title">Turnaround Leadership</h3>
-                        <p>
-                            Turning around Indeed's Profile product was one of my most rewarding challenges. By fostering a culture of accountability and aligning the team's work with the company's marketplace vision, I transformed a struggling team into a high-performing group driving nine-figure revenue growth. But beyond the financial impact, seeing job seekers find better opportunities and watching team members regain their confidence made this transformation truly meaningful.
-                        </p>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-number-bg">03</div>
-                    <div class="card-content">
-                        <h3 class="card-title">Building Global Communities</h3>
-                        <p>
-                            Building totalBarça was a labor of love that connected FC Barcelona fans across the world. What began as a passion project grew into a vibrant community with 1.2M+ monthly visitors and 700K+ fans. I'm especially proud that I channeled our success toward UNICEF, contributing $32,000 to support children worldwide—truly living Barcelona's 'More Than A Club' spirit."
-                        </p>
-                    </div>
-                </div>
-            </div>
+        <div class="timeline-item">
+          <div class="timeline-date">Feb 2016 - Dec 2017</div>
+          <h3 class="timeline-title">Product Manager</h3>
+          <div class="timeline-subtitle">Indeed</div>
+          <p>Reimagined Indeed's flagship "Easily Apply" platform, focusing on creating seamless experiences that helped more people find meaningful work. Launched an innovative developer program that extended our reach to partner career sites, significantly expanding job opportunities while generating new revenue streams.</p>
         </div>
-    </section>
-    
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-heading">Get In Touch</h2>
-            <form class="contact-form" action="https://formspree.io/f/mwplknwn" method="POST">
-                <!-- IMPORTANT: Replace 'your-form-id' with the actual endpoint ID from Formspree -->
-                
-                <!-- Anti-spam honeypot field (hidden from users, but bots will fill it out) -->
-                <div style="display:none">
-                    <label for="honeypot">Leave this field empty if you're human:</label>
-                    <input type="text" name="honeypot" id="honeypot">
-                </div>
-                
-                <div class="form-group">
-                    <label class="form-label" for="name">Name</label>
-                    <input type="text" id="name" name="name" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="subject">Subject</label>
-                    <input type="text" id="subject" name="subject" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
-                </div>
-                
-                <button type="submit" class="btn">Send Message</button>
-            </form>
+        <div class="timeline-item">
+          <div class="timeline-date">Apr 2014 - Jan 2016</div>
+          <h3 class="timeline-title">Product Manager</h3>
+          <div class="timeline-subtitle">MakeMyTrip</div>
+          <p>Drove product vision for India's #1 travel platform, creating mobile-first experiences that delighted travelers and significantly increased engagement. Seeing our apps featured by both Apple and Google validated my focus on creating intuitive, enjoyable booking experiences.</p>
         </div>
-    </section>
-    
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-links">
-                    <a href="https://linkedin.com/in/adityapandya" class="footer-link" target="_blank">LinkedIn</a>
-                    <!-- Footer theme toggle button -->
-                    <button class="theme-toggle" id="footerThemeToggle" aria-label="Toggle dark/light mode">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                </div>
-                <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
-            </div>
+        <div class="timeline-item">
+          <div class="timeline-date">May 2010 - Feb 2014</div>
+          <h3 class="timeline-title">Product & UX Manager</h3>
+          <div class="timeline-subtitle">Directi</div>
+          <p>Managed growth for Flock and BigRock, helping people communicate more effectively and establish their online presence. Grew Flock to 1.5M monthly active users by focusing on creating genuine value for teams looking to collaborate more effectively.</p>
         </div>
-    </footer>
-
-    <script>
-        // Wait for DOM to be fully loaded before attaching event listeners
-        document.addEventListener('DOMContentLoaded', function() {
-            // Theme toggle functionality
-            const themeToggles = document.querySelectorAll('.theme-toggle');
-            const htmlElement = document.documentElement;
-            
-            // Check for saved theme preference or use default (dark)
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            htmlElement.setAttribute('data-theme', savedTheme);
-            updateThemeIcons(savedTheme);
-            
-            // Add click event to all theme toggle buttons
-            themeToggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const currentTheme = htmlElement.getAttribute('data-theme');
-                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                    
-                    // Update HTML attribute and save preference
-                    htmlElement.setAttribute('data-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-                    
-                    // Update icons
-                    updateThemeIcons(newTheme);
-                });
-            });
-            
-            // Update theme toggle icons based on current theme
-            function updateThemeIcons(theme) {
-                themeToggles.forEach(toggle => {
-                    const icon = toggle.querySelector('i');
-                    if (theme === 'dark') {
-                        icon.className = 'fas fa-sun'; // Show sun in dark mode
-                    } else {
-                        icon.className = 'fas fa-moon'; // Show moon in light mode
-                    }
-                });
-            }
-            
-            // Mobile menu toggle with hamburger icon
-            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
-            const navLinks = document.querySelector('.nav-links');
-            const hamburgerIcon = mobileMenuToggle.querySelector('i');
-            
-            mobileMenuToggle.addEventListener('click', function(event) {
-                // Prevent the event from propagating up
-                event.stopPropagation();
-                
-                // Toggle the active class
-                navLinks.classList.toggle('active');
-                
-                // Toggle between hamburger and close icons
-                if (navLinks.classList.contains('active')) {
-                    hamburgerIcon.className = 'fas fa-times'; // Change to X (close) icon
-                } else {
-                    hamburgerIcon.className = 'fas fa-bars'; // Change back to hamburger icon
-                }
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(event) {
-                if (navLinks.classList.contains('active') && 
-                    !navLinks.contains(event.target) && 
-                    event.target !== mobileMenuToggle) {
-                    navLinks.classList.remove('active');
-                    hamburgerIcon.className = 'fas fa-bars';
-                }
-            });
-            
-            // Progress bar
-            window.addEventListener('scroll', function() {
-                updateProgressBar();
-                highlightActiveSection();
-            });
-            
-            function updateProgressBar() {
-                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-                const scrolled = (winScroll / height) * 100;
-                document.getElementById("progressBar").style.width = scrolled + "%";
-            }
-            
-            // Highlight active section in navbar
-            function highlightActiveSection() {
-                const sections = document.querySelectorAll('.section');
-                const navLinks = document.querySelectorAll('.nav-link');
-                
-                let current = '';
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    if (pageYOffset >= (sectionTop - 300)) {
-                        current = section.getAttribute('id');
-                    }
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') && link.getAttribute('href').substring(1) === current) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-            
-            // Initial calls to set up the page state
-            updateProgressBar();
-            highlightActiveSection();
+      </div>
+    </div>
+  </section>
+  
+  <section id="achievements" class="section">
+    <div class="container">
+      <h2 class="section-heading">Career Highlights</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="card-number-bg">01</div>
+          <div class="card-content">
+            <h3 class="card-title">Redefining Job Search</h3>
+            <p>
+              When I took on Indeed's job application platform, I saw an opportunity to initiate a massive cultural shift from 'ease of use' to 'quality'. The 'Smart Apply' initiative I created helped job seekers make more meaningful connections with employers, resulting in over 1M additional hires annually and $1B+ in additional revenue. Watching the platform grow from 150M to over 2B applications yearly wasn't just about metrics - it represented tens of millions of people finding meaningful work and millions of SMBs and large enterprises finding talent.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-number-bg">02</div>
+          <div class="card-content">
+            <h3 class="card-title">Turnaround Leadership</h3>
+            <p>
+              Turning around Indeed's Profile product was one of my most rewarding challenges. By fostering a culture of accountability and aligning the team's work with the company's marketplace vision, I transformed a struggling team into a high-performing group driving nine-figure revenue growth. But beyond the financial impact, seeing job seekers find better opportunities and watching team members regain their confidence made this transformation truly meaningful.
+            </p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-number-bg">03</div>
+          <div class="card-content">
+            <h3 class="card-title">Building Global Communities</h3>
+            <p>
+              Building totalBarça was a labor of love that connected FC Barcelona fans across the world. What began as a passion project grew into a vibrant community with 1.2M+ monthly visitors and 700K+ fans. I'm especially proud that I channeled our success toward UNICEF, contributing $32,000 to support children worldwide—truly living Barcelona's 'More Than A Club' spirit.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-heading">Get In Touch</h2>
+      <form class="contact-form" action="https://formspree.io/f/mwplknwn" method="POST">
+        <div style="display:none">
+          <label for="honeypot">Leave this field empty if you're human:</label>
+          <input type="text" name="honeypot" id="honeypot">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="name">Name</label>
+          <input type="text" id="name" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">Email</label>
+          <input type="email" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="subject">Subject</label>
+          <input type="text" id="subject" name="subject" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="message">Message</label>
+          <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="https://linkedin.com/in/adityapandya" class="footer-link" target="_blank">LinkedIn</a>
+          <button class="theme-toggle" id="footerThemeToggle" aria-label="Toggle dark/light mode">
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+        <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
+      </div>
+    </div>
+  </footer>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const themeToggles = document.querySelectorAll('.theme-toggle');
+      const htmlElement = document.documentElement;
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      htmlElement.setAttribute('data-theme', savedTheme);
+      updateThemeIcons(savedTheme);
+      
+      themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const currentTheme = htmlElement.getAttribute('data-theme');
+          const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+          htmlElement.setAttribute('data-theme', newTheme);
+          localStorage.setItem('theme', newTheme);
+          updateThemeIcons(newTheme);
         });
-    </script>
+      });
+      
+      function updateThemeIcons(theme) {
+        themeToggles.forEach(toggle => {
+          const icon = toggle.querySelector('i');
+          icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        });
+      }
+      
+      const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+      const navLinks = document.querySelector('.nav-links');
+      const hamburgerIcon = mobileMenuToggle.querySelector('i');
+      
+      mobileMenuToggle.addEventListener('click', function(event) {
+        event.stopPropagation();
+        navLinks.classList.toggle('active');
+        hamburgerIcon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+      });
+      
+      document.addEventListener('click', function(event) {
+        if (navLinks.classList.contains('active') && 
+            !navLinks.contains(event.target) && 
+            event.target !== mobileMenuToggle) {
+          navLinks.classList.remove('active');
+          hamburgerIcon.className = 'fas fa-bars';
+        }
+      });
+      
+      window.addEventListener('scroll', function() {
+        updateProgressBar();
+        highlightActiveSection();
+      });
+      
+      function updateProgressBar() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById("progressBar").style.width = scrolled + "%";
+      }
+      
+      function highlightActiveSection() {
+        const sections = document.querySelectorAll('.section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        let current = '';
+        sections.forEach(section => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= (sectionTop - 300)) {
+            current = section.getAttribute('id');
+          }
+        });
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') && link.getAttribute('href').substring(1) === current) {
+            link.classList.add('active');
+          }
+        });
+      }
+      
+      updateProgressBar();
+      highlightActiveSection();
+    });
+  </script>
 </body>
 </html>
