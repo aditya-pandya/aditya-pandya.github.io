@@ -24,6 +24,7 @@
   <meta property="og:url" content="https://aditya.pandya.co">
   <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDCMBB8TEX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -297,19 +298,24 @@
       transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
+   .section-heading-container {
+        text-align: center; /* Center the content within the container */
+        width: 100%; /* Ensure the container spans the full width */
+    }
+
     .section-heading {
-      font-size: 2.4rem;
-      margin-bottom: 32px;
-      color: var(--text);
-      font-weight: 600;
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      border-bottom: 2px solid;
-      border-image: linear-gradient(to right, var(--primary), var(--accent-3)) 1;
-      display: inline-block;
-      padding-bottom: 8px;
-      transition: color 0.3s ease;
+        font-size: 2.4rem;
+        margin-bottom: 32px;
+        color: var(--text);
+        font-weight: 600;
+        position: relative;
+        z-index: 2;
+        /* text-align: center;  Remove this from .section-heading */
+        border-bottom: 2px solid;
+        border-image: linear-gradient(to right, var(--primary), var(--accent-3)) 1;
+        display: inline-block; /* Keep this for the border to size correctly */
+        padding-bottom: 8px;
+        transition: color 0.3s ease;
     }
 
     html[data-theme="light"] .section-heading {
@@ -412,7 +418,7 @@
       padding: 36px;
       transition: all 0.3s ease;
       border: 1px solid var(--border);
-      height: 100%;
+      height: 100%; /* Important for consistent height */
       position: relative;
       display: flex;
       flex-direction: column;
@@ -435,7 +441,7 @@
       opacity: 0.07;
       color: var(--primary);
       line-height: 1;
-      z-index: 0
+      z-index: 0;
       transition: color 0.3s ease, opacity 0.3s ease;
     }
 
@@ -458,6 +464,9 @@
     .card-content {
       position: relative;
       z-index: 2;
+        display: flex;          /* Add flexbox layout */
+        flex-direction: column; /* Stack content vertically */
+        height: 100%;          /* Fill available space */
     }
 
     .card-number {
@@ -489,12 +498,17 @@
       transition: color 0.3s ease;
     }
 
+    .card-description {
+      margin-bottom: 0; /* Remove bottom margin */
+      flex-grow: 1;     /* Allow description to take up remaining space */
+    }
+
     .tag-container {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin: 32px 0;
-      /* justify-content: center; Removed to allow left alignment */
+      justify-content: center; /* Center-align the skills */
     }
 
     .tag {
@@ -607,6 +621,17 @@
     .about-content {
       max-width: 780px;
       margin: 0 auto;
+        display: flex;        /* Add this */
+        flex-direction: column; /* Add this */
+        align-items: center;   /* Add this */
+    }
+  .timeline,
+    .accent-content,
+    .grid,
+    .contact-form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     /* Keep the hexagon structure */
@@ -656,9 +681,16 @@
     }
 
     /* Form Styles */
-    .contact-form {
+    .contact-form-container {
         max-width: 600px;
         margin: 0 auto;
+    }
+    .contact-form-container > p {
+        margin-bottom: 24px; /* Add space above the form */
+        text-align: center;
+    }
+  .contact-form{
+      width: 100%;
     }
 
     .form-group {
@@ -913,7 +945,7 @@
         .timeline-title{
             font-size: 1.1rem;
         }
-          .r-hex {
+        .r-hex {
           width: 12em;     /* Even Smaller hexagon */
           height: 10.392em;  /* Proportional height */
         }
@@ -972,7 +1004,9 @@
   <section id="about" class="section">
     <div class="container">
       <div class="about-content">
-        <h2 class="section-heading">About Me</h2>
+            <div class="section-heading-container">
+                <h2 class="section-heading">About Me</h2>
+            </div>
         <p>
           I'm passionate about creating products that truly matter in people's lives. Throughout my career at Indeed, MakeMyTrip, and Directi, I've focused on understanding genuine customer needs and translating those insights into experiences that drive remarkable business results.
         </p>
@@ -990,7 +1024,9 @@
 
   <section class="skills-section">
     <div class="container">
+    <div class="section-heading-container">
       <h3 class="section-heading">Skills</h3>
+    </div>
       <div class="tag-container">
         <div class="tag">Vision & Strategy</div>
         <div class="tag">Change Management</div>
@@ -1015,7 +1051,9 @@
       <div class="quote-mark quote-left">“</div>
       <div class="quote-mark quote-right">“</div>
       <div class="accent-content">
-        <h2 class="accent-heading">My Mission</h2>
+        <div class="section-heading-container">
+            <h2 class="accent-heading">My Mission</h2>
+        </div>
         <p class="accent-text">
           Create meaningful societal impact through thoughtful technology, simplify everyday experiences and inspire teams to achieve what once seemed impossible.
         </p>
@@ -1025,7 +1063,9 @@
 
   <section id="experience" class="section">
     <div class="container">
+    <div class="section-heading-container">
       <h2 class="section-heading">Experience</h2>
+    </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-date">May 2023 - Present</div>
@@ -1073,16 +1113,24 @@
     </div>
   </section>
 
-  <section id="achievements" class="section">
+<section id="achievements" class="section">
     <div class="container">
-      <h2 class="section-heading">Career Highlights</h2>
+        <div class="section-heading-container">
+          <h2 class="section-heading">Career Highlights</h2>
+        </div>
       <div class="grid">
         <div class="card">
           <div class="card-number-bg">01</div>
           <div class="card-content">
             <h3 class="card-title">Redefining Job Search</h3>
-            <p>
-              When I took on Indeed's job application platform, I saw an opportunity to initiate a massive cultural shift from 'ease of use' to 'quality'. The 'Smart Apply' initiative I created helped job seekers make more meaningful connections with employers, resulting in over 1M additional hires annually and $1B+ in additional revenue. Watching the platform grow from 150M to over 2B applications yearly wasn't just about metrics - it represented tens of millions of people finding meaningful work and millions of SMBs and large enterprises finding talent.
+            <p class="card-description">
+              When I took on Indeed's job application platform, I saw an opportunity to initiate a massive cultural shift from 'ease of use' to 'quality'.
+            </p><br/>
+            <p class="card-description">
+              The 'Smart Apply' initiative I created helped job seekers make more meaningful connections with employers, resulting in over 1M additional hires annually and $1B+ in additional revenue.
+            </p><br/>
+             <p class="card-description">
+              Watching the platform grow from 150M to over 2B applications yearly wasn't just about metrics - it represented tens of millions of people finding meaningful work and millions of SMBs and large enterprises finding talent.
             </p>
           </div>
         </div>
@@ -1090,8 +1138,11 @@
           <div class="card-number-bg">02</div>
           <div class="card-content">
             <h3 class="card-title">Turnaround Leadership</h3>
-            <p>
-              Turning around Indeed's Profile product was one of my most rewarding challenges. By fostering a culture of accountability and aligning the team's work with the company's marketplace vision, I transformed a struggling team into a high-performing group driving nine-figure revenue growth. But beyond the financial impact, seeing job seekers find better opportunities and watching team members regain their confidence made this transformation truly meaningful.
+            <p class="card-description">
+              Turning around Indeed's Profile product was one of my most rewarding challenges. By fostering a culture of accountability and aligning the team's work with the company's marketplace vision, I transformed a struggling team into a high-performing group driving nine-figure revenue growth.
+            </p><br/>
+            <p class="card-description">
+              But beyond the financial impact, seeing job seekers find better opportunities and watching team members regain their confidence made this transformation truly meaningful.
             </p>
           </div>
         </div>
@@ -1099,8 +1150,11 @@
           <div class="card-number-bg">03</div>
           <div class="card-content">
             <h3 class="card-title">Building Global Communities</h3>
-            <p>
-              Building totalBarça was a labor of love that connected FC Barcelona fans across the world. What began as a passion project grew into a vibrant community with 1.2M+ monthly visitors and 700K+ fans. I'm especially proud that I channeled our success toward UNICEF, contributing $32,000 to support children worldwide—truly living Barcelona's 'More Than A Club' spirit.
+            <p class="card-description">
+              Building totalBarça was a labor of love that connected FC Barcelona fans across the world. What began as a passion project grew into a vibrant community with 1.2M+ monthly visitors and 700K+ fans.
+            </p><br/>
+            <p class="card-description">
+              I'm especially proud that I channeled our success toward UNICEF, contributing $32,000 to support children worldwide—truly living Barcelona's 'More Than A Club' spirit.
             </p>
           </div>
         </div>
@@ -1110,30 +1164,37 @@
 
   <section id="contact" class="section">
     <div class="container">
-      <h2 class="section-heading">Get In Touch</h2>
-      <form class="contact-form" action="https://formspree.io/f/mwplknwn" method="POST">
-        <div style="display:none">
-          <label for="honeypot">Leave this field empty if you're human:</label>
-          <input type="text" name="honeypot" id="honeypot">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="name">Name</label>
-          <input type="text" id="name" name="name" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="email">Email</label>
-          <input type="email" id="email" name="email" class="form-control" required>
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="subject">Subject</label>
-          <input type="text" id="subject" name="subject" class="form-control">
-        </div>
-        <div class="form-group">
-          <label class="form-label" for="message">Message</label>
-          <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
-        </div>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
+    <div class="section-heading-container">
+        <h2 class="section-heading">Get In Touch</h2>
+    </div>
+      <div class="contact-form-container">
+            <p>Scaling a product, shaping strategy, or tackling a complex challenge?</p>
+            <p>Whether you need a strategic partner, a hands-on product leader, or an advisor to help guide the way, I’d love to hear about your vision and challenges.</p>
+            <p>Let’s connect and explore how we can work together.</p>
+        <form class="contact-form" action="https://formspree.io/f/mwplknwn" method="POST">
+          <div style="display:none">
+            <label for="honeypot">Leave this field empty if you're human:</label>
+            <input type="text" name="honeypot" id="honeypot">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-control">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
+          </div>
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
     </div>
   </section>
 
