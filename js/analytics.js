@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // 2. Form Submission Tracking
+  // 2. Form Submission Tracking (if form exists)
   const contactForm = document.querySelector('.contact-form');
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
@@ -81,8 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
           'depth_percentage': marker,
           'page_section': getCurrentSection()
         });
-      }
-    });
+        });
   });
   
   function getCurrentSection() {
@@ -118,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }, 1000);
   
-  // 7. Skill Tag Interactions
+  // 7. Skill Tag Interactions (if they exist)
   const skillTags = document.querySelectorAll('.tag');
   skillTags.forEach(tag => {
     tag.addEventListener('click', function() {
@@ -128,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
   
-  // 8. Mobile Menu Usage
+  // 8. Mobile Menu Usage (if it exists)
   const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
   if (mobileMenuToggle) {
     mobileMenuToggle.addEventListener('click', function() {
@@ -139,24 +138,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // 9. Career Highlight Cards Visibility
+  // 9. Career Highlight Cards Visibility (if they exist)
   if ('IntersectionObserver' in window) {
     const highlightCards = document.querySelectorAll('.card');
     
-    const cardObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const cardTitle = entry.target.querySelector('.card-title').textContent.trim();
-          gtag('event', 'highlight_card_view', {
-            'card_title': cardTitle
-          });
-          cardObserver.unobserve(entry.target); // Only trigger once
-        }
+    if (highlightCards.length > 0) {
+      const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const cardTitle = entry.target.querySelector('.card-title')?.textContent.trim();
+            if (cardTitle) {
+              gtag('event', 'highlight_card_view', {
+                'card_title': cardTitle
+              });
+            }
+            cardObserver.unobserve(entry.target); // Only trigger once
+          }
+        });
+      }, {threshold: 0.5});
+      
+      highlightCards.forEach(card => {
+        cardObserver.observe(card);
       });
-    }, {threshold: 0.5});
-    
-    highlightCards.forEach(card => {
-      cardObserver.observe(card);
-    });
+    }
   }
 });
