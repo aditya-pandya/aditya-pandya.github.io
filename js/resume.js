@@ -58,9 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             
             await page.render(renderContext).promise;
+            
+            // Track PDF view success using the function from resume-analytics.js if available
+            if (window.trackPdfViewSuccess) {
+                window.trackPdfViewSuccess();
+            }
         } catch (error) {
             console.error('Error generating thumbnail:', error);
             thumbnailContainer.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);text-align:center;padding:20px;">Resume preview unavailable.<br>Click below to download.</div>';
+            
+            // Track PDF view error using the function from resume-analytics.js if available
+            if (window.trackPdfViewError) {
+                window.trackPdfViewError();
+            }
         }
     }
     
