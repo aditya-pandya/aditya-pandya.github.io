@@ -181,9 +181,9 @@
             align-items: center;
             justify-content: center;
             flex: 1;
-            padding-top: 70px; /* Account for fixed navbar */
-            padding-bottom: 20px;
-            min-height: calc(100vh - 110px); /* Ensure content fills page minus header and footer */
+            padding-top: 65px; /* Reduced to prevent scrolling */
+            padding-bottom: 10px;
+            min-height: calc(100vh - 100px); /* Adjusted to prevent scroll */
         }
 
         .resume-container {
@@ -204,6 +204,16 @@
             border-radius: 8px;
             background-color: white;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Make the thumbnail scale to available space */
+        @media (min-height: 800px) {
+            .thumbnail {
+                max-height: 70vh;
+                width: auto;
+                aspect-ratio: 0.7;
+                margin: 0 auto 20px;
+            }
         }
 
         /* Subtle border that adapts to theme */
@@ -257,16 +267,15 @@
 
         /* Footer Styles */
         footer {
-            padding: 20px 0; /* Reduced padding */
+            padding: 15px 0; /* Reduced padding */
             background-color: var(--bg-dark);
             border-top: 1px solid var(--border);
         }
 
         .footer-content {
             display: flex;
-            justify-content: space-between; /* Spread content to opposite ends */
+            justify-content: center; /* Center the copyright */
             align-items: center;
-            flex-wrap: wrap;
             width: 90%;
             max-width: 1140px;
             margin: 0 auto;
@@ -368,12 +377,6 @@
         <div class="container">
             <div class="footer-content">
                 <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
-                <div class="footer-links">
-                    <a href="../" class="footer-link">Back to Main Site</a>
-                    <button class="theme-toggle" id="footerThemeToggle" aria-label="Toggle dark/light mode">
-                        <i class="fas fa-sun"></i>
-                    </button>
-                </div>
             </div>
         </div>
     </footer>
@@ -390,21 +393,25 @@
             const downloadBtn = document.getElementById('downloadBtn');
             const themeToggles = document.querySelectorAll('.theme-toggle');
             const htmlElement = document.documentElement;
-
+            
             // Theme handling
             const savedTheme = localStorage.getItem('theme') || 'dark';
             htmlElement.setAttribute('data-theme', savedTheme);
-            updateThemeIcons(savedTheme);
-
-            themeToggles.forEach(toggle => {
-                toggle.addEventListener('click', () => {
-                    const currentTheme = htmlElement.getAttribute('data-theme');
-                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-                    htmlElement.setAttribute('data-theme', newTheme);
-                    localStorage.setItem('theme', newTheme);
-                    updateThemeIcons(newTheme);
+            
+            // Check if there are theme toggles in the navigation
+            if (themeToggles.length > 0) {
+                updateThemeIcons(savedTheme);
+                
+                themeToggles.forEach(toggle => {
+                    toggle.addEventListener('click', () => {
+                        const currentTheme = htmlElement.getAttribute('data-theme');
+                        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                        htmlElement.setAttribute('data-theme', newTheme);
+                        localStorage.setItem('theme', newTheme);
+                        updateThemeIcons(newTheme);
+                    });
                 });
-            });
+            }
 
             function updateThemeIcons(theme) {
                 themeToggles.forEach(toggle => {
@@ -429,7 +436,7 @@
                 document.body.removeChild(a);
             });
 
-            // Function to generate a thumbnail from the PDF with better error handling
+            // Function to generate a high-quality thumbnail from the PDF
             async function loadPdfThumbnail() {
                 try {
                     const loadingTask = pdfjsLib.getDocument(pdfPath);
@@ -442,21 +449,31 @@
                     // Get the first page
                     const page = await pdf.getPage(1);
                     
-                    // Calculate the scale to fit the canvas
+                    // Calculate the scale to fit the canvas with higher quality
                     const containerWidth = thumbnailContainer.clientWidth;
                     const originalViewport = page.getViewport({ scale: 1 });
-                    const scale = containerWidth / originalViewport.width;
+                    
+                    // Use a higher scale for better quality (2x device pixel ratio)
+                    const pixelRatio = window.devicePixelRatio || 2;
+                    const scale = (containerWidth / originalViewport.width) * pixelRatio;
                     const viewport = page.getViewport({ scale: scale });
                     
                     // Prepare canvas for rendering
                     const context = thumbnailCanvas.getContext('2d');
                     thumbnailCanvas.width = viewport.width;
                     thumbnailCanvas.height = viewport.height;
+                    thumbnailCanvas.style.width = `${containerWidth}px`;
+                    thumbnailCanvas.style.height = `${(containerWidth / originalViewport.width) * originalViewport.height}px`;
+                    
+                    // Set higher quality rendering
+                    context.imageSmoothingEnabled = true;
+                    context.imageSmoothingQuality = 'high';
                     
                     // Render the page
                     const renderContext = {
                         canvasContext: context,
-                        viewport: viewport
+                        viewport: viewport,
+                        intent: 'display'
                     };
                     
                     await page.render(renderContext).promise;
