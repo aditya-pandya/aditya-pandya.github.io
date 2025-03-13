@@ -1,0 +1,1012 @@
+/* Color themes with CSS variables */
+:root {
+  --spacing: 8px;
+}
+
+/* Dark theme (default) */
+html[data-theme="dark"] {
+  --bg-dark: #0a0a0a;
+  --bg-card: #121212;
+  --bg-alternate: #1a1a1a;
+  --bg-hover: #252525;
+  --primary: #7F5AF0;
+  --secondary: #2CB67D;
+  --accent-1: #FF8906;
+  --accent-2: #E53170;
+  --accent-3: #4CC9F0;
+  --text: #FFFFFE;
+  --text-muted: #94A1B2;
+  --border: #2D2D2D;
+  --toggle-bg: #252525;
+  --toggle-icon: #FFFFFE;
+  --highlight-border: #2CB67D;
+}
+
+/* Light theme */
+html[data-theme="light"] {
+  --bg-dark: #FFFFFF;
+  --bg-card: #F5F5F5;
+  --bg-alternate: #EAEAEA;
+  --bg-hover: #E0E0E0;
+  --primary: #5038A1;
+  --secondary: #008B69;
+  --accent-1: #D97700;
+  --accent-2: #C30052;
+  --accent-3: #0066AD;
+  --text: #121212;
+  --text-muted: #494949;
+  --border: #CCCCCC;
+  --toggle-bg: #EAEAEA;
+  --toggle-icon: #121212;
+  --highlight-border: #008B69;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg-dark);
+  max-width: 100%;
+  overflow-x: hidden;
+  font-size: 16px;
+  font-weight: 400;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex; /* Added for resume page layout */
+  flex-direction: column; /* Added for resume page layout */
+  min-height: 100vh; /* Added for resume page layout */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+}
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+  position: relative;
+}
+
+header {
+  padding: 120px 0 60px;
+  position: relative;
+  background-color: var(--bg-dark);
+  transition: background-color 0.3s ease;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 15px 0;
+  background-color: var(--bg-dark);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+html[data-theme="dark"] .nav {
+  background-color: rgba(10, 10, 10, 0.95);
+}
+
+html[data-theme="light"] .nav {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.progress-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+}
+
+.progress-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent-3));
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  font-family: 'Over the Rainbow', 'Rock Salt', 'Reenie Beanie', 'Helvetica Neue', Tahoma, cursive;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+  background-color: var(--bg-hover);
+}
+
+.nav-link.active {
+  color: var(--primary);
+  background-color: var(--bg-hover);
+}
+
+.mobile-menu-toggle {
+  display: none; /* Hidden by default on larger screens */
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: var(--primary);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--toggle-bg);
+  cursor: pointer;
+  margin-left: 16px;
+  border: none;
+  color: var(--toggle-icon);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: var(--bg-hover);
+}
+
+.theme-toggle i {
+  font-size: 1rem;
+}
+
+/* Key change: Flexbox layout for header */
+.header-content {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center items */
+    justify-content: space-between; /* Space between image and text */
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    gap: 40px; /* Space between elements, adjust as needed */
+}
+
+/* Make sure the image and text containers have appropriate widths */
+.header-photo {
+    flex: 0 0 auto; /* Do not grow or shrink, keep intrinsic size */
+}
+
+.header-text {
+    flex: 1; /* Allow the text to grow and fill available space */
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+
+.header-intro {
+  font-size: 1.2rem;
+  color: var(--accent-1);
+  font-weight: 500;
+  font-family: 'Raleway', sans-serif;
+  transition: color 0.3s ease;
+}
+
+.name-title {
+  font-family: 'Over the Rainbow', 'Rock Salt', 'Reenie Beanie', 'Helvetica Neue', Tahoma, cursive;
+  font-size: 64px;
+  line-height: 1.4;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  color: var(--primary);
+  font-weight: normal;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.header-subtitle {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  max-width: 580px;
+  margin-bottom: 32px;
+  color: var(--text-muted);
+  font-weight: 300;
+  transition: color 0.3s ease;
+}
+
+.section {
+  padding: 100px 0;
+  position: relative;
+  border-top: 1px solid var(--border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.section-heading-container {
+    text-align: center; /* Center the content within the container */
+    width: 100%; /* Ensure the container spans the full width */
+}
+
+.section-heading {
+    font-size: 2.4rem;
+    margin-bottom: 32px;
+    color: var(--text);
+    font-weight: 600;
+    position: relative;
+    z-index: 2;
+    /* text-align: center;  Remove this from .section-heading */
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, var(--primary), var(--accent-3)) 1;
+    display: inline-block; /* Keep this for the border to size correctly */
+    padding-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+html[data-theme="light"] .section-heading {
+  color: #121212;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 40px auto;
+  max-width: 780px;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background-color: var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.timeline-item {
+  padding-left: 24px;
+  position: relative;
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  left: -6px;
+  top: 6px;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.timeline-title {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.timeline-subtitle {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--accent-1);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+html[data-theme="light"] .timeline-subtitle {
+  color: #D97700;
+  font-weight: 600;
+}
+
+.timeline-icon {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  color: var(--primary);
+  font-size: 1.5rem;
+  opacity: 0.8;
+  transition: color 0.3s ease;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  margin: 40px 0;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  padding: 36px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  height: 100%; /* Important for consistent height */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(127, 90, 240, 0.15);
+  border-color: var(--primary);
+}
+
+.card-number-bg {
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-size: 180px;
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  opacity: 0.07;
+  color: var(--primary);
+  line-height: 1;
+  z-index: 0;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+html[data-theme="light"] .card-number-bg {
+  opacity: 0.15;
+}
+
+.grid .card:nth-child(3n+1) .card-number-bg {
+  color: var(--primary);
+}
+
+.grid .card:nth-child(3n+2) .card-number-bg {
+  color: var(--accent-1);
+}
+
+.grid .card:nth-child(3n+3) .card-number-bg {
+  color: var(--accent-3);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;          /* Add flexbox layout */
+  flex-direction: column; /* Stack content vertically */
+  height: 100%;          /* Fill available space */
+}
+
+.card-number {
+  display: inline-block;
+  font-family: 'Merriweather', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-1);
+  margin-bottom: 20px;
+  background-color: var(--bg-hover);
+  padding: 6px 12px;
+  border-radius: 20px;
+  align-self: flex-start;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+html[data-theme="light"] .card-number {
+  background-color: rgba(0, 0, 0, 0.07);
+  color: #D97700;
+  font-weight: 600;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--text);
+  line-height: 1.3;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.card-description {
+  margin-bottom: 0; /* Remove bottom margin */
+  flex-grow: 1;     /* Allow description to take up remaining space */
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 32px 0;
+  justify-content: center; /* Center-align the skills */
+}
+
+.tag {
+  padding: 8px 16px;
+  background-color: var(--bg-alternate);
+  color: var(--text);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.tag:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+html[data-theme="light"] .tag:hover {
+  background-color: #E0E0E0;
+  border-color: #5038A1;
+  color: #5038A1;
+  font-weight: 500;
+}
+
+.accent-section {
+  background-color: var(--bg-alternate);
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.mission-quote {
+  position: absolute;
+  font-size: 180px;
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  opacity: 0.05;
+  color: var(--text);
+  line-height: 1;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.accent-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.accent-heading {
+  font-size: 2.4rem;
+  margin-bottom: 28px;
+  color: var(--text);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.accent-text {
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 600;
+  font-family: 'Merriweather', serif;
+  color: var(--accent-1);
+  padding: 10px 0;
+  margin: 0 auto;
+  transition: color 0.3s ease;
+}
+
+html[data-theme="light"] .accent-text {
+  color: #D97700;
+}
+
+.quote-font {
+    font-family: 'Quicksand', sans-serif; 
+    font-weight: 500;
+}
+
+.quote-mark {
+  position: absolute;
+  font-size: 12rem;
+  font-family: 'Merriweather', serif;
+  font-weight: 600;
+  opacity: 0.07;
+  color: var(--text);
+  line-height: 1;
+  z-index: 1;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.quote-left {
+  top: 0;
+  left: 50px;
+  transform: translateY(-30%);
+}
+
+.quote-right {
+  bottom: 0;
+  right: 50px;
+  transform: translateY(30%) rotate(180deg);
+}
+
+.about-content {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline,
+.accent-content,
+.grid,
+.contact-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Keep the hexagon structure */
+.r-hex {
+  overflow: hidden;
+  display: inline-block;
+  margin: 4em 0;
+  width: 20em;
+  height: 17.32em;
+  transform: rotate(-30deg) skewX(30deg);
+  border-radius: 1.5em;
+}
+.r-hex *, .r-hex *:before {
+  display: block;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+}
+.r-hex-inner {
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.r-hex-inner-2 { /* This is the correct selector for the image */
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg); /* Correct transformation */
+}
+.r-hex-inner-2:before {
+  margin-top: -1.5em;
+  height: 20em;
+  transform: skewX(-30deg) rotate(-90deg);
+  background: url(../assets/images/ap.jpeg); /* Updated image path */
+  background-size: cover;
+  content: ''; /*  Needed for the pseudo-element to appear */
+}
+
+
+.highlight-box {
+  background-color: var(--bg-alternate);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  border-left: 4px solid var(--highlight-border);
+}
+.highlight-box p {
+   margin-bottom: 0; /* Remove bottom margin from the last paragraph */
+}
+
+/* Form Styles */
+.contact-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+.contact-form-container > p {
+    margin-bottom: 24px; /* Add space above the form */
+    text-align: center;
+}
+.contact-form {
+  width: 100%;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(127, 90, 240, 0.5);
+}
+
+.btn {
+    background: linear-gradient(90deg, var(--primary), var(--accent-3));
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block; /* Changed from inline-block to block */
+    width: 100%; /* Full width */
+    max-width: 250px; /* Maximum width */
+    margin: 16px auto 0; /* Center the button */
+    text-align: center; /* Center text */
+}
+
+.btn i {
+    margin-left: 8px; /* Space between text and icon */
+}
+
+.btn:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Footer Styles */
+footer {
+    padding: 20px 0; /* Reduced padding */
+    background-color: var(--bg-dark);
+    border-top: 1px solid var(--border);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between; /* Spread content to opposite ends */
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--primary);
+}
+
+.copyright {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Resume Page Specific Styles */
+/* Main content styles for the resume page */
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding-top: 65px; /* Reduced to prevent scrolling */
+    padding-bottom: 10px;
+    min-height: calc(100vh - 100px); /* Adjusted to prevent scroll */
+}
+
+.resume-container {
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.thumbnail {
+    width: 100%;
+    aspect-ratio: 0.7; /* Standard PDF aspect ratio */
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Make the thumbnail scale to available space */
+@media (min-height: 800px) {
+    .thumbnail {
+        max-height: 70vh;
+        width: auto;
+        aspect-ratio: 0.7;
+        margin: 0 auto 20px;
+    }
+}
+
+/* Subtle border that adapts to theme */
+html[data-theme="dark"] .thumbnail {
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html[data-theme="light"] .thumbnail {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.thumbnail img, .thumbnail canvas {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.last-updated {
+    margin-top: 16px;
+    text-align: center;
+    font-style: italic;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust as needed for your navbar height */
+    left: 0;
+    right: 0;
+    background-color: var(--bg-dark); /* Match navbar background */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 99; /* Ensure it's above other content */
+  }
+
+  /* For the resume page, we want to display links by default */
+  .resume-page .nav-links {
+    display: flex;
+    position: static;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  html[data-theme="dark"] .nav-links {
+    background-color: rgba(10, 10, 10, 0.95);
+  }
+
+  html[data-theme="light"] .nav-links {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+
+  .nav-links.active {
+    display: flex; /* Show links when menu is active */
+  }
+
+  .nav-link {
+    padding: 10px 16px; /* Larger padding for touch targets */
+    text-align: center; /* Center-align links */
+  }
+
+  .mobile-menu-toggle {
+    display: block; /* Show the toggle button on mobile */
+  }
+
+  /* Hide the mobile toggle on resume page */
+  .resume-page .mobile-menu-toggle {
+    display: none;
+  }
+
+  .header-content {
+    flex-direction: column; /* Stack image and text vertically */
+    text-align: center; /* Center-align header content */
+  }
+  
+  .header-photo {
+    margin-bottom: var(--spacing);
+  }
+
+  .header-text {
+    text-align: center; /* Center-align text on mobile */
+  }
+
+  .name-title {
+    font-size: 48px; /* Smaller font size for name on mobile */
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem; /* Smaller font size for subtitle on mobile */
+  }
+
+  .section {
+    padding: 60px 0; /* Reduced padding on sections */
+  }
+
+  .section-heading {
+    font-size: 2rem; /* Smaller section headings */
+  }
+
+  .timeline::before {
+    left: 5px; /* Adjust timeline line position */
+  }
+
+  .timeline-item {
+    padding-left: 32px; /* Adjust padding for timeline items */
+  }
+
+  .timeline-item::before {
+    left: 0; /* Adjust dot position */
+  }
+
+  .timeline-icon {
+    right: 5px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Single column grid on mobile */
+  }
+
+  .card {
+    padding: 24px; /* Reduced padding in cards */
+  }
+  
+  .card-number-bg {
+    font-size: 120px;
+    right: -10px;
+    bottom: -20px;
+  }
+
+  .card-title {
+    font-size: 1.3rem; /* Smaller card titles */
+  }
+
+  .accent-section {
+    padding: 60px 0; /* Reduced padding on accent section */
+  }
+
+  .accent-heading {
+    font-size: 2rem; /* Smaller accent heading */
+  }
+
+  .accent-text {
+    font-size: 1.8rem; /* Smaller accent text */
+  }
+
+  .quote-mark {
+    font-size: 6rem; /* Smaller quote marks */
+    opacity: 0.05;
+  }
+
+  .quote-right {
+    top: auto;   /* Reset top from general styles */
+    bottom: 0;   /* Position relative to the bottom */
+    right: 20px; /* Adjust horizontal position (was 50px) */
+    transform: translateY(50%) rotate(180deg); /* Adjust vertical position. */
+  }
+  
+  .quote-left {
+    left: 20px; /*Adjusted for mobile*/
+    transform: translateY(-20%); /*Adjusted for mobile*/
+  }
+
+  .r-hex {
+    margin: 2em auto; /* Center and reduce margin */
+    width: 15em;     /* Smaller hexagon */
+    height: 12.99em;  /* Proportional height */
+  }
+
+  .r-hex-inner-2:before {
+    margin-top: -1.125em;
+    height: 15em;
+  }
+  
+  .highlight-box {
+    padding: 16px; /* Reduced padding */
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+  
+  /* Footer adjustments for mobile */
+  .footer-content {
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-links {
+    flex-direction: row; /* Keep links in a row on mobile */
+  }
+
+  /* Resume specific mobile styles */
+  .resume-container {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .name-title {
+    font-size: 36px;
+  }
+  
+  .timeline-date, .timeline-subtitle {
+    font-size: 0.8rem;
+  }

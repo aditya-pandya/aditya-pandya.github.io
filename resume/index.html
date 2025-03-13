@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aditya Pandya - Resume</title>
+
+    <!-- Favicon and manifest references - paths updated to point to assets directory -->
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../assets/manifest/site.webmanifest">
+
+    <meta name="description" content="Aditya Pandya - Resume and professional experience of a product leader with 15+ years of experience building products that help 100M+ people globally.">
+    <meta name="keywords" content="product leader, product management, Aditya Pandya, resume, CV">
+    <meta name="author" content="Aditya Pandya">
+
+    <meta name="robots" content="noindex, nofollow, noai, noimageai">
+    <meta name="googlebot" content="noindex, nofollow, noai, noimageai">
+    <meta name="Bingbot" content="noindex, nofollow, noai, noimageai">
+
+    <meta property="og:title" content="Aditya Pandya - Resume">
+    <meta property="og:description" content="Professional resume of Aditya Pandya, product leader with 15+ years of experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aditya.pandya.co/resume">
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+
+    <!-- Font and Icon imports -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@600&family=Over+the+Rainbow&family=Raleway:wght@300;400;500;600&family=Rock+Salt&family=Reenie+Beanie&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- Link to the centralized CSS file -->
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="resume-page">
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">Aditya Pandya</a>
+            <div class="nav-links">
+                <a href="../" class="nav-link">Back to Main Site</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="resume-container">
+            <div class="thumbnail" id="thumbnailContainer">
+                <canvas id="pdfThumbnail"></canvas>
+            </div>
+            <button class="btn" id="downloadBtn">
+                Download Resume <i class="fas fa-download"></i>
+            </button>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/resume.js"></script>
+</body>
+</html>
