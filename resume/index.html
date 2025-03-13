@@ -183,6 +183,7 @@
             flex: 1;
             padding-top: 70px; /* Account for fixed navbar */
             padding-bottom: 20px;
+            min-height: calc(100vh - 110px); /* Ensure content fills page minus header and footer */
         }
 
         .resume-container {
@@ -243,7 +244,7 @@
         }
 
         .btn i {
-            margin-right: 8px;
+            margin-left: 8px;
         }
 
         .last-updated {
@@ -256,21 +257,22 @@
 
         /* Footer Styles */
         footer {
-            padding: 20px 0;
+            padding: 20px 0; /* Reduced padding */
             background-color: var(--bg-dark);
-            text-align: center;
             border-top: 1px solid var(--border);
-            margin-top: auto;
         }
 
         .footer-content {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between; /* Spread content to opposite ends */
             align-items: center;
+            flex-wrap: wrap;
+            width: 90%;
+            max-width: 1140px;
+            margin: 0 auto;
         }
 
         .footer-links {
-            margin-bottom: 15px;
             display: flex;
             gap: 20px;
             align-items: center;
@@ -293,9 +295,29 @@
         }
 
         /* Mobile Styles */
+/* Mobile Styles */
         @media (max-width: 768px) {
+            .nav-links {
+                display: flex;
+                align-items: center;
+            }
+
+            .mobile-menu-toggle {
+                display: none;
+            }
+
             .resume-container {
                 max-width: 90%;
+            }
+            
+            /* Footer adjustments for mobile */
+            .footer-content {
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            .footer-links {
+                flex-direction: row; /* Keep links in a row on mobile */
             }
         }
 
@@ -310,8 +332,9 @@
                 padding: 10px 18px;
             }
             
+            /* Don't stack footer links at smaller sizes */
             .footer-links {
-                flex-direction: column;
+                flex-direction: row;
                 gap: 10px;
             }
         }
@@ -336,8 +359,7 @@
                 <canvas id="pdfThumbnail"></canvas>
             </div>
             <button class="btn" id="downloadBtn">
-                <i class="fas fa-download"></i>
-                Download Resume
+                Download Resume <i class="fas fa-download"></i>
             </button>
         </div>
     </main>
@@ -345,14 +367,13 @@
     <footer>
         <div class="container">
             <div class="footer-content">
+                <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
                 <div class="footer-links">
                     <a href="../" class="footer-link">Back to Main Site</a>
-                    <a href="https://linkedin.com/in/adityapandya" class="footer-link" target="_blank">LinkedIn</a>
                     <button class="theme-toggle" id="footerThemeToggle" aria-label="Toggle dark/light mode">
                         <i class="fas fa-sun"></i>
                     </button>
                 </div>
-                <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
             </div>
         </div>
     </footer>
