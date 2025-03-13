@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+html {
+            height: -webkit-fill-available; /* For mobile webkit browsers */
+            overflow: hidden; /* Prevent scrolling */
+        }<!DOCTYPE html>
 <html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
@@ -91,6 +94,9 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-y: hidden; /* Prevent vertical scroll */
         }
 
         .nav {
@@ -183,7 +189,8 @@
             flex: 1;
             padding-top: 65px; /* Reduced to prevent scrolling */
             padding-bottom: 10px;
-            min-height: calc(100vh - 100px); /* Adjusted to prevent scroll */
+            min-height: calc(100vh - 90px); /* Adjusted to prevent scroll */
+            box-sizing: border-box; /* Ensure padding doesn't add to height */
         }
 
         .resume-container {
@@ -206,13 +213,42 @@
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
 
-        /* Make the thumbnail scale to available space */
-        @media (min-height: 800px) {
+        /* iPad Pro specific fixes */
+        @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+            .main-content {
+                padding-top: 60px;
+                padding-bottom: 5px;
+                min-height: calc(100vh - 80px); /* Tighter space */
+            }
+            
+            .thumbnail {
+                max-height: 72vh; /* Limit height on iPad */
+                width: auto;
+                margin: 0 auto 15px;
+            }
+            
+            .resume-container {
+                max-width: 85%;
+            }
+            
+            .btn {
+                margin-top: 10px;
+                width: 70%;
+            }
+            
+            footer {
+                padding: 10px 0;
+            }
+        }
+        
+        /* Even tighter constraints for very short screens */
+        @media only screen and (max-height: 950px) and (min-width: 768px) and (max-width: 1024px) {
             .thumbnail {
                 max-height: 70vh;
-                width: auto;
-                aspect-ratio: 0.7;
-                margin: 0 auto 20px;
+            }
+            
+            footer {
+                padding: 8px 0;
             }
         }
 
