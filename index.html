@@ -60,6 +60,7 @@
       --border: #2D2D2D;
       --toggle-bg: #252525;
       --toggle-icon: #FFFFFE;
+      --highlight-border: #2CB67D;
     }
 
     /* Light theme */
@@ -78,6 +79,7 @@
       --border: #CCCCCC;
       --toggle-bg: #EAEAEA;
       --toggle-icon: #121212;
+      --highlight-border: #008B69;
     }
 
     * {
@@ -298,7 +300,7 @@
       transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
-   .section-heading-container {
+    .section-heading-container {
         text-align: center; /* Center the content within the container */
         width: 100%; /* Ensure the container spans the full width */
     }
@@ -464,9 +466,9 @@
     .card-content {
       position: relative;
       z-index: 2;
-        display: flex;          /* Add flexbox layout */
-        flex-direction: column; /* Stack content vertically */
-        height: 100%;          /* Fill available space */
+      display: flex;          /* Add flexbox layout */
+      flex-direction: column; /* Stack content vertically */
+      height: 100%;          /* Fill available space */
     }
 
     .card-number {
@@ -626,11 +628,12 @@
     .about-content {
       max-width: 780px;
       margin: 0 auto;
-        display: flex;        /* Add this */
-        flex-direction: column; /* Add this */
-        align-items: center;   /* Add this */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-  .timeline,
+    
+    .timeline,
     .accent-content,
     .grid,
     .contact-form-container {
@@ -680,6 +683,7 @@
       border-radius: 16px;
       padding: 24px;
       margin-top: 24px;
+      border-left: 4px solid var(--highlight-border);
     }
     .highlight-box p {
        margin-bottom: 0; /* Remove bottom margin from the last paragraph */
@@ -694,7 +698,7 @@
         margin-bottom: 24px; /* Add space above the form */
         text-align: center;
     }
-  .contact-form{
+    .contact-form {
       width: 100%;
     }
 
@@ -737,9 +741,15 @@
         font-weight: 500;
         cursor: pointer;
         transition: all 0.3s ease;
-        display: inline-block; /* Or block, depending on layout needs */
-        margin-top: 16px; /* Add some space between text area and button */
+        display: block; /* Changed from inline-block to block */
+        width: 100%; /* Full width */
+        max-width: 250px; /* Maximum width */
+        margin: 16px auto 0; /* Center the button */
+        text-align: center; /* Center text */
+    }
 
+    .btn i {
+        margin-left: 8px; /* Space between text and icon */
     }
 
     .btn:hover {
@@ -749,24 +759,22 @@
 
     /* Footer Styles */
     footer {
-        padding: 40px 0;
-        background-color: var(--bg-dark); /* Consistent background */
-        text-align: center; /* Center-align content */
+        padding: 20px 0; /* Reduced padding */
+        background-color: var(--bg-dark);
         border-top: 1px solid var(--border);
     }
 
-    .footer-content{
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
+    .footer-content {
+        display: flex;
+        justify-content: space-between; /* Spread content to opposite ends */
+        align-items: center;
+        flex-wrap: wrap;
     }
+
     .footer-links {
-        margin-bottom: 20px; /* Space between links and copyright */
         display: flex;
         gap: 20px;
         align-items: center;
-
     }
 
     .footer-link {
@@ -826,9 +834,10 @@
         flex-direction: column; /* Stack image and text vertically */
         text-align: center; /* Center-align header content */
       }
-        .header-photo{
-            margin-bottom: var(--spacing);
-        }
+      
+      .header-photo {
+        margin-bottom: var(--spacing);
+      }
 
       .header-text {
         text-align: center; /* Center-align text on mobile */
@@ -862,7 +871,7 @@
         left: 0; /* Adjust dot position */
       }
 
-      .timeline-icon{
+      .timeline-icon {
         right: 5px;
       }
 
@@ -873,19 +882,16 @@
       .card {
         padding: 24px; /* Reduced padding in cards */
       }
-        .card-number-bg{
-            font-size: 120px;
-            right: -10px;
-            bottom: -20px;
-        }
+      
+      .card-number-bg {
+        font-size: 120px;
+        right: -10px;
+        bottom: -20px;
+      }
 
       .card-title {
         font-size: 1.3rem; /* Smaller card titles */
       }
-
-      /* .tag-container {  <-- Remove or comment out this line
-         justify-content: flex-start;
-      } */
 
       .accent-section {
         padding: 60px 0; /* Reduced padding on accent section */
@@ -905,69 +911,83 @@
       }
 
       .quote-right {
-          top: auto;   /* Reset top from general styles */
-          bottom: 0;   /* Position relative to the bottom */
-          right: 20px; /* Adjust horizontal position (was 50px) */
-          transform: translateY(50%) rotate(180deg); /* Adjust vertical position. */
+        top: auto;   /* Reset top from general styles */
+        bottom: 0;   /* Position relative to the bottom */
+        right: 20px; /* Adjust horizontal position (was 50px) */
+        transform: translateY(50%) rotate(180deg); /* Adjust vertical position. */
       }
       
-        .quote-left {
+      .quote-left {
         left: 20px; /*Adjusted for mobile*/
         transform: translateY(-20%); /*Adjusted for mobile*/
       }
 
-       .r-hex {
-          margin: 2em auto; /* Center and reduce margin */
-          width: 15em;     /* Smaller hexagon */
-          height: 12.99em;  /* Proportional height */
-        }
+      .r-hex {
+        margin: 2em auto; /* Center and reduce margin */
+        width: 15em;     /* Smaller hexagon */
+        height: 12.99em;  /* Proportional height */
+      }
 
-        .r-hex-inner-2:before {
-            margin-top: -1.125em;
-            height: 15em;
-        }
-        .highlight-box {
-            padding: 16px; /* Reduced padding */
-          }
+      .r-hex-inner-2:before {
+        margin-top: -1.125em;
+        height: 15em;
+      }
+      
+      .highlight-box {
+        padding: 16px; /* Reduced padding */
+      }
 
-        .form-control{
-            font-size: 0.9rem;
-        }
+      .form-control {
+        font-size: 0.9rem;
+      }
 
-        .btn{
-            font-size: 0.9rem;
-            padding: 10px 18px;
-        }
-        .footer-links{
-            flex-direction: column;
-        }
+      .btn {
+        font-size: 0.9rem;
+        padding: 10px 18px;
+      }
+      
+      /* Footer adjustments for mobile */
+      .footer-content {
+        justify-content: center;
+        gap: 15px;
+      }
+      
+      .footer-links {
+        flex-direction: row; /* Keep links in a row on mobile */
+      }
     }
-    @media (max-width: 480px){
-    .name-title{
+    
+    @media (max-width: 480px) {
+      .name-title {
         font-size: 36px;
-    }
-    .timeline-date, .timeline-subtitle{
+      }
+      
+      .timeline-date, .timeline-subtitle {
         font-size: 0.8rem;
-    }
-    .timeline-title{
+      }
+      
+      .timeline-title {
         font-size: 1.1rem;
-    }
-    .quote-right{
-        right: 10px; /*Even smaller screens*/
-    }
-    .quote-left{
-        left: 10px; /*Adjusted for even smaller screen*/
-    }    
-      .r-hex{
+      }
+      
+      .quote-right {
+        right: 10px; /* Even smaller screens */
+      }
+      
+      .quote-left {
+        left: 10px; /* Adjusted for even smaller screen */
+      }
+      
+      .r-hex {
         width: 12em;     /* Even Smaller hexagon */
         height: 10.392em;  /* Proportional height */
-    }
-    .r-hex-inner-2:before {
+      }
+      
+      .r-hex-inner-2:before {
         margin-top: -0.89em;
         height: 12em;
+      }
     }
-}
-
   </style>
 </head>
 <body>
@@ -1060,8 +1080,8 @@
   <section class="accent-section">
     <div class="container">
       <div class="mission-quote"></div>
-      <div class="quote-mark quote-left">“</div>
-      <div class="quote-mark quote-right">“</div>
+      <div class="quote-mark quote-left">"</div>
+      <div class="quote-mark quote-right">"</div>
       <div class="accent-content">
         <div class="section-heading-container">
             <h2 class="accent-heading">My Mission</h2>
@@ -1073,59 +1093,7 @@
     </div>
   </section>
 
-  <section id="experience" class="section">
-    <div class="container">
-    <div class="section-heading-container">
-      <h2 class="section-heading">Experience</h2>
-    </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">May 2023 - Present</div>
-          <h3 class="timeline-title">Product Advisor</h3>
-          <div class="timeline-subtitle">Various Startups</div>
-          <p>Currently partnering with innovative startups to overcome challenges and accelerate growth. I love helping founders translate their vision into products that customers genuinely value.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Jul 2022 - May 2023</div>
-          <h3 class="timeline-title">Senior Director of Product</h3>
-          <div class="timeline-subtitle">Indeed</div>
-          <p>Directed a phenomenal team of 12 PMs and leaders, creating experiences that connected millions of job seekers with the right employers. Revitalized Indeed's Profile platform and pioneered AI-driven experiences that made job seeking more personal and productive.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Oct 2019 - Jun 2022</div>
-          <h3 class="timeline-title">Director of Product</h3>
-          <div class="timeline-subtitle">Indeed</div>
-          <p>Led a team of 8 PMs to transform how people apply for jobs worldwide by reimagining Indeed's application experience. Seeing our Interview Scheduling product grow from concept to facilitating 10M+ interviews annually showed how the right product can remove friction that holds people back.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Jan 2018 - Sep 2019</div>
-          <h3 class="timeline-title">Senior Manager of Product</h3>
-          <div class="timeline-subtitle">Indeed</div>
-          <p>Guided a talented team of 5 PMs to transform Indeed's job application platform, growing from 300M to over 1B applications annually. Pioneered machine learning approaches that significantly improved match quality, creating better connections between job seekers and employers while driving substantial revenue growth.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Feb 2016 - Dec 2017</div>
-          <h3 class="timeline-title">Product Manager</h3>
-          <div class="timeline-subtitle">Indeed</div>
-          <p>Reimagined Indeed's flagship "Easily Apply" platform, focusing on creating seamless experiences that helped more people find meaningful work. Launched an innovative developer program that extended our reach to partner career sites, significantly expanding job opportunities while generating new revenue streams.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Apr 2014 - Jan 2016</div>
-          <h3 class="timeline-title">Product Manager</h3>
-          <div class="timeline-subtitle">MakeMyTrip</div>
-          <p>Drove product vision for India's #1 travel platform, creating mobile-first experiences that delighted travelers and significantly increased engagement. Seeing our apps featured by both Apple and Google validated my focus on creating intuitive, enjoyable booking experiences.</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">May 2010 - Feb 2014</div>
-          <h3 class="timeline-title">Product & UX Manager</h3>
-          <div class="timeline-subtitle">Directi</div>
-          <p>Managed growth for Flock and BigRock, helping people communicate more effectively and establish their online presence. Grew Flock to 1.5M monthly active users by focusing on creating genuine value for teams looking to collaborate more effectively.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-<section id="achievements" class="section">
+  <section id="achievements" class="section">
     <div class="container">
         <div class="section-heading-container">
           <h2 class="section-heading">Career Highlights</h2>
@@ -1176,13 +1144,13 @@
 
   <section id="contact" class="section">
     <div class="container">
-    <div class="section-heading-container">
+      <div class="section-heading-container">
         <h2 class="section-heading">Get In Touch</h2>
-    </div>
+      </div>
       <div class="contact-form-container">
-            <p>Scaling a product, shaping strategy, or tackling a complex challenge?</p>
-            <p>Whether you need a strategic partner, a hands-on product leader, or an advisor to help guide the way, I’d love to hear about your vision and challenges.</p>
-            <p>Let’s connect and explore how we can work together.</p>
+        <p>Scaling a product, shaping strategy, or tackling a complex challenge?</p>
+        <p>Whether you need a strategic partner, a hands-on product leader, or an advisor to help guide the way, I'd love to hear about your vision and challenges.</p>
+        <p>Let's connect and explore how we can work together.</p>
         <form class="contact-form" action="https://formspree.io/f/mwplknwn" method="POST">
           <div style="display:none">
             <label for="honeypot">Leave this field empty if you're human:</label>
@@ -1204,22 +1172,22 @@
             <label class="form-label" for="message">Message</label>
             <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
           </div>
-          <button type="submit" class="btn">Send Message</button>
+          <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
         </form>
-    </div>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="container">
       <div class="footer-content">
+        <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
         <div class="footer-links">
           <a href="https://linkedin.com/in/adityapandya" class="footer-link" target="_blank">LinkedIn</a>
           <button class="theme-toggle" id="footerThemeToggle" aria-label="Toggle dark/light mode">
             <i class="fas fa-sun"></i>
           </button>
         </div>
-        <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
       </div>
     </div>
   </footer>
