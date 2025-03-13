@@ -24,6 +24,15 @@
     <meta property="og:url" content="https://aditya.pandya.co/resume">
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDCMBB8TEX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-NDCMBB8TEX');
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,8 +104,6 @@
             display: flex;
             flex-direction: column;
             min-height: 100vh;
-            margin: 0;
-            padding: 0;
         }
 
         .nav {
@@ -187,8 +194,8 @@
             align-items: center;
             justify-content: center;
             flex: 1;
-            padding-top: 65px; /* For navbar */
-            padding-bottom: 10px;
+            padding-top: 60px; /* Reduced padding */
+            padding-bottom: 5px;
             box-sizing: border-box; /* Ensure padding doesn't add to height */
         }
 
@@ -205,7 +212,7 @@
         .thumbnail {
             width: 100%;
             aspect-ratio: 0.7; /* Standard PDF aspect ratio */
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Reduced margin */
             overflow: hidden;
             position: relative;
             border-radius: 8px;
@@ -256,11 +263,11 @@
 
         /* Footer Styles */
         footer {
-            padding: 15px 0;
+            padding: 10px 0;
             background-color: var(--bg-dark);
             border-top: 1px solid var(--border);
-            position: relative; /* Ensure it's in the normal flow */
-            margin-top: 10px; /* Small gap between content and footer */
+            position: relative;
+            margin-top: 5px; /* Smaller gap */
         }
 
         .footer-content {
@@ -280,47 +287,71 @@
         /* iPad Pro specific fixes */
         @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
             .main-content {
-                padding-top: 70px; /* Give room for the navbar */
-                padding-bottom: 5px;
-                align-items: flex-start; /* Align to top instead of center */
+                padding-top: 65px;
+                padding-bottom: 0;
+                align-items: flex-start;
             }
             
             .thumbnail {
-                max-height: 62vh; /* Smaller thumbnail to ensure button and footer are visible */
+                max-height: 60vh; /* Even smaller to avoid scroll */
                 width: auto;
-                margin: 0 auto 15px;
+                margin: 0 auto 10px;
             }
             
             .resume-container {
                 max-width: 85%;
-                padding-bottom: 15px;
+                padding-bottom: 5px;
             }
             
             .btn {
-                margin-top: 10px;
+                margin-top: 0;
                 width: 70%;
+                padding: 10px 20px; /* Slightly smaller button */
             }
             
             footer {
-                padding: 10px 0;
-                position: relative;
-                clear: both;
-                margin-top: 5px;
+                padding: 8px 0;
+                margin-top: 0;
             }
         }
         
         /* Even tighter constraints for very short screens */
         @media only screen and (max-height: 950px) and (min-width: 768px) and (max-width: 1024px) {
             .thumbnail {
-                max-height: 58vh; /* Even smaller for shorter screens */
+                max-height: 57vh;
             }
             
             .resume-container {
-                padding-bottom: 10px;
+                padding-bottom: 0;
             }
             
             footer {
-                padding: 8px 0;
+                padding: 5px 0;
+            }
+            
+            .btn {
+                padding: 8px 16px;
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* For iPad Pro 11-inch specifically */
+        @media only screen and (min-width: 820px) and (max-width: 840px) and (min-height: 1170px) and (max-height: 1190px) {
+            .main-content {
+                padding-top: 60px;
+            }
+            
+            .thumbnail {
+                max-height: 58vh;
+            }
+            
+            .btn {
+                margin-top: 0;
+                padding: 8px 16px;
+            }
+            
+            footer {
+                padding: 5px 0;
             }
         }
 
@@ -433,8 +464,18 @@
             // Load the PDF for thumbnail generation with error handling
             loadPdfThumbnail();
 
-            // Download button event listener
+            // Download button event listener with Google Analytics tracking
             downloadBtn.addEventListener('click', function() {
+                // Track the download event
+                if (typeof gtag === 'function') {
+                    gtag('event', 'download_resume', {
+                        'event_category': 'Resume',
+                        'event_label': 'Resume Download',
+                        'value': 1
+                    });
+                }
+                
+                // Create download link
                 const a = document.createElement('a');
                 a.href = pdfPath;
                 a.download = 'Aditya Pandya - Resume.pdf';
@@ -484,12 +525,57 @@
                     };
                     
                     await page.render(renderContext).promise;
+                    
+                    // Track PDF view success
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'view_resume', {
+                            'event_category': 'Resume',
+                            'event_label': 'Resume View Success',
+                            'value': 1
+                        });
+                    }
                 } catch (error) {
                     console.error('Error generating thumbnail:', error);
                     const thumbnailContainer = document.getElementById('thumbnailContainer');
                     thumbnailContainer.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);text-align:center;padding:20px;">Resume preview unavailable.<br>Click below to download.</div>';
+                    
+                    // Track PDF view error
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'view_resume_error', {
+                            'event_category': 'Resume',
+                            'event_label': 'Resume View Error',
+                            'value': 1
+                        });
+                    }
                 }
             }
+            
+            // Track theme toggle events
+            themeToggles.forEach(toggle => {
+                toggle.addEventListener('click', () => {
+                    const currentTheme = htmlElement.getAttribute('data-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                    
+                    if (typeof gtag === 'function') {
+                        gtag('event', 'theme_change', {
+                            'event_category': 'UI',
+                            'event_label': `Theme changed to ${newTheme}`,
+                            'value': 1
+                        });
+                    }
+                });
+            });
+            
+            // Track navigation back to main site
+            document.querySelector('.nav-link').addEventListener('click', function() {
+                if (typeof gtag === 'function') {
+                    gtag('event', 'navigation', {
+                        'event_category': 'Navigation',
+                        'event_label': 'Back to Main Site',
+                        'value': 1
+                    });
+                }
+            });
         });
     </script>
 </body>
