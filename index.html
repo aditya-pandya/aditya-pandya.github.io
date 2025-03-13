@@ -904,14 +904,16 @@
         opacity: 0.05;
       }
 
-      .quote-left {
-        left: 20px;
-        transform: translateY(-20%);
-      }
-
       .quote-right {
-        right: 20px;
-        transform: translateY(20%) rotate(180deg);
+          top: auto;   /* Reset top from general styles */
+          bottom: 0;   /* Position relative to the bottom */
+          right: 20px; /* Adjust horizontal position (was 50px) */
+          transform: translateY(50%) rotate(180deg); /* Adjust vertical position. */
+      }
+      
+        .quote-left {
+        left: 20px; /*Adjusted for mobile*/
+        transform: translateY(-20%); /*Adjusted for mobile*/
       }
 
        .r-hex {
@@ -950,11 +952,16 @@
     .timeline-title{
         font-size: 1.1rem;
     }
-      .r-hex {
-      width: 12em;     /* Even Smaller hexagon */
-      height: 10.392em;  /* Proportional height */
+    .quote-right{
+        right: 10px; /*Even smaller screens*/
     }
-
+    .quote-left{
+        left: 10px; /*Adjusted for even smaller screen*/
+    }    
+      .r-hex{
+        width: 12em;     /* Even Smaller hexagon */
+        height: 10.392em;  /* Proportional height */
+    }
     .r-hex-inner-2:before {
         margin-top: -0.89em;
         height: 12em;
