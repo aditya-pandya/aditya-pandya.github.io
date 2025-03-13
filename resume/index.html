@@ -188,11 +188,11 @@
         .resume-container {
             background-color: var(--bg-card);
             border-radius: 16px;
-            padding: 36px;
+            padding: 30px;
             border: 1px solid var(--border);
             transition: all 0.3s ease;
             width: 90%;
-            max-width: 450px;
+            max-width: 500px;
             margin: 0 auto;
         }
 
@@ -205,8 +205,6 @@
         .thumbnail {
             width: 100%;
             aspect-ratio: 0.7; /* Standard PDF aspect ratio */
-            border: 1px solid var(--border);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             margin-bottom: 20px;
             overflow: hidden;
             position: relative;
@@ -338,7 +336,6 @@
                 <i class="fas fa-download"></i>
                 Download Resume
             </button>
-            <div class="last-updated" id="lastUpdated"></div>
         </div>
     </main>
 
@@ -367,7 +364,6 @@
             const pdfPath = './Aditya Pandya - Resume.pdf'; // Path to PDF relative to this HTML file
             const thumbnailCanvas = document.getElementById('pdfThumbnail');
             const downloadBtn = document.getElementById('downloadBtn');
-            const lastUpdatedText = document.getElementById('lastUpdated');
             const themeToggles = document.querySelectorAll('.theme-toggle');
             const htmlElement = document.documentElement;
 
@@ -444,27 +440,6 @@
                     console.error('Error generating thumbnail:', error);
                     const thumbnailContainer = document.getElementById('thumbnailContainer');
                     thumbnailContainer.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);text-align:center;padding:20px;">Resume preview unavailable.<br>Click below to download.</div>';
-                }
-            }
-
-            // Function to fetch last updated date
-            async function fetchLastUpdated(url) {
-                try {
-                    const response = await fetch(url, { method: 'HEAD' });
-                    if (response.ok) {
-                        const lastModified = response.headers.get('Last-Modified');
-                        if (lastModified) {
-                            const date = new Date(lastModified);
-                            lastUpdatedText.textContent = `Last updated: ${date.toLocaleDateString()}`;
-                        } else {
-                            lastUpdatedText.textContent = 'Resume available for download';
-                        }
-                    } else {
-                        throw new Error('Failed to fetch file information');
-                    }
-                } catch (error) {
-                    console.error('Error fetching last updated date:', error);
-                    lastUpdatedText.textContent = 'Resume available for download';
                 }
             }
         });
