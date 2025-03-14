@@ -52,6 +52,7 @@ html {
 }
 
 body {
+  /* body styles continue here */
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.7;
   color: var(--text);
@@ -1060,21 +1061,81 @@ background-color: #FFFFFF;
 }
 }
 
-/* Ensure proper spacing below nav for all pages /
+/* Ensure proper spacing below nav for all pages */
 header {
-padding-top: 120px; / Adjusted for fixed nav bar */
+padding-top: 120px; /* Adjusted for fixed nav bar */
 }
 
 .main-content {
 padding-top: 70px; /* Consistent spacing for resume page */
 }
 
-/* Resume page specific class for consistent nav styling /
+/* Resume page specific class for consistent nav styling */
 .resume-page .nav {
-/ These styles will be overridden by the @supports rule on iOS */
 position: fixed;
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
 }
 
+}
+
+
+/* Safari/iOS specific navigation fix */
+@supports (-webkit-touch-callout: none) {
+  .nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: var(--bg-dark);
+  }
+  
+  html[data-theme="dark"] .nav {
+    background-color: #0a0a0a;
+  }
+  
+  html[data-theme="light"] .nav {
+    background-color: #FFFFFF;
+  }
+}
+
+/* iPad specific fix */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  
+  html[data-theme="dark"] .nav {
+    background-color: #0a0a0a;
+  }
+  
+  html[data-theme="light"] .nav {
+    background-color: #FFFFFF;
+  }
+}
+/* Fix for navbar on small mobile screens */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 10px;
+    }
+    
+    .nav-logo {
+        font-size: 1rem;
+    }
+    
+    .nav-link {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+    
+    .theme-toggle {
+        width: 36px;
+        height: 36px;
+        margin-left: 8px;
+    }
+    
+    /* Ensure the resume page navbar is properly spaced */
+    .resume-page .nav-links {
+        gap: 10px;
+    }
 }
