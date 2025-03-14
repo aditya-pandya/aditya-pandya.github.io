@@ -63,6 +63,18 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.trackPdfViewSuccess) {
                 window.trackPdfViewSuccess();
             }
+
+            // Fix for potential vertical scrollbar by checking if we need to adjust height
+            const mainContent = document.querySelector('.main-content');
+            const totalHeight = thumbnailContainer.offsetHeight + downloadBtn.offsetHeight + 30; // Add padding
+            const windowHeight = window.innerHeight - 140; // Subtract nav and footer space
+            
+            // If the content would cause scrolling, adjust height for iPad and other devices
+            if (totalHeight > windowHeight && window.innerWidth >= 768) {
+                const newHeight = windowHeight - downloadBtn.offsetHeight - 30;
+                thumbnailContainer.style.height = `${newHeight}px`;
+                thumbnailCanvas.style.height = `${newHeight}px`;
+            }
         } catch (error) {
             console.error('Error generating thumbnail:', error);
             thumbnailContainer.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--text-muted);text-align:center;padding:20px;">Resume preview unavailable.<br>Click below to download.</div>';
@@ -76,4 +88,36 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Load the PDF for thumbnail generation with error handling
     loadPdfThumbnail();
+    
+    // Prevent vertical scroll bars by checking window dimensions
+    window.addEventListener('resize', function() {
+        const body = document.body;
+        const html = document.documentElement;
+        const windowHeight = window.innerHeight;
+        const docHeight = Math.max(
+            body.scrollHeight, body.offsetHeight,
+            html.clientHeight, html.scrollHeight, html.offsetHeight
+        );
+        
+        // If document is taller than window, apply fix
+        if (docHeight > windowHeight) {
+            // Adjust for iPad and other tablets
+            if (window.innerWidth >= 768) {
+                const thumbnailContainer = document.getElementById('thumbnailContainer');
+                if (thumbnailContainer) {
+                    const mainContent = document.querySelector('.main-content');
+                    const downloadBtn = document.getElementById('downloadBtn');
+                    const availableHeight = windowHeight - 140; // Subtract nav and footer
+                    const btnHeight = downloadBtn ? downloadBtn.offsetHeight : 60;
+                    const newHeight = availableHeight - btnHeight - 30; // Padding
+                    
+                    thumbnailContainer.style.height = `${newHeight}px`;
+                    // If canvas exists, adjust it too
+                    if (thumbnailCanvas) {
+                        thumbnailCanvas.style.height = `${newHeight}px`;
+                    }
+                }
+            }
+        }
+    });
 });
