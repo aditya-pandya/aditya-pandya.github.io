@@ -52,7 +52,6 @@ html {
 }
 
 body {
-  /* body styles continue here */
   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
   line-height: 1.7;
   color: var(--text);
@@ -478,664 +477,657 @@ html[data-theme="light"] .card-number {
 .card-description {
   margin-bottom: 0; /* Remove bottom margin */
   flex-grow: 1;     /* Allow description to take up remaining space */
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-font-weight: 300;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
 }
 
 .tag-container {
-display: flex;
-flex-wrap: wrap;
-gap: 10px;
-margin: 32px 0;
-justify-content: center; /* Center-align the skills */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 32px 0;
+  justify-content: center; /* Center-align the skills */
 }
 
 .tag {
-padding: 8px 16px;
-background-color: var(--bg-alternate);
-color: var(--text);
-border-radius: 30px;
-font-size: 0.9rem;
-border: 1px solid var(--border);
-transition: all 0.3s ease;
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-font-weight: 400;
+  padding: 8px 16px;
+  background-color: var(--bg-alternate);
+  color: var(--text);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
 }
 
 .tag:hover {
-background-color: var(--bg-hover);
-border-color: var(--primary);
-color: var(--primary);
-transform: translateY(-2px);
+  background-color: var(--bg-hover);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
 }
 
 html[data-theme="light"] .tag:hover {
-background-color: #E0E0E0;
-border-color: #5038A1;
-color: #5038A1;
-font-weight: 500;
+  background-color: #E0E0E0;
+  border-color: #5038A1;
+  color: #5038A1;
+  font-weight: 500;
 }
 
 .accent-section {
-background-color: var(--bg-alternate);
-padding: 100px 0;
-border-top: 1px solid var(--border);
-border-bottom: 1px solid var(--border);
-position: relative;
-overflow: hidden;
-transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-color: var(--bg-alternate);
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .mission-quote {
-position: absolute;
-font-size: 180px;
-font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
-font-weight: 600;
-opacity: 0.05;
-color: var(--text);
-line-height: 1;
-z-index: 1;
-text-align: center;
-width: 100%;
-top: 50%;
-transform: translateY(-50%);
-transition: color 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+  font-size: 180px;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  opacity: 0.05;
+  color: var(--text);
+  line-height: 1;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .accent-content {
-display: flex;
-flex-direction: column;
-max-width: 780px;
-margin: 0 auto;
-text-align: center;
-position: relative;
-z-index: 2;
+  display: flex;
+  flex-direction: column;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .accent-heading {
-font-size: 2.4rem;
-margin-bottom: 28px;
-color: var(--text);
-font-weight: 600;
-font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
-transition: color 0.3s ease;
+  font-size: 2.4rem;
+  margin-bottom: 28px;
+  color: var(--text);
+  font-weight: 600;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
 }
 
 .accent-text {
-font-size: 2rem;
-line-height: 1.4;
-font-weight: 600;
-font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
-color: var(--accent-1);
-padding: 10px 0;
-margin: 0 auto;
-transition: color 0.3s ease;
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 600;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--accent-1);
+  padding: 10px 0;
+  margin: 0 auto;
+  transition: color 0.3s ease;
 }
 
 html[data-theme="light"] .accent-text {
-color: #D97700;
+  color: #D97700;
 }
 
 .quote-font {
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-font-weight: 400;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
 }
 
 .quote-mark {
-position: absolute;
-font-size: 12rem;
-font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
-font-weight: 600;
-opacity: 0.07;
-color: var(--text);
-line-height: 1;
-z-index: 1;
-transition: color 0.3s ease, opacity 0.3s ease;
+  position: absolute;
+  font-size: 12rem;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  opacity: 0.07;
+  color: var(--text);
+  line-height: 1;
+  z-index: 1;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .quote-left {
-top: 0;
-left: 50px;
-transform: translateY(-30%);
+  top: 0;
+  left: 50px;
+  transform: translateY(-30%);
 }
 
 .quote-right {
-bottom: 0;
-right: 50px;
-transform: translateY(30%) rotate(180deg);
+  bottom: 0;
+  right: 50px;
+  transform: translateY(30%) rotate(180deg);
 }
 
 .about-content {
-max-width: 780px;
-margin: 0 auto;
-display: flex;
-flex-direction: column;
-align-items: center;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .timeline,
 .accent-content,
 .grid,
 .contact-form-container {
-display: flex;
-flex-direction: column;
-align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Keep the hexagon structure */
 .r-hex {
-overflow: hidden;
-display: inline-block;
-margin: 4em 0;
-width: 20em;
-height: 17.32em;
-transform: rotate(-30deg) skewX(30deg);
-border-radius: 1.5em;
+  overflow: hidden;
+  display: inline-block;
+  margin: 4em 0;
+  width: 20em;
+  height: 17.32em;
+  transform: rotate(-30deg) skewX(30deg);
+  border-radius: 1.5em;
 }
 .r-hex *, .r-hex *:before {
-display: block;
-overflow: hidden;
-width: inherit;
-height: inherit;
-border-radius: inherit;
+  display: block;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
 }
 .r-hex-inner {
-transform: skewX(-30deg) rotate(60deg) skewX(30deg);
-opacity: 1;
-cursor: pointer;
-}   
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  opacity: 1;
+  cursor: pointer;
+}
 
-.r-hex-inner-2 { /* This is the correct selector for the image /
-transform: skewX(-30deg) rotate(60deg) skewX(30deg); / Correct transformation /
+.r-hex-inner-2 { /* This is the correct selector for the image */
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg); /* Correct transformation */
 }
 .r-hex-inner-2:before {
-margin-top: -1.5em;
-height: 20em;
-transform: skewX(-30deg) rotate(-90deg);
-background: url(../assets/images/ap.jpeg); / Updated image path /
-background-size: cover;
-content: ''; / Needed for the pseudo-element to appear */
+  margin-top: -1.5em;
+  height: 20em;
+  transform: skewX(-30deg) rotate(-90deg);
+  background: url(../assets/images/ap.jpeg); /* Updated image path */
+  background-size: cover;
+  content: ''; /*  Needed for the pseudo-element to appear */
 }
+
 
 .highlight-box {
-background-color: var(--bg-alternate);
-border-radius: 16px;
-padding: 24px;
-margin-top: 24px;
-border-left: 4px solid var(--highlight-border);
+  background-color: var(--bg-alternate);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  border-left: 4px solid var(--highlight-border);
 }
 .highlight-box p {
-margin-bottom: 0; /* Remove bottom margin from the last paragraph */
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-font-weight: 300;
+   margin-bottom: 0; /* Remove bottom margin from the last paragraph */
+   font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+   font-weight: 300;
 }
 
-/* Form Styles /
+/* Form Styles */
 .contact-form-container {
-max-width: 600px;
-margin: 0 auto;
+    max-width: 600px;
+    margin: 0 auto;
 }
 .contact-form-container > p {
-margin-bottom: 24px; / Add space above the form */
-text-align: center;
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-font-weight: 300;
+    margin-bottom: 24px; /* Add space above the form */
+    text-align: center;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 300;
 }
 .contact-form {
-width: 100%;
+  width: 100%;
 }
 
 .form-group {
-margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .form-label {
-display: block;
-margin-bottom: 8px;
-color: var(--text-muted);
-font-weight: 500;
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .form-control {
-width: 100%;
-padding: 12px;
-border: 1px solid var(--border);
-border-radius: 8px;
-background-color: var(--bg-card);
-color: var(--text);
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-font-size: 1rem;
-font-weight: 300;
-transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--bg-card);
+    color: var(--text);
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .form-control:focus {
-outline: none;
-border-color: var(--primary);
-box-shadow: 0 0 5px rgba(127, 90, 240, 0.5);
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 5px rgba(127, 90, 240, 0.5);
 }
 
 .btn {
-background: linear-gradient(90deg, var(--primary), var(--accent-3));
-color: #fff;
-padding: 12px 24px;
-border: none;
-border-radius: 30px;
-font-size: 1rem;
-font-weight: 500;
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-cursor: pointer;
-transition: all 0.3s ease;
-display: block; /* Changed from inline-block to block /
-width: 100%; / Full width /
-max-width: 250px; / Maximum width /
-margin: 16px auto 0; / Center the button /
-text-align: center; / Center text */
+    background: linear-gradient(90deg, var(--primary), var(--accent-3));
+    color: #fff;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block; /* Changed from inline-block to block */
+    width: 100%; /* Full width */
+    max-width: 250px; /* Maximum width */
+    margin: 16px auto 0; /* Center the button */
+    text-align: center; /* Center text */
 }
 
 .btn i {
-margin-left: 8px; /* Space between text and icon */
+    margin-left: 8px; /* Space between text and icon */
 }
 
 .btn:hover {
-opacity: 0.9;
-transform: translateY(-2px);
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
-/* Footer Styles /
+/* Footer Styles */
 footer {
-padding: 20px 0; / Reduced padding */
-background-color: var(--bg-dark);
-border-top: 1px solid var(--border);
+    padding: 20px 0; /* Reduced padding */
+    background-color: var(--bg-dark);
+    border-top: 1px solid var(--border);
 }
 
 .footer-content {
-display: flex;
-justify-content: space-between; /* Spread content to opposite ends */
-align-items: center;
-flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between; /* Spread content to opposite ends */
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .footer-links {
-display: flex;
-gap: 20px;
-align-items: center;
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 
 .footer-link {
-color: var(--text-muted);
-text-decoration: none;
-font-size: 0.9rem;
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-transition: color 0.3s ease;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-color: var(--primary);
+    color: var(--primary);
 }
 
 .copyright {
-color: var(--text-muted);
-font-size: 0.9rem;
-font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Resume Page Specific Styles /
-/ Main content styles for the resume page /
+/* Resume Page Specific Styles */
+/* Main content styles for the resume page */
 .main-content {
-display: flex;
-align-items: center;
-justify-content: center;
-flex: 1;
-padding-top: 60px; / Reduced padding /
-padding-bottom: 5px;
-box-sizing: border-box; / Ensure padding doesn't add to height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding-top: 60px; /* Reduced padding */
+    padding-bottom: 5px;
+    box-sizing: border-box; /* Ensure padding doesn't add to height */
 }
 
 .resume-container {
-width: 90%;
-max-width: 550px;
-margin: 0 auto;
-display: flex;
-flex-direction: column;
-align-items: center;
-padding-bottom: 10px; /* Ensure space before footer */
+    width: 90%;
+    max-width: 550px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px; /* Ensure space before footer */
 }
 
 .thumbnail {
-width: 100%;
-aspect-ratio: 0.7; /* Standard PDF aspect ratio /
-margin-bottom: 15px; / Reduced margin */
-overflow: hidden;
-position: relative;
-border-radius: 8px;
-background-color: white;
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    aspect-ratio: 0.7; /* Standard PDF aspect ratio */
+    margin-bottom: 15px; /* Reduced margin */
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 /* Subtle border that adapts to theme */
 html[data-theme="dark"] .thumbnail {
-border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 html[data-theme="light"] .thumbnail {
-border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .thumbnail img, .thumbnail canvas {
-width: 100%;
-height: 100%;
-object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
-/* Resume page footer overrides /
+/* Resume page footer overrides */
 .resume-page footer {
-padding: 10px 0;
-margin-top: 5px; / Smaller gap */
-position: relative;
+    padding: 10px 0;
+    margin-top: 5px; /* Smaller gap */
+    position: relative;
 }
 
-/* Mobile Styles /
+/* Mobile Styles */
 @media (max-width: 768px) {
-.nav-links {
-display: none; / Hide links by default on mobile /
-flex-direction: column;
-position: absolute;
-top: 60px; / Adjust as needed for your navbar height /
-left: 0;
-right: 0;
-background-color: var(--bg-dark); / Match navbar background /
-backdrop-filter: blur(10px);
-padding: 20px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-z-index: 99; / Ensure it's above other content */
-}
+  .nav-links {
+    display: none; /* Hide links by default on mobile */
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Adjust as needed for your navbar height */
+    left: 0;
+    right: 0;
+    background-color: var(--bg-dark); /* Match navbar background */
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 99; /* Ensure it's above other content */
+  }
 
-/* For the resume page, we want to display links by default */
-.resume-page .nav-links {
-display: flex;
-position: static;
-padding: 0;
-box-shadow: none;
-}
+  /* For the resume page, we want to display links by default */
+  .resume-page .nav-links {
+    display: flex;
+    position: static;
+    padding: 0;
+    box-shadow: none;
+  }
 
-html[data-theme="dark"] .nav-links {
-background-color: rgba(10, 10, 10, 0.95);
-}
+  html[data-theme="dark"] .nav-links {
+      background-color: rgba(10, 10, 10, 0.95);
+    }
 
-html[data-theme="light"] .nav-links {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-.nav-links.active {
-display: flex; /* Show links when menu is active */
-}
+    html[data-theme="light"] .nav-links {
+      background-color: rgba(255, 255, 255, 0.95);
+    }
 
-.nav-link {
-padding: 10px 16px; /* Larger padding for touch targets /
-text-align: center; / Center-align links */
-}
+  .nav-links.active {
+    display: flex; /* Show links when menu is active */
+  }
 
-.mobile-menu-toggle {
-display: block; /* Show the toggle button on mobile */
-}
+  .nav-link {
+    padding: 10px 16px; /* Larger padding for touch targets */
+    text-align: center; /* Center-align links */
+  }
 
-/* Hide the mobile toggle on resume page */
-.resume-page .mobile-menu-toggle {
-display: none;
-}
+  .mobile-menu-toggle {
+    display: block; /* Show the toggle button on mobile */
+  }
 
-.header-content {
-flex-direction: column; /* Stack image and text vertically /
-text-align: center; / Center-align header content */
-}
+  /* Hide the mobile toggle on resume page */
+  .resume-page .mobile-menu-toggle {
+    display: none;
+  }
 
-.header-photo {
-margin-bottom: var(--spacing);
-}
-
-.header-text {
-text-align: center; /* Center-align text on mobile */
-}
-
-.name-title {
-font-size: 48px; /* Smaller font size for name on mobile */
-}
-
-.header-subtitle {
-font-size: 1.2rem; /* Smaller font size for subtitle on mobile */
-}
-
-.section {
-padding: 60px 0; /* Reduced padding on sections */
-}
-
-.section-heading {
-font-size: 2rem; /* Smaller section headings */
-}
-
-.timeline::before {
-left: 5px; /* Adjust timeline line position */
-}
-
-.timeline-item {
-padding-left: 32px; /* Adjust padding for timeline items */
-}
-
-.timeline-item::before {
-left: 0; /* Adjust dot position */
-}
-
-.timeline-icon {
-right: 5px;
-}
-
-.grid {
-grid-template-columns: 1fr; /* Single column grid on mobile */
-}
-
-.card {
-padding: 24px; /* Reduced padding in cards */
-}
-
-.card-number-bg {
-font-size: 120px;
-right: -10px;
-bottom: -20px;
-}
-
-.card-title {
-font-size: 1.3rem; /* Smaller card titles */
-}
-
-.accent-section {
-padding: 60px 0; /* Reduced padding on accent section */
-}
-
-.accent-heading {
-font-size: 2rem; /* Smaller accent heading */
-}
-
-.accent-text {
-font-size: 1.8rem; /* Smaller accent text */
-}
-
-.quote-mark {
-font-size: 6rem; /* Smaller quote marks */
-opacity: 0.05;
-}
-
-.quote-right {
-top: auto;   /* Reset top from general styles /
-bottom: 0;   / Position relative to the bottom /
-right: 20px; / Adjust horizontal position (was 50px) /
-transform: translateY(50%) rotate(180deg); / Adjust vertical position. */
-}
-
-.quote-left {
-left: 20px; /Adjusted for mobile/
-transform: translateY(-20%); /Adjusted for mobile/
-}
-
-.r-hex {
-width: 12em;     /* Even Smaller hexagon /
-height: 10.392em;  / Proportional height */
-}
-
-.r-hex-inner-2:before {
-margin-top: -0.89em;
-height: 12em;
-}
-
-/* Resume-specific adjustments for small mobile screens /
-.thumbnail {
-aspect-ratio: 0.75; / Slightly taller on mobile */
-}
-
-.btn {
-width: 80%;
-font-size: 0.9rem;
-padding: 10px 18px;
-}
-}
-/* Navigation Bar Styles with Selective Translucency */
-
-/* Base navigation styles */
-.nav {
-position: fixed;
-top: 0;
-left: 0;
-right: 0;
-z-index: 100;
-padding: 15px 0;
-border-bottom: 1px solid var(--border);
-transition: background-color 0.3s ease;
-
-/* Default translucent style for most browsers */
-background-color: rgba(10, 10, 10, 0.85);
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-}
-
-/* Dark theme translucent background */
-html[data-theme="dark"] .nav {
-background-color: rgba(10, 10, 10, 0.85);
-}
-
-/* Light theme translucent background */
-html[data-theme="light"] .nav {
-background-color: rgba(255, 255, 255, 0.85);
-}
-
-/* Solid background specifically for iOS Safari */
-@supports (-webkit-touch-callout: none) {
-.nav {
-backdrop-filter: none;
--webkit-backdrop-filter: none;
-background-color: var(--bg-dark);
-}
-
-html[data-theme="dark"] .nav {
-background-color: #0a0a0a;
-}
-
-html[data-theme="light"] .nav {
-background-color: #FFFFFF;
-}
-}
-
-/* Additional fix for iPad devices */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-.nav {
-backdrop-filter: none;
--webkit-backdrop-filter: none;
-background-color: var(--bg-dark);
-}
-
-html[data-theme="dark"] .nav {
-background-color: #0a0a0a;
-}
-
-html[data-theme="light"] .nav {
-background-color: #FFFFFF;
-}
-}
-
-/* Ensure proper spacing below nav for all pages */
-header {
-padding-top: 120px; /* Adjusted for fixed nav bar */
-}
-
-.main-content {
-padding-top: 70px; /* Consistent spacing for resume page */
-}
-
-/* Resume page specific class for consistent nav styling */
-.resume-page .nav {
-position: fixed;
-backdrop-filter: blur(10px);
--webkit-backdrop-filter: blur(10px);
-}
-
-}
-
-
-/* Safari/iOS specific navigation fix */
-@supports (-webkit-touch-callout: none) {
-  .nav {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    background-color: var(--bg-dark);
+  .header-content {
+    flex-direction: column; /* Stack image and text vertically */
+    text-align: center; /* Center-align header content */
   }
   
-  html[data-theme="dark"] .nav {
-    background-color: #0a0a0a;
+  .header-photo {
+    margin-bottom: var(--spacing);
+  }
+
+  .header-text {
+    text-align: center; /* Center-align text on mobile */
+  }
+
+  .name-title {
+    font-size: 48px; /* Smaller font size for name on mobile */
+  }
+
+  .header-subtitle {
+    font-size: 1.2rem; /* Smaller font size for subtitle on mobile */
+  }
+
+  .section {
+    padding: 60px 0; /* Reduced padding on sections */
+  }
+
+  .section-heading {
+    font-size: 2rem; /* Smaller section headings */
+  }
+
+  .timeline::before {
+    left: 5px; /* Adjust timeline line position */
+  }
+
+  .timeline-item {
+    padding-left: 32px; /* Adjust padding for timeline items */
+  }
+
+  .timeline-item::before {
+    left: 0; /* Adjust dot position */
+  }
+
+  .timeline-icon {
+    right: 5px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr; /* Single column grid on mobile */
+  }
+
+  .card {
+    padding: 24px; /* Reduced padding in cards */
   }
   
-  html[data-theme="light"] .nav {
-    background-color: #FFFFFF;
+  .card-number-bg {
+    font-size: 120px;
+    right: -10px;
+    bottom: -20px;
+  }
+
+  .card-title {
+    font-size: 1.3rem; /* Smaller card titles */
+  }
+
+  .accent-section {
+    padding: 60px 0; /* Reduced padding on accent section */
+  }
+
+  .accent-heading {
+    font-size: 2rem; /* Smaller accent heading */
+  }
+
+  .accent-text {
+    font-size: 1.8rem; /* Smaller accent text */
+  }
+
+  .quote-mark {
+    font-size: 6rem; /* Smaller quote marks */
+    opacity: 0.05;
+  }
+
+  .quote-right {
+    top: auto;   /* Reset top from general styles */
+    bottom: 0;   /* Position relative to the bottom */
+    right: 20px; /* Adjust horizontal position (was 50px) */
+    transform: translateY(50%) rotate(180deg); /* Adjust vertical position. */
+  }
+  
+  .quote-left {
+    left: 20px; /*Adjusted for mobile*/
+    transform: translateY(-20%); /*Adjusted for mobile*/
+  }
+
+  .r-hex {
+    margin: 2em auto; /* Center and reduce margin */
+    width: 15em;     /* Smaller hexagon */
+    height: 12.99em;  /* Proportional height */
+  }
+
+  .r-hex-inner-2:before {
+    margin-top: -1.125em;
+    height: 15em;
+  }
+  
+  .highlight-box {
+    padding: 16px; /* Reduced padding */
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+  
+  /* Footer adjustments for mobile */
+  .footer-content {
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .footer-links {
+    flex-direction: row; /* Keep links in a row on mobile */
+  }
+
+  /* Resume specific mobile styles */
+  .resume-container {
+    max-width: 90%;
   }
 }
 
-/* iPad specific fix */
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
-  .nav {
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-  }
-  
-  html[data-theme="dark"] .nav {
-    background-color: #0a0a0a;
-  }
-  
-  html[data-theme="light"] .nav {
-    background-color: #FFFFFF;
-  }
+/* iPad Pro specific fixes */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .main-content {
+        padding-top: 65px;
+        padding-bottom: 0;
+        align-items: flex-start;
+    }
+    
+    .thumbnail {
+        max-height: 60vh; /* Even smaller to avoid scroll */
+        width: auto;
+        margin: 0 auto 10px;
+    }
+    
+    .resume-container {
+        max-width: 85%;
+        padding-bottom: 5px;
+    }
+    
+    .btn {
+        margin-top: 0;
+        width: 70%;
+        padding: 10px 20px; /* Slightly smaller button */
+    }
+    
+    .resume-page footer {
+        padding: 8px 0;
+        margin-top: 0;
+    }
 }
-/* Fix for navbar on small mobile screens */
+
+/* Even tighter constraints for very short screens */
+@media only screen and (max-height: 950px) and (min-width: 768px) and (max-width: 1024px) {
+    .thumbnail {
+        max-height: 57vh;
+    }
+    
+    .resume-container {
+        padding-bottom: 0;
+    }
+    
+    .resume-page footer {
+        padding: 5px 0;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+/* For iPad Pro 11-inch specifically */
+@media only screen and (min-width: 820px) and (max-width: 840px) and (min-height: 1170px) and (max-height: 1190px) {
+    .main-content {
+        padding-top: 60px;
+    }
+    
+    .thumbnail {
+        max-height: 58vh;
+    }
+    
+    .btn {
+        margin-top: 0;
+        padding: 8px 16px;
+    }
+    
+    .resume-page footer {
+        padding: 5px 0;
+    }
+}
+
 @media (max-width: 480px) {
-    .nav-container {
-        padding: 0 10px;
-    }
-    
-    .nav-logo {
-        font-size: 1rem;
-    }
-    
-    .nav-link {
-        padding: 6px 10px;
-        font-size: 0.85rem;
-        white-space: nowrap;
-    }
-    
-    .theme-toggle {
-        width: 36px;
-        height: 36px;
-        margin-left: 8px;
-    }
-    
-    /* Ensure the resume page navbar is properly spaced */
-    .resume-page .nav-links {
-        gap: 10px;
-    }
+  .name-title {
+    font-size: 36px;
+  }
+  
+  .timeline-date, .timeline-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .timeline-title {
+    font-size: 1.1rem;
+  }
+  
+  .quote-right {
+    right: 10px; /* Even smaller screens */
+  }
+  
+  .quote-left {
+    left: 10px; /* Adjusted for even smaller screen */
+  }
+  
+  .r-hex {
+    width: 12em;     /* Even Smaller hexagon */
+    height: 10.392em;  /* Proportional height */
+  }
+  
+  .r-hex-inner-2:before {
+    margin-top: -0.89em;
+    height: 12em;
+  }
+
+  /* Resume-specific adjustments for small mobile screens */
+  .thumbnail {
+      aspect-ratio: 0.75; /* Slightly taller on mobile */
+  }
+  
+  .btn {
+      width: 80%;
+      font-size: 0.9rem;
+      padding: 10px 18px;
+  }
 }
