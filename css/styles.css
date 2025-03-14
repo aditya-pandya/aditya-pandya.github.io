@@ -1213,3 +1213,24 @@ html[data-theme="light"] .thumbnail {
     margin-left: 8px;
   }
 }
+/* Additional spacing for resume thumbnail */
+.resume-page .main-content {
+  padding-top: 85px; /* Increase from the current 60px or 70px */
+}
+
+.resume-container {
+  width: 85%; /* Slightly reduce width from 90% */
+  max-width: 520px; /* Reduce from 550px */
+} 
+
+.thumbnail {
+    margin-top: 10px; /* Add explicit margin at the top */
+  }
+}
+
+/* For iPhone Safari specific fix */
+@supports (-webkit-touch-callout: none) {
+  .resume-page .main-content {
+    padding-top: 90px; /* Safari needs more space */
+  }
+}
