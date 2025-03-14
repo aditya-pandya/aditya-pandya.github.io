@@ -1165,3 +1165,51 @@ html[data-theme="light"] .thumbnail {
     }
   }
 }
+/* Fix for the resume page navbar */
+.resume-page .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.resume-page .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: static;
+  flex-direction: row;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Mobile fixes for resume page navbar */
+@media (max-width: 480px) {
+  .resume-page .nav-logo {
+    font-size: 1rem;
+    flex-shrink: 1;
+  }
+  
+  .resume-page .nav-links {
+    flex-shrink: 0;
+    gap: 8px;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+  
+  .resume-page .nav-link {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+  
+  .resume-page .theme-toggle {
+    width: 36px;
+    height: 36px;
+    margin-left: 8px;
+  }
+}
