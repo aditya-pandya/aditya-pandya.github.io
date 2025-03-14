@@ -1,0 +1,1298 @@
+/* ==========================================================================
+   TABLE OF CONTENTS
+   
+   1. CSS Variables & Themes
+   2. Base & Typography
+   3. Layout & Containers
+   4. Navigation
+   5. Header
+   6. Sections
+   7. Timeline
+   8. Cards & Grids
+   9. Tags & Skills
+   10. Accent Section
+   11. Forms
+   12. Footer
+   13. Resume Page Specific
+   14. Hexagon Profile
+   15. Media Queries
+   ========================================================================== */
+
+/* ==========================================================================
+   1. CSS Variables & Themes
+   ========================================================================== */
+
+:root {
+  --spacing: 8px;
+}
+
+/* Dark theme (default) */
+html[data-theme="dark"] {
+  --bg-dark: #0a0a0a;
+  --bg-card: #121212;
+  --bg-alternate: #1a1a1a;
+  --bg-hover: #252525;
+  --primary: #7F5AF0;
+  --secondary: #2CB67D;
+  --accent-1: #FF8906;
+  --accent-2: #E53170;
+  --accent-3: #4CC9F0;
+  --text: #FFFFFE;
+  --text-muted: #94A1B2;
+  --border: #2D2D2D;
+  --toggle-bg: #252525;
+  --toggle-icon: #FFFFFE;
+  --highlight-border: #2CB67D;
+}
+
+/* Light theme */
+html[data-theme="light"] {
+  --bg-dark: #FFFFFF;
+  --bg-card: #F5F5F5;
+  --bg-alternate: #EAEAEA;
+  --bg-hover: #E0E0E0;
+  --primary: #5038A1;
+  --secondary: #008B69;
+  --accent-1: #D97700;
+  --accent-2: #C30052;
+  --accent-3: #0066AD;
+  --text: #121212;
+  --text-muted: #494949;
+  --border: #CCCCCC;
+  --toggle-bg: #EAEAEA;
+  --toggle-icon: #121212;
+  --highlight-border: #008B69;
+}
+
+/* ==========================================================================
+   2. Base & Typography
+   ========================================================================== */
+
+html {
+  height: -webkit-fill-available; /* For mobile webkit browsers */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg-dark);
+  max-width: 100%;
+  overflow-x: hidden;
+  font-size: 16px;
+  font-weight: 300;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  letter-spacing: 0.01em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   3. Layout & Containers
+   ========================================================================== */
+
+.container {
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+  position: relative;
+}
+
+header {
+  padding: 120px 0 60px;
+  position: relative;
+  background-color: var(--bg-dark);
+  transition: background-color 0.3s ease;
+}
+
+.section {
+  padding: 100px 0;
+  position: relative;
+  border-top: 1px solid var(--border);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.section-heading-container {
+  text-align: center;
+  width: 100%;
+}
+
+.section-heading {
+  font-size: 2.4rem;
+  margin-bottom: 32px;
+  color: var(--text);
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(to right, var(--primary), var(--accent-3)) 1;
+  display: inline-block;
+  padding-bottom: 8px;
+  transition: color 0.3s ease;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+}
+
+html[data-theme="light"] .section-heading {
+  color: #121212;
+}
+
+.highlight-box {
+  background-color: var(--bg-alternate);
+  border-radius: 16px;
+  padding: 24px;
+  margin-top: 24px;
+  border-left: 4px solid var(--highlight-border);
+}
+
+.highlight-box p {
+  margin-bottom: 0;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   4. Navigation
+   ========================================================================== */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  
+  /* Default translucent style for most browsers */
+  background-color: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Dark theme translucent background */
+html[data-theme="dark"] .nav {
+  background-color: rgba(10, 10, 10, 0.85);
+}
+
+/* Light theme translucent background */
+html[data-theme="light"] .nav {
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.nav-logo {
+  font-family: 'Over the Rainbow', 'Helvetica Neue', Tahoma, cursive;
+  font-size: 1.1rem;
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+.nav-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 6px 16px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--primary);
+  background-color: var(--bg-hover);
+}
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-toggle:hover {
+  color: var(--primary);
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--toggle-bg);
+  cursor: pointer;
+  margin-left: 16px;
+  border: none;
+  color: var(--toggle-icon);
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  background-color: var(--bg-hover);
+}
+
+.theme-toggle i {
+  font-size: 1rem;
+}
+
+.progress-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+}
+
+.progress-bar {
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--accent-3));
+  width: 0%;
+  transition: width 0.1s ease;
+}
+
+/* Safari/iOS specific navigation fixes */
+@supports (-webkit-touch-callout: none) {
+  .nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: var(--bg-dark);
+  }
+  
+  html[data-theme="dark"] .nav {
+    background-color: #0a0a0a;
+  }
+  
+  html[data-theme="light"] .nav {
+    background-color: #FFFFFF;
+  }
+}
+
+/* ==========================================================================
+   5. Header
+   ========================================================================== */
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  gap: 40px;
+}
+
+.header-photo {
+  flex: 0 0 auto;
+}
+
+.header-text {
+  flex: 1;
+  text-align: left;
+}
+
+.header-intro {
+  font-size: 1.2rem;
+  color: var(--accent-1);
+  font-weight: 500;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.name-title {
+  font-family: 'Over the Rainbow', 'Helvetica Neue', Tahoma, cursive;
+  font-size: 64px;
+  line-height: 1.4;
+  margin-bottom: 28px;
+  padding-bottom: 10px;
+  color: var(--primary);
+  font-weight: normal;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.header-subtitle {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  max-width: 580px;
+  margin-bottom: 32px;
+  color: var(--text-muted);
+  font-weight: 300;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+/* ==========================================================================
+   6. Sections
+   ========================================================================== */
+
+.about-content {
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-section {
+  padding: 50px 0;
+  border-top: 1px solid var(--border);
+}
+
+/* ==========================================================================
+   7. Timeline
+   ========================================================================== */
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin: 40px auto;
+  max-width: 780px;
+  position: relative;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  background-color: var(--border);
+  transition: background-color 0.3s ease;
+}
+
+.timeline-item {
+  padding-left: 24px;
+  position: relative;
+  padding-bottom: 30px;
+  text-align: left;
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  left: -6px;
+  top: 6px;
+  z-index: 1;
+  transition: background-color 0.3s ease;
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  font-weight: 400;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.timeline-title {
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+  color: var(--text);
+  font-weight: 600;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.timeline-subtitle {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: var(--accent-1);
+  font-weight: 500;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+html[data-theme="light"] .timeline-subtitle {
+  color: #D97700;
+  font-weight: 600;
+}
+
+.timeline-icon {
+  position: absolute;
+  right: 15px;
+  top: 6px;
+  color: var(--primary);
+  font-size: 1.5rem;
+  opacity: 0.8;
+  transition: color 0.3s ease;
+}
+
+/* ==========================================================================
+   8. Cards & Grids
+   ========================================================================== */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  margin: 40px 0;
+}
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: 16px;
+  padding: 36px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border);
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(127, 90, 240, 0.15);
+  border-color: var(--primary);
+}
+
+.card-number-bg {
+  position: absolute;
+  right: -20px;
+  bottom: -40px;
+  font-size: 180px;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  opacity: 0.07;
+  color: var(--primary);
+  line-height: 1;
+  z-index: 0;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+html[data-theme="light"] .card-number-bg {
+  opacity: 0.15;
+}
+
+.grid .card:nth-child(3n+1) .card-number-bg {
+  color: var(--primary);
+}
+
+.grid .card:nth-child(3n+2) .card-number-bg {
+  color: var(--accent-1);
+}
+
+.grid .card:nth-child(3n+3) .card-number-bg {
+  color: var(--accent-3);
+}
+
+.card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-number {
+  display: inline-block;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--accent-1);
+  margin-bottom: 20px;
+  background-color: var(--bg-hover);
+  padding: 6px 12px;
+  border-radius: 20px;
+  align-self: flex-start;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+html[data-theme="light"] .card-number {
+  background-color: rgba(0, 0, 0, 0.07);
+  color: #D97700;
+  font-weight: 600;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: var(--text);
+  line-height: 1.3;
+  font-weight: 600;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.card-description {
+  margin-bottom: 0;
+  flex-grow: 1;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   9. Tags & Skills
+   ========================================================================== */
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 32px 0;
+  justify-content: center;
+}
+
+.tag {
+  padding: 8px 16px;
+  background-color: var(--bg-alternate);
+  color: var(--text);
+  border-radius: 30px;
+  font-size: 0.9rem;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.tag:hover {
+  background-color: var(--bg-hover);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+html[data-theme="light"] .tag:hover {
+  background-color: #E0E0E0;
+  border-color: #5038A1;
+  color: #5038A1;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   10. Accent Section
+   ========================================================================== */
+
+.accent-section {
+  background-color: var(--bg-alternate);
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.mission-quote {
+  position: absolute;
+  font-size: 180px;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  opacity: 0.05;
+  color: var(--text);
+  line-height: 1;
+  z-index: 1;
+  text-align: center;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.accent-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.accent-heading {
+  font-size: 2.4rem;
+  margin-bottom: 28px;
+  color: var(--text);
+  font-weight: 600;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.accent-text {
+  font-size: 2rem;
+  line-height: 1.4;
+  font-weight: 600;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--accent-1);
+  padding: 10px 0;
+  margin: 0 auto;
+  transition: color 0.3s ease;
+}
+
+html[data-theme="light"] .accent-text {
+  color: #D97700;
+}
+
+.quote-font {
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 400;
+}
+
+.quote-mark {
+  position: absolute;
+  font-size: 12rem;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 600;
+  opacity: 0.07;
+  color: var(--text);
+  line-height: 1;
+  z-index: 1;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.quote-left {
+  top: 0;
+  left: 50px;
+  transform: translateY(-30%);
+}
+
+.quote-right {
+  bottom: 0;
+  right: 50px;
+  transform: translateY(30%) rotate(180deg);
+}
+
+/* ==========================================================================
+   11. Forms
+   ========================================================================== */
+
+.contact-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form-container > p {
+  margin-bottom: 24px;
+  text-align: center;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 300;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--bg-card);
+  color: var(--text);
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 5px rgba(127, 90, 240, 0.5);
+}
+
+.btn {
+  background: linear-gradient(90deg, var(--primary), var(--accent-3));
+  color: #fff;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  margin: 16px auto 0;
+  text-align: center;
+}
+
+.btn i {
+  margin-left: 8px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   12. Footer
+   ========================================================================== */
+
+footer {
+  padding: 20px 0;
+  background-color: var(--bg-dark);
+  border-top: 1px solid var(--border);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary);
+}
+
+.copyright {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* ==========================================================================
+   13. Resume Page Specific
+   ========================================================================== */
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding-top: 70px;
+  padding-bottom: 5px;
+  box-sizing: border-box;
+}
+
+.resume-container {
+  width: 90%;
+  max-width: 550px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 0.7;
+  margin-bottom: 15px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="dark"] .thumbnail {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+html[data-theme="light"] .thumbnail {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.thumbnail img, .thumbnail canvas {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.resume-page .nav-links {
+  display: flex;
+  position: static;
+  padding: 0;
+  box-shadow: none;
+}
+
+.resume-page .mobile-menu-toggle {
+  display: none;
+}
+
+.resume-page footer {
+  padding: 10px 0;
+  margin-top: 5px;
+  position: relative;
+}
+
+/* ==========================================================================
+   14. Hexagon Profile
+   ========================================================================== */
+
+.r-hex {
+  overflow: hidden;
+  display: inline-block;
+  margin: 4em 0;
+  width: 20em;
+  height: 17.32em;
+  transform: rotate(-30deg) skewX(30deg);
+  border-radius: 1.5em;
+}
+
+.r-hex *, .r-hex *:before {
+  display: block;
+  overflow: hidden;
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+}
+
+.r-hex-inner {
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  opacity: 1;
+  cursor: pointer;
+}
+
+.r-hex-inner-2 {
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+}
+
+.r-hex-inner-2:before {
+  margin-top: -1.5em;
+  height: 20em;
+  transform: skewX(-30deg) rotate(-90deg);
+  background: url(../assets/images/ap.jpeg);
+  background-size: cover;
+  content: '';
+}
+
+/* ==========================================================================
+   15. Media Queries
+   ========================================================================== */
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--bg-dark);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 99;
+  }
+  
+  html[data-theme="dark"] .nav-links {
+    background-color: rgba(10, 10, 10, 0.95);
+  }
+  
+  html[data-theme="light"] .nav-links {
+    background-color: rgba(255, 255, 255, 0.95);
+  }
+  
+  .nav-links.active {
+    display: flex;
+  }
+  
+  .nav-link {
+    padding: 10px 16px;
+    text-align: center;
+  }
+  
+  .mobile-menu-toggle {
+    display: block;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .header-photo {
+    margin-bottom: var(--spacing);
+  }
+  
+  .header-text {
+    text-align: center;
+  }
+  
+  .name-title {
+    font-size: 48px;
+  }
+  
+  .header-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .section {
+    padding: 60px 0;
+  }
+  
+  .section-heading {
+    font-size: 2rem;
+  }
+  
+  .timeline::before {
+    left: 5px;
+  }
+  
+  .timeline-item {
+    padding-left: 32px;
+  }
+  
+  .timeline-item::before {
+    left: 0;
+  }
+  
+  .timeline-icon {
+    right: 5px;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .card {
+    padding: 24px;
+  }
+  
+  .card-number-bg {
+    font-size: 120px;
+    right: -10px;
+    bottom: -20px;
+  }
+  
+  .card-title {
+    font-size: 1.3rem;
+  }
+  
+  .accent-section {
+    padding: 60px 0;
+  }
+  
+  .accent-heading {
+    font-size: 2rem;
+  }
+  
+  .accent-text {
+    font-size: 1.8rem;
+  }
+  
+  .quote-mark {
+    font-size: 6rem;
+    opacity: 0.05;
+  }
+  
+  .quote-right {
+    bottom: 0;
+    right: 20px;
+    transform: translateY(50%) rotate(180deg);
+  }
+  
+  .quote-left {
+    left: 20px;
+    transform: translateY(-20%);
+  }
+  
+  .r-hex {
+    width: 12em;
+    height: 10.392em;
+  }
+  
+  .r-hex-inner-2 {
+  transform: skewX(-30deg) rotate(60deg) skewX(30deg);
+  }
+
+  .r-hex-inner-2:before {
+    margin-top: -0.89em;
+    height: 12em;
+  }
+  
+  .thumbnail {
+    aspect-ratio: 0.75;
+  }
+  
+  .btn {
+    width: 80%;
+    font-size: 0.9rem;
+    padding: 10px 18px;
+  }
+  
+  .footer-content {
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
+/* Small Mobile Screens */
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 0 10px;
+  }
+  
+  .nav-logo {
+    font-size: 1rem;
+  }
+  
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+  
+  .theme-toggle {
+    width: 36px;
+    height: 36px;
+    margin-left: 8px;
+  }
+  
+  .resume-page .nav-links {
+    gap: 10px;
+  }
+}
+
+/* iPad Specific Fixes */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  .nav {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background-color: var(--bg-dark);
+  }
+  
+  html[data-theme="dark"] .nav {
+    background-color: #0a0a0a;
+  }
+  
+  html[data-theme="light"] .nav {
+    background-color: #FFFFFF;
+  }
+  
+  /* iPad Pro specific fixes */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    .main-content {
+      padding-top: 65px;
+      padding-bottom: 0;
+      align-items: flex-start;
+    }
+    
+    .thumbnail {
+      max-height: 60vh;
+      width: auto;
+      margin: 0 auto 10px;
+    }
+    
+    .resume-container {
+      max-width: 85%;
+      padding-bottom: 5px;
+    }
+    
+    .btn {
+      margin-top: 0;
+      width: 70%;
+      padding: 10px 20px;
+    }
+    
+    footer {
+      padding: 8px 0;
+      margin-top: 0;
+    }
+  }
+}
+/* Fix for the resume page navbar */
+.resume-page .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.resume-page .nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: static;
+  flex-direction: row;
+  background-color: transparent;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Mobile fixes for resume page navbar */
+@media (max-width: 480px) {
+  .resume-page .nav-logo {
+    font-size: 1rem;
+    flex-shrink: 1;
+  }
+  
+  .resume-page .nav-links {
+    flex-shrink: 0;
+    gap: 8px;
+    padding: 0;
+    box-shadow: none;
+    background-color: transparent;
+  }
+  
+  .resume-page .nav-link {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    padding: 6px 10px;
+  }
+  
+  .resume-page .theme-toggle {
+    width: 36px;
+    height: 36px;
+    margin-left: 8px;
+  }
+}
+/* Additional spacing for resume thumbnail */
+.resume-page .main-content {
+  padding-top: 85px; /* Increase from the current 60px or 70px */
+}
+
+.resume-container {
+  width: 85%; /* Slightly reduce width from 90% */
+  max-width: 520px; /* Reduce from 550px */
+} 
+
+.thumbnail {
+    margin-top: 10px; /* Add explicit margin at the top */
+  }
+}
+
+/* For iPhone Safari specific fix */
+@supports (-webkit-touch-callout: none) {
+  .resume-page .main-content {
+    padding-top: 90px; /* Safari needs more space */
+  }
+}
+/* iOS Safari/Chrome specific fix for resume page */
+@supports (-webkit-touch-callout: none) {
+  /* Target iOS devices specifically */
+  .resume-page .main-content {
+    padding-top: 65px !important; /* Use !important to override any other styles */
+    padding-bottom: 10px;
+    margin-top: 0;
+  }
+  
+  .resume-page .thumbnail {
+     width: 80%;
+     max-width: 450px
+     margin: 5px auto 15px;
+     aspect-ratio: 0.72;
+     max-height: 75vh; /* Limit height to prevent overflow */
+  }
+
+/* Adjust download button to match */
+  .resume-page .btn {
+    width: 80%;
+    max-width: 280px;
+    margin-top: 10px;
+  }
+
+/* Ensure footer stays in place */
+  .resume-page footer {
+    margin-top: 5px;
+    padding: 8px 0;
+  }
+
+  /* Additional space for the smallest iPhones */
+  @media screen and (max-width: 375px) {
+    .resume-page .main-content {
+      padding-top: 120px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) and (-webkit-min-device-pixel-ratio: 0) {
+  @supports (-webkit-touch-callout: none) {
+    .resume-page .thumbnail {
+      width: 75%; /* Even smaller on iPhone SE/mini devices */
+    }
+  }
+}
+
+/* Alternative fixed positioning approach */
+.resume-page body {
+  position: relative;
+}
+
+.resume-page .main-content {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+/* Ensure navbar is tall enough */
+.resume-page .nav {
+  min-height: 60px;
+  margin-top: 0;
+}
