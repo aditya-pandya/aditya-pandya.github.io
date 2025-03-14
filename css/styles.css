@@ -1238,12 +1238,12 @@ html[data-theme="light"] .thumbnail {
 @supports (-webkit-touch-callout: none) {
   /* Target iOS devices specifically */
   .resume-page .main-content {
-    padding-top: 110px !important; /* Use !important to override any other styles */
-    margin-top: 15px;
+    padding-top: 70px !important; /* Use !important to override any other styles */
+    margin-top: 0;
   }
   
   .resume-page .thumbnail {
-    margin-top: 10px;
+    margin-top: 5px;
     max-height: 75vh; /* Limit height to prevent overflow */
   }
   
@@ -1263,9 +1263,11 @@ html[data-theme="light"] .thumbnail {
 .resume-page .main-content {
   position: relative;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 /* Ensure navbar is tall enough */
 .resume-page .nav {
   min-height: 60px;
+  margin-top: 0;
 }
