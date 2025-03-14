@@ -1027,7 +1027,7 @@ html {
         }
 
 /* ==========================================================================
-   14. Hexagon Profile
+   14. Hexagon Profile - Fixed Image Path
    ========================================================================== */
 
 .r-hex {
@@ -1062,10 +1062,23 @@ html {
   margin-top: -1.5em;
   height: 20em;
   transform: skewX(-30deg) rotate(-90deg);
+  /* Ensure the correct path to your image */
   background: url(../assets/images/ap.jpeg);
   background-size: cover;
   content: '';
 }
+
+/* Debugging option - add a background color if image doesn't load */
+.r-hex-inner-2:before {
+  background-color: var(--primary); /* Fallback color */
+}
+
+/* Alternative absolute path option if needed */
+/* 
+.r-hex-inner-2:before {
+  background: url(/assets/images/ap.jpeg);
+}
+*/
 
 /* ==========================================================================
    15. Media Queries
