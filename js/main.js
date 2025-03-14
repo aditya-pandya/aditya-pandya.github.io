@@ -1,3 +1,7 @@
+// Immediately set up the theme to prevent theme flicker
+const savedTheme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', savedTheme);
+
 document.addEventListener('DOMContentLoaded', function() {
   // Theme toggling functionality
   const themeToggles = document.querySelectorAll('.theme-toggle');
