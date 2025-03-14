@@ -1238,19 +1238,44 @@ html[data-theme="light"] .thumbnail {
 @supports (-webkit-touch-callout: none) {
   /* Target iOS devices specifically */
   .resume-page .main-content {
-    padding-top: 70px !important; /* Use !important to override any other styles */
+    padding-top: 65px !important; /* Use !important to override any other styles */
+    padding-bottom: 10px;
     margin-top: 0;
   }
   
   .resume-page .thumbnail {
-    margin-top: 5px;
-    max-height: 75vh; /* Limit height to prevent overflow */
+     width: 80%;
+     max-width: 450px
+     margin: 5px auto 15px;
+     aspect-ratio: 0.72;
+     max-height: 75vh; /* Limit height to prevent overflow */
   }
-  
+
+/* Adjust download button to match */
+  .resume-page .btn {
+    width: 80%;
+    max-width: 280px;
+    margin-top: 10px;
+  }
+
+/* Ensure footer stays in place */
+  .resume-page footer {
+    margin-top: 5px;
+    padding: 8px 0;
+  }
+
   /* Additional space for the smallest iPhones */
   @media screen and (max-width: 375px) {
     .resume-page .main-content {
       padding-top: 120px !important;
+    }
+  }
+}
+
+@media screen and (max-width: 375px) and (-webkit-min-device-pixel-ratio: 0) {
+  @supports (-webkit-touch-callout: none) {
+    .resume-page .thumbnail {
+      width: 75%; /* Even smaller on iPhone SE/mini devices */
     }
   }
 }
