@@ -1063,7 +1063,7 @@ html {
   height: 20em;
   transform: skewX(-30deg) rotate(-90deg);
   /* Ensure the correct path to your image */
-  background: url(../assets/images/ap.jpeg);
+  background: url(/assets/images/ap.jpeg);
   background-size: cover;
   content: '';
 }
