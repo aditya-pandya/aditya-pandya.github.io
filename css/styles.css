@@ -1234,3 +1234,38 @@ html[data-theme="light"] .thumbnail {
     padding-top: 90px; /* Safari needs more space */
   }
 }
+/* iOS Safari/Chrome specific fix for resume page */
+@supports (-webkit-touch-callout: none) {
+  /* Target iOS devices specifically */
+  .resume-page .main-content {
+    padding-top: 110px !important; /* Use !important to override any other styles */
+    margin-top: 15px;
+  }
+  
+  .resume-page .thumbnail {
+    margin-top: 10px;
+    max-height: 75vh; /* Limit height to prevent overflow */
+  }
+  
+  /* Additional space for the smallest iPhones */
+  @media screen and (max-width: 375px) {
+    .resume-page .main-content {
+      padding-top: 120px !important;
+    }
+  }
+}
+
+/* Alternative fixed positioning approach */
+.resume-page body {
+  position: relative;
+}
+
+.resume-page .main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Ensure navbar is tall enough */
+.resume-page .nav {
+  min-height: 60px;
+}
