@@ -163,6 +163,30 @@ html[data-theme="light"] .section-heading {
   font-weight: 300;
 }
 
+/* Fix for header spacing issue */
+.header-intro {
+  margin-bottom: 15px;
+  display: block;
+}
+
+.name-title {
+  margin-top: 0;
+  padding-top: 0;
+  line-height: 1.2;
+  margin-bottom: 25px;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ==========================================================================
    4. Navigation
    ========================================================================== */
