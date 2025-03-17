@@ -534,6 +534,61 @@ html[data-theme="light"] .timeline-subtitle {
   }
 }
 
+/* Improve alignment of section headers on wider screens */
+@media (min-width: 1200px) {
+  h2.section-heading {
+    text-align: center;
+  }
+  
+  .timeline::before {
+    left: 295px; /* Adjust the vertical line position */
+  }
+  
+  .section h2 {
+    padding-left: 0;
+    margin-left: 0;
+    text-align: center;
+  }
+  
+  /* Specifically target the orange headers and give them better alignment */
+  #experience .section-heading,
+  section > h2,
+  .experience-header {
+    max-width: 1140px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-left: 0;
+  }
+}
+
+/* Additional responsive adjustment for medium screens */
+@media (min-width: 768px) and (max-width: 1199px) {
+  section > h2,
+  .experience-header {
+    max-width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+/* Fix for orange headers specifically */
+section > h2 {
+  color: var(--accent-1);
+  margin-bottom: 20px;
+  font-weight: 600;
+  position: relative;
+}
+
+.experience-header {
+  color: var(--accent-1);
+  font-size: 1.8rem;
+  margin-bottom: 30px;
+  font-weight: 600;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
 /* ==========================================================================
    8. Cards & Grids
    ========================================================================== */
