@@ -360,6 +360,17 @@ html[data-theme="light"] .nav {
   transition: color 0.3s ease;
 }
 
+.header-description {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  max-width: 580px;
+  margin-bottom: 32px;
+  color: var(--text-muted);
+  font-weight: 300;
+  font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  transition: color 0.3s ease;
+}
+
 /* ==========================================================================
    6. Sections
    ========================================================================== */
@@ -467,6 +478,38 @@ html[data-theme="light"] .timeline-subtitle {
   transition: color 0.3s ease;
 }
 
+/* Impact-Driven Portfolio Styles */
+.impact-category {
+  margin-bottom: 60px;
+}
+
+.impact-category:last-child {
+  margin-bottom: 20px;
+}
+
+.impact-category-title {
+  font-size: 1.6rem;
+  margin-bottom: 24px;
+  color: var(--accent-1);
+  font-weight: 600;
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  position: relative;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .impact-category {
+    margin-bottom: 40px;
+  }
+  
+  .impact-category-title {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+}
+
 /* ==========================================================================
    8. Cards & Grids
    ========================================================================== */
@@ -572,6 +615,40 @@ html[data-theme="light"] .card-number {
   font-weight: 300;
 }
 
+/* Consistent paragraph spacing */
+.card-paragraph {
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+.card-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Modified grid layout for better responsiveness */
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(320px, 1fr));
+    max-width: 1200px;
+    margin: 40px auto;
+  }
+  
+  .container {
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  #achievements .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+#achievements .card {
+  height: auto;
+  min-height: 100%;
+}
+
 /* ==========================================================================
    9. Tags & Skills
    ========================================================================== */
@@ -608,6 +685,44 @@ html[data-theme="light"] .tag:hover {
   border-color: #5038A1;
   color: #5038A1;
   font-weight: 500;
+}
+
+/* Skills Section Enhancements */
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 20px;
+}
+
+.skills-category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-category-heading {
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 8px;  /* Reduced from 16px to 8px */
+  position: relative;
+}
+
+.skills-category .tag-container {
+  margin-top: 0;  /* Reset any top margin that might be inherited */
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    gap: 24px;
+  }
+  
+  .skills-category-heading {
+    font-size: 1.2rem;
+    margin-bottom: 6px;  /* Slightly smaller margin on mobile */
+  }
 }
 
 /* ==========================================================================
@@ -779,6 +894,28 @@ html[data-theme="light"] .accent-text {
 .btn:hover {
   opacity: 0.9;
   transform: translateY(-2px);
+}
+
+/* Contact section tag modifications */
+.contact-tags {
+  margin: 24px 0;
+}
+
+.contact-tags .tag {
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 10px 20px;
+}
+
+/* Center align the form button */
+.form-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.form-button-container .btn {
+  margin: 0;
 }
 
 /* ==========================================================================
