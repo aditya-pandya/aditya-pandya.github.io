@@ -812,6 +812,20 @@ html[data-theme="light"] .tag:hover {
   }
 }
 
+/* Skills Tags Improvements for Mobile */
+@media (max-width: 768px) {
+  .tag {
+    padding: 6px 12px; /* Slightly smaller padding */
+    font-size: 0.85rem; /* Smaller font size */
+    margin-bottom: 8px; /* Ensure enough space between tags when they wrap */
+    display: inline-block; /* Help with wrapping */
+  }
+  
+  .tag-container {
+    gap: 8px; /* Smaller gap on mobile */
+  }
+}
+
 /* ==========================================================================
    10. Accent Section
    ========================================================================== */
