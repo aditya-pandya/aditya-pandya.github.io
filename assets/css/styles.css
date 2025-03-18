@@ -1648,39 +1648,39 @@ html {
    ========================================================================== */
 
 /* Leadership Philosophy Section */
-.leadership-section {
-  padding: 50px 0;
-  border-top: 1px solid var(--border);
+.philosophy-section {
+  padding: 80px 0;
   background-color: var(--bg-dark);
-  transition: background-color 0.3s ease;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.philosophy-intro {
+.philosophy-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.philosophy-content > p {
   text-align: center;
-  max-width: 780px;
-  margin: 0 auto 40px;
+  margin-bottom: 40px;
   font-size: 1.1rem;
   color: var(--text-muted);
 }
 
-.philosophy-grid {
+.philosophy-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 28px;
-  margin: 20px 0;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 40px;
 }
 
 .philosophy-card {
   background-color: var(--bg-card);
   border-radius: 16px;
-  padding: 28px;
+  padding: 30px;
   transition: all 0.3s ease;
   border: 1px solid var(--border);
   height: 100%;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
 }
 
 .philosophy-card:hover {
@@ -1689,64 +1689,55 @@ html {
   border-color: var(--primary);
 }
 
-.philosophy-icon {
-  font-size: 2rem;
+.philosophy-number {
+  font-size: 20px;
+  font-weight: 600;
   color: var(--primary);
   margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  background-color: var(--bg-alternate);
+  font-family: 'Poppins', sans-serif;
+  opacity: 0.9;
   transition: all 0.3s ease;
 }
 
-.philosophy-card:hover .philosophy-icon {
-  background-color: var(--primary);
-  color: var(--text);
+.philosophy-card:hover .philosophy-number {
+  transform: translateY(-3px);
+  opacity: 1;
 }
 
-.philosophy-title {
-  font-size: 1.3rem;
+.philosophy-card h4 {
+  font-size: 1.4rem;
   margin-bottom: 16px;
   color: var(--text);
-  line-height: 1.3;
   font-weight: 600;
-  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Poppins', sans-serif;
   transition: color 0.3s ease;
 }
 
-/* Mobile adjustments */
+.philosophy-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .philosophy-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
-  .philosophy-grid {
+  .philosophy-cards {
     grid-template-columns: 1fr;
   }
   
   .philosophy-card {
-    padding: 24px;
-    margin-bottom: 20px;
+    padding: 25px;
   }
   
-  .philosophy-number {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--primary);
-    margin-bottom: 16px;
-    font-family: 'Poppins', sans-serif;
-    opacity: 0.9;
-    transition: all 0.3s ease;
-  }
-  
-  .philosophy-card:hover .philosophy-number {
-    transform: translateY(-3px);
-    opacity: 1;
-  }
-  
-  .philosophy-title {
-    font-size: 1.2rem;
-    margin-bottom: 12px;
+  .philosophy-card h4 {
+    font-size: 1.3rem;
   }
 }
 
