@@ -707,6 +707,29 @@ html[data-theme="light"] .card-number {
   min-height: 100%;
 }
 
+/* For all desktop and tablet screens */
+@media (min-width: 768px) {
+  .grid-2x2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+  
+  /* Make cards wider to take advantage of the extra space */
+  .grid-2x2 .card {
+    max-width: 100%;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 767px) {
+  .grid-2x2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+
 /* ==========================================================================
    9. Tags & Skills
    ========================================================================== */
