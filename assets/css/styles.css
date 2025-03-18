@@ -1729,12 +1729,30 @@ html {
     margin-bottom: 20px;
   }
   
-  .philosophy-icon {
-    font-size: 1.8rem;
-    width: 50px;
-    height: 50px;
-    margin-bottom: 12px;
-  }
+   .philosophy-icon {
+     width: 70px;
+     height: 70px;
+     margin: 0 auto 20px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     border: 2px solid rgba(127, 90, 240, 0.3);
+     border-radius: 12px;
+     position: relative;
+     transition: all 0.3s ease;
+   }
+   
+   .philosophy-icon i {
+     font-size: 26px;
+     color: var(--primary);
+     transition: all 0.3s ease;
+   }
+   
+   .philosophy-card:hover .philosophy-icon {
+     background-color: rgba(127, 90, 240, 0.08);
+     border-color: var(--primary);
+     transform: rotate(5deg);
+   }
   
   .philosophy-title {
     font-size: 1.2rem;
