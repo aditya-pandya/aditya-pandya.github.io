@@ -1695,6 +1695,8 @@ html {
   padding: 80px 0;
   background-color: var(--bg-dark);
   position: relative;
+  border-top: 1px solid var(--border);
+
 }
 
 .philosophy-intro {
@@ -1804,6 +1806,7 @@ html {
 @media (max-width: 768px) {
   .philosophy-section {
     padding: 40px 0; /* Reduced padding on mobile */
+    border-top: 1px solid var(--border); /* Maintain separator on mobile */
   }
   
   .philosophy-intro {
