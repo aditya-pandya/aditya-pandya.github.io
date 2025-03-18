@@ -1647,63 +1647,84 @@ html {
    16. Leadership Philosophy
    ========================================================================== */
 
-/* Leadership Philosophy Section - Revised */
+/* Leadership Philosophy - Completely Redesigned */
 .philosophy-section {
   padding: 80px 0;
-  max-width: 1140px;
-  margin: 0 auto;
+  background-color: var(--bg-alternate);
+  position: relative;
 }
 
-.philosophy-content {
-  margin: 40px 0;
+.philosophy-intro {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.philosophy-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  position: relative;
+  z-index: 2;
 }
 
 .philosophy-card {
-  background-color: rgba(18, 18, 18, 0.6);
-  border-radius: 16px;
-  padding: 30px;
-  margin-bottom: 20px;
-  border: 1px solid var(--border);
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.philosophy-card-header {
+  padding: 24px;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent-3) 100%);
+  color: white;
+}
+
+.philosophy-number {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  opacity: 0.85;
+}
+
+.philosophy-card-header h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: 600;
+}
+
+.philosophy-card-body {
+  padding: 24px;
+  flex-grow: 1;
+  border: 1px solid var(--border);
+  border-top: none;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 .philosophy-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(127, 90, 240, 0.15);
-  border-color: var(--primary);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
 }
 
-.philosophy-number {
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--primary);
-  margin-bottom: 16px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.philosophy-card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 16px;
-  color: var(--text);
-  font-weight: 600;
-  font-family: 'Poppins', sans-serif;
-}
-
-.philosophy-card p {
-  color: var(--text-muted);
-  line-height: 1.7;
-}
-
-/* Grid layout for desktop */
-@media (min-width: 768px) {
+@media (max-width: 992px) {
   .philosophy-cards {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .philosophy-card {
-    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+  .philosophy-cards {
+    grid-template-columns: 1fr;
   }
 }
 
