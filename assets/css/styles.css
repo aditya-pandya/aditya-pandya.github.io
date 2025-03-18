@@ -1729,37 +1729,20 @@ html {
     margin-bottom: 20px;
   }
   
-.philosophy-icon {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  color: var(--primary);
-}
-
-.philosophy-icon:before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(127, 90, 240, 0.1);
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  transition: all 0.3s ease;
-}
-
-.philosophy-icon i {
-  font-size: 24px;
-  position: relative;
-  z-index: 2;
-}
-
-.philosophy-card:hover .philosophy-icon:before {
-  background-color: rgba(127, 90, 240, 0.2);
-  transform: scale(1.1);
-}
+  .philosophy-number {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 16px;
+    font-family: 'Poppins', sans-serif;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+  }
+  
+  .philosophy-card:hover .philosophy-number {
+    transform: translateY(-3px);
+    opacity: 1;
+  }
   
   .philosophy-title {
     font-size: 1.2rem;
