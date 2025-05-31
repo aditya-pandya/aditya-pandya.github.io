@@ -721,8 +721,34 @@
     const mainContent = document.getElementById('mainContent');
     const errorMessage = document.getElementById('errorMessage');
 
-    // Check if user is already authenticated (localStorage for persistence across sessions)
-    if (localStorage.getItem('partnershipAccess') === 'granted') {
+    // Check if user is already authenticated and access hasn't expired
+    function checkAccess() {
+      const accessData = localStorage.getItem('partnershipAccess');
+      if (accessData) {
+        try {
+          const parsed = JSON.parse(accessData);
+          const now = new Date().getTime();
+          const oneWeek = 7 * 24 * 60 * 60 * 1000; // 1 week in milliseconds
+          
+          // Check if access was granted and hasn't expired
+          if (parsed.granted && (now - parsed.timestamp) < oneWeek) {
+            return true;
+          } else {
+            // Access expired, remove it
+            localStorage.removeItem('partnershipAccess');
+            return false;
+          }
+        } catch (e) {
+          // Invalid data, remove it
+          localStorage.removeItem('partnershipAccess');
+          return false;
+        }
+      }
+      return false;
+    }
+
+    // Check access on page load
+    if (checkAccess()) {
       showMainContent();
     }
 
@@ -731,7 +757,12 @@
       const enteredPassword = passwordInput.value.trim();
       
       if (enteredPassword === correctPassword) {
-        localStorage.setItem('partnershipAccess', 'granted');
+        // Store access with timestamp
+        const accessData = {
+          granted: true,
+          timestamp: new Date().getTime()
+        };
+        localStorage.setItem('partnershipAccess', JSON.stringify(accessData));
         showMainContent();
       } else {
         showError();
@@ -773,7 +804,20 @@
     });
 
     // Optional: Add function to clear access (you can call this manually if needed)
-    // localStorage.removeItem('partnershipAccess');
+    // localStorage.removeItem('partnershipAccess')
+    
+    // Optional: Check how much time is left on access (for debugging)
+    // function checkTimeRemaining() {
+    //   const accessData = localStorage.getItem('partnershipAccess');
+    //   if (accessData) {
+    //     const parsed = JSON.parse(accessData);
+    //     const now = new Date().getTime();
+    //     const oneWeek = 7 * 24 * 60 * 60 * 1000;
+    //     const timeLeft = oneWeek - (now - parsed.timestamp);
+    //     const daysLeft = Math.floor(timeLeft / (24 * 60 * 60 * 1000));
+    //     console.log(`Access expires in ${daysLeft} days`);
+    //   }
+    // }
   </script>
 </body>
 </html>
