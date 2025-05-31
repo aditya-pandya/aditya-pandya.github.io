@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Strategic Partnership • Aditya Pandya</title>
+
+  <!-- Block all bots and search engines -->
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai">
+  <meta name="googlebot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai">
+  <meta name="bingbot" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai">
+  <meta name="slurp" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
+  <meta name="duckduckbot" content="noindex, nofollow">
+  <meta name="baiduspider" content="noindex, nofollow">
+  <meta name="yandexbot" content="noindex, nofollow">
+  <meta name="facebookexternalhit" content="noindex, nofollow">
+  <meta name="twitterbot" content="noindex, nofollow">
+  <meta name="linkedinbot" content="noindex, nofollow">
+  <meta name="applebot" content="noindex, nofollow">
+  <meta name="ia_archiver" content="noindex, nofollow">
+  <meta name="archive.org_bot" content="noindex, nofollow">
+
+  <!-- Favicon and manifest -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="assets/manifest/site.webmanifest">
+
+  <!-- Font and Icon imports -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Over+the+Rainbow&family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <style>
+    /* Password protection overlay */
+    .password-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .password-form {
+      background-color: var(--bg-card);
+      padding: 40px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .password-form h2 {
+      color: var(--text);
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .password-form p {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .password-input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background-color: var(--bg-alternate);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+
+    .password-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 5px rgba(127, 90, 240, 0.5);
+    }
+
+    .password-submit {
+      background: linear-gradient(90deg, var(--primary), var(--accent-3));
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      transition: opacity 0.3s ease;
+      width: 100%;
+    }
+
+    .password-submit:hover {
+      opacity: 0.9;
+    }
+
+    .error-message {
+      color: var(--accent-2);
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    /* Hide main content by default */
+    .main-content {
+      display: none;
+    }
+
+    .main-content.unlocked {
+      display: block;
+    }
+
+    /* Partnership page specific styles */
+    .partnership-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent-3) 100%);
+      color: white;
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .partnership-header h1 {
+      font-size: 3rem;
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .partnership-header .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+    }
+
+    .partnership-overview {
+      padding: 80px 0;
+      background-color: var(--bg-dark);
+    }
+
+    .overview-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .overview-content h2 {
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .overview-content p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .value-prop {
+      background-color: var(--bg-card);
+      padding: 30px;
+      border-radius: 16px;
+      border-left: 4px solid var(--primary);
+      margin-top: 40px;
+    }
+
+    .value-prop strong {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Partnership models section */
+    .models-section {
+      padding: 80px 0;
+      background-color: var(--bg-alternate);
+    }
+
+    .model-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .model-card {
+      background-color: var(--bg-card);
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .model-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(127, 90, 240, 0.15);
+    }
+
+    .model-header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent-3) 100%);
+      color: white;
+      padding: 30px;
+      text-align: center;
+    }
+
+    .model-header h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .model-header .time-commitment {
+      font-size: 1rem;
+      opacity: 0.9;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .model-body {
+      padding: 30px;
+    }
+
+    .model-body h4 {
+      color: var(--text);
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .model-body ul {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 25px;
+    }
+
+    .model-body li {
+      padding: 8px 0;
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .model-body li:before {
+      content: "•";
+      color: var(--primary);
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .compensation-options {
+      background-color: var(--bg-alternate);
+      padding: 20px;
+      border-radius: 12px;
+      margin-top: 20px;
+    }
+
+    .compensation-options h5 {
+      color: var(--accent-1);
+      margin-bottom: 15px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .comp-option {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .comp-option:last-child {
+      border-bottom: none;
+    }
+
+    .comp-option strong {
+      color: var(--text);
+    }
+
+    /* Value creation and other sections */
+    .value-creation {
+      padding: 80px 0;
+      background-color: var(--bg-dark);
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .value-card {
+      background-color: var(--bg-card);
+      padding: 30px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .value-card h4 {
+      color: var(--primary);
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* CTA Section */
+    .cta-section {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent-3) 100%);
+      padding: 80px 0;
+      text-align: center;
+      color: white;
+    }
+
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      opacity: 0.9;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cta-button {
+      background-color: white;
+      color: var(--primary);
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      font-family: 'Inter', sans-serif;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      .partnership-header h1 {
+        font-size: 2.2rem;
+      }
+
+      .partnership-header .subtitle {
+        font-size: 1.1rem;
+      }
+
+      .model-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .overview-content h2 {
+        font-size: 2rem;
+      }
+
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Password Protection Overlay -->
+  <div class="password-overlay" id="passwordOverlay">
+    <div class="password-form">
+      <h2>Protected Content</h2>
+      <p>This page contains confidential partnership information. Please enter the access code to continue.</p>
+      <form id="passwordForm">
+        <input type="password" class="password-input" id="passwordInput" placeholder="Enter access code" required>
+        <button type="submit" class="password-submit">Access Partnership Details</button>
+      </form>
+      <div class="error-message" id="errorMessage" style="display: none;">
+        Incorrect access code. Please try again.
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Content (hidden by default) -->
+  <div class="main-content" id="mainContent">
+    <!-- Partnership Header -->
+    <header class="partnership-header">
+      <div class="container">
+        <h1>Strategic Partnership</h1>
+        <p class="subtitle">Flexible advisory and fractional executive arrangements designed to accelerate your company's growth through strategic product leadership</p>
+      </div>
+    </header>
+
+    <!-- Partnership Overview -->
+    <section class="partnership-overview">
+      <div class="container">
+        <div class="overview-content">
+          <h2>Partnership Overview</h2>
+          <p>
+            This framework outlines various engagement models for advisory and fractional executive roles, designed to accelerate company growth through strategic product leadership, pricing optimization, and execution support.
+          </p>
+          <p>
+            With 15+ years of product management experience and proven success scaling B2C platforms and marketplaces, I offer flexible arrangements that align with your company's stage, budget, and growth objectives.
+          </p>
+          <div class="value-prop">
+            <p><strong>Key Value Proposition:</strong> Bridge the gap between high-level strategy and hands-on execution, providing senior-level expertise at a fraction of full-time executive cost.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Partnership Models -->
+    <section class="models-section">
+      <div class="container">
+        <div class="section-heading-container">
+          <h2 class="section-heading">Partnership Models</h2>
+        </div>
+        <p style="text-align: center; color: var(--text-muted); font-style: italic; margin-bottom: 20px;">
+          Three flexible engagement levels designed to match your company's stage and strategic needs
+        </p>
+        
+        <div class="model-cards">
+          <!-- Strategic Counsel -->
+          <div class="model-card">
+            <div class="model-header">
+              <h3>Strategic Counsel</h3>
+              <div class="time-commitment">5-10 hours/month</div>
+            </div>
+            <div class="model-body">
+              <h4>Ideal For:</h4>
+              <p style="color: var(--text-muted); margin-bottom: 20px;">Companies seeking experienced guidance on key decisions</p>
+              
+              <h4>Structure:</h4>
+              <ul>
+                <li>Monthly strategy sessions (2-3 hours)</li>
+                <li>Quarterly deep-dive workshops</li>
+                <li>Ad-hoc availability for critical decisions</li>
+                <li>Board meeting preparation support</li>
+              </ul>
+              
+              <div class="compensation-options">
+                <h5>Compensation Options:</h5>
+                <div class="comp-option"><strong>Equity-Focused:</strong> 0.25-0.5% equity, 2-year vest</div>
+                <div class="comp-option"><strong>Hybrid:</strong> 0.2% equity + $1,500-2,500/month</div>
+                <div class="comp-option"><strong>Cash-Only:</strong> $3,000-5,000/month</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fractional Product Executive -->
+          <div class="model-card">
+            <div class="model-header">
+              <h3>Fractional Product Executive</h3>
+              <div class="time-commitment">15-25 hours/month</div>
+            </div>
+            <div class="model-body">
+              <h4>Ideal For:</h4>
+              <p style="color: var(--text-muted); margin-bottom: 20px;">Growth companies needing consistent strategic leadership</p>
+              
+              <h4>Structure:</h4>
+              <ul>
+                <li>Weekly leadership team participation</li>
+                <li>Direct involvement in product strategy and roadmap</li>
+                <li>Team mentoring and process optimization</li>
+                <li>Quarterly business reviews and planning</li>
+              </ul>
+              
+              <div class="compensation-options">
+                <h5>Compensation Options:</h5>
+                <div class="comp-option"><strong>Equity-Focused:</strong> 0.5-0.8% equity, 2-year vest</div>
+                <div class="comp-option"><strong>Hybrid:</strong> 0.3-0.5% equity + $4,000-7,000/month</div>
+                <div class="comp-option"><strong>Cash-Only:</strong> $8,000-12,000/month</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Embedded Strategic Partner -->
+          <div class="model-card">
+            <div class="model-header">
+              <h3>Embedded Strategic Partner</h3>
+              <div class="time-commitment">25-35 hours/month</div>
+            </div>
+            <div class="model-body">
+              <h4>Ideal For:</h4>
+              <p style="color: var(--text-muted); margin-bottom: 20px;">Companies in rapid scaling or transformation phases</p>
+              
+              <h4>Structure:</h4>
+              <ul>
+                <li>Dedicated weekly focus blocks</li>
+                <li>Hands-on project leadership</li>
+                <li>Cross-functional team integration</li>
+                <li>Real-time strategic decision support</li>
+              </ul>
+              
+              <div class="compensation-options">
+                <h5>Compensation Options:</h5>
+                <div class="comp-option"><strong>Equity-Focused:</strong> 0.6-1.0% equity, 2-year vest</div>
+                <div class="comp-option"><strong>Hybrid:</strong> 0.4-0.6% equity + $6,000-10,000/month</div>
+                <div class="comp-option"><strong>Cash-Only:</strong> $12,000-18,000/month</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Value Creation Framework -->
+    <section class="value-creation">
+      <div class="container">
+        <div class="section-heading-container">
+          <h2 class="section-heading">Value Creation Framework</h2>
+        </div>
+        <p style="text-align: center; color: var(--text-muted); font-style: italic; margin-bottom: 20px;">
+          The strategic and operational areas where senior product leadership drives measurable business impact
+        </p>
+
+        <div class="value-grid">
+          <div class="value-card">
+            <h4>Strategic Leadership</h4>
+            <ul>
+              <li>Product strategy and roadmap development</li>
+              <li>Competitive analysis and market positioning</li>
+              <li>Pricing strategy and monetization optimization</li>
+              <li>Go-to-market input and product-market fit assessment</li>
+            </ul>
+          </div>
+
+          <div class="value-card">
+            <h4>Operational Excellence</h4>
+            <ul>
+              <li>Experiment design and A/B testing frameworks</li>
+              <li>Product specification and feature prioritization</li>
+              <li>Team process improvement and framework implementation</li>
+              <li>Performance metrics analysis and iteration planning</li>
+            </ul>
+          </div>
+
+          <div class="value-card">
+            <h4>Team Development</h4>
+            <ul>
+              <li>Cross-functional team mentoring</li>
+              <li>Leadership team strategic counsel</li>
+              <li>Board presentation support</li>
+              <li>Organizational capability assessment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success-Aligned Incentives -->
+    <section class="models-section">
+      <div class="container">
+        <div class="section-heading-container">
+          <h2 class="section-heading">Success-Aligned Incentives</h2>
+        </div>
+        <p style="text-align: center; color: var(--text-muted); font-style: italic; margin-bottom: 40px;">
+          Performance-based rewards that ensure we both win when your company achieves breakthrough results
+        </p>
+
+        <div class="value-grid">
+          <div class="value-card">
+            <h4>Growth Acceleration Bonuses</h4>
+            <ul>
+              <li><strong>ARR Milestones:</strong> Additional 0.1-0.25% equity or $5,000-15,000 cash bonus for achieving specific revenue targets</li>
+              <li><strong>Growth Rate Bonuses:</strong> Compensation tied to percentage revenue growth over baseline</li>
+              <li><strong>Customer Success Metrics:</strong> Bonuses linked to retention improvement, NPS increases, or conversion optimization</li>
+            </ul>
+          </div>
+
+          <div class="value-card">
+            <h4>Strategic Milestone Rewards</h4>
+            <ul>
+              <li><strong>Feature Launch Success:</strong> Bonuses for successful product launches meeting adoption targets</li>
+              <li><strong>Market Entry:</strong> Additional compensation for successful expansion into new markets or segments</li>
+              <li><strong>Partnership Development:</strong> Success fees for strategic partnerships or enterprise deals facilitated</li>
+            </ul>
+          </div>
+
+          <div class="value-card">
+            <h4>Partnership Foundation</h4>
+            <ul>
+              <li><strong>Initial Term:</strong> 6-12 months with renewal options</li>
+              <li><strong>Performance Reviews:</strong> Quarterly assessment and adjustment opportunities</li>
+              <li><strong>Termination Flexibility:</strong> 30-day notice with fair vesting protection</li>
+              <li><strong>IP and Confidentiality:</strong> Standard protections with clear work product ownership</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why This Partnership Delivers Results -->
+    <section class="value-creation">
+      <div class="container">
+        <div class="section-heading-container">
+          <h2 class="section-heading">Why This Partnership Delivers Results</h2>
+        </div>
+
+        <div class="value-grid" style="grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));">
+          <div class="value-card">
+            <h4>ROI Framework</h4>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Fractional executive expertise typically delivers 3-5x return through:</p>
+            <ul>
+              <li>Accelerated product-market fit</li>
+              <li>Improved monetization and pricing</li>
+              <li>Enhanced team productivity and focus</li>
+              <li>Risk mitigation through experienced guidance</li>
+            </ul>
+          </div>
+
+          <div class="value-card">
+            <h4>Cost Comparison</h4>
+            <p style="color: var(--text-muted); margin-bottom: 20px;">Full-time VP/CPO hire costs $200K-400K+ annually plus equity.</p>
+            <p style="color: var(--primary); font-weight: 600;">Fractional engagement provides 80% of the strategic value at 20-40% of the cost.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+      <div class="container">
+        <h2>Ready to Accelerate Your Growth?</h2>
+        <p>This proposal framework adapts to your specific situation. Let's discuss which model best fits your current stage, goals, and constraints.</p>
+        <a href="mailto:aditya@pandya.co?subject=Strategic Partnership Discussion" class="cta-button">
+          Schedule a Discovery Call
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <!-- JavaScript for password protection and theme toggle -->
+  <script>
+    // Password protection
+    const correctPassword = 'partnership2025'; // Change this to your desired password
+    const passwordForm = document.getElementById('passwordForm');
+    const passwordInput = document.getElementById('passwordInput');
+    const passwordOverlay = document.getElementById('passwordOverlay');
+    const mainContent = document.getElementById('mainContent');
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Check if user is already authenticated (session storage)
+    if (sessionStorage.getItem('partnershipAccess') === 'granted') {
+      showMainContent();
+    }
+
+    passwordForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const enteredPassword = passwordInput.value.trim();
+      
+      if (enteredPassword === correctPassword) {
+        sessionStorage.setItem('partnershipAccess', 'granted');
+        showMainContent();
+      } else {
+        showError();
+      }
+    });
+
+    function showMainContent() {
+      passwordOverlay.style.display = 'none';
+      mainContent.classList.add('unlocked');
+    }
+
+    function showError() {
+      errorMessage.style.display = 'block';
+      passwordInput.value = '';
+      passwordInput.focus();
+      
+      // Hide error after 3 seconds
+      setTimeout(() => {
+        errorMessage.style.display = 'none';
+      }, 3000);
+    }
+
+    // Theme toggling (basic functionality for consistency)
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    // Prevent right-click and other common ways to view source (basic protection)
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      // Disable F12, Ctrl+Shift+I, Ctrl+U, etc.
+      if (e.key === 'F12' || 
+          (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+          (e.ctrlKey && e.key === 'u')) {
+        e.preventDefault();
+      }
+    });
+
+    // Clear session when tab/window is closed
+    window.addEventListener('beforeunload', function() {
+      sessionStorage.removeItem('partnershipAccess');
+    });
+  </script>
+</body>
+</html>
