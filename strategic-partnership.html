@@ -658,14 +658,37 @@
       </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Contact Section -->
+    <section id="contact" class="section">
       <div class="container">
-        <h2>Ready to Accelerate Your Growth?</h2>
-        <p>This proposal framework adapts to your specific situation. Let's discuss which model best fits your current stage, goals, and constraints.</p>
-        <a href="mailto:aditya@pandya.co?subject=Strategic Partnership Discussion" class="cta-button">
-          Schedule a Discovery Call
-        </a>
+        <div class="section-heading-container">
+          <h2 class="section-heading">Let's Discuss Your Partnership</h2>
+        </div>
+        <div class="contact-form-container">
+          <form class="contact-form" action="https://formspree.io/f/mwplknwn" method="POST">
+            <div style="display:none">
+              <label for="honeypot">Leave this field empty if you're human:</label>
+              <input type="text" name="honeypot" id="honeypot">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="name">Name</label>
+              <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email</label>
+              <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-control" placeholder="Strategic Partnership Discussion">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+              <textarea id="message" name="message" rows="5" class="form-control" placeholder="Tell me about your company, current stage, and what type of partnership would be most valuable..." required></textarea>
+            </div>
+            <button type="submit" class="btn">Send Message <i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
       </div>
     </section>
 
