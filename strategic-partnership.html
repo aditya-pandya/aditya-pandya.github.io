@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Strategic Partnership • Aditya Pandya</title>
+  <title>Strategic Partnership - Aditya Pandya</title>
 
   <!-- Block all bots and search engines -->
   <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai">
@@ -25,6 +25,9 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="manifest" href="assets/manifest/site.webmanifest">
+
+  <!-- Google Analytics - External scripts -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NDCMBB8TEX"></script>
 
   <!-- Font and Icon imports -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -126,7 +129,7 @@
     .partnership-header {
       background: linear-gradient(135deg, var(--primary) 0%, var(--accent-3) 100%);
       color: white;
-      padding: 120px 0 80px;
+      padding: 160px 0 80px; /* Increased top padding for navbar */
       text-align: center;
     }
 
@@ -398,6 +401,28 @@
 
   <!-- Main Content (hidden by default) -->
   <div class="main-content" id="mainContent">
+    <!-- Navigation -->
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="/" class="nav-logo">Aditya Pandya</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle mobile menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="nav-links">
+          <a href="/#about" class="nav-link">About Me</a>
+          <a href="/#experience" class="nav-link">Experience</a>
+          <a href="/#achievements" class="nav-link">Career Highlights</a>
+          <a href="/#contact" class="nav-link">Get In Touch</a>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+            <i class="fas fa-sun"></i>
+          </button>
+        </div>
+      </div>
+      <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </nav>
+
     <!-- Partnership Header -->
     <header class="partnership-header">
       <div class="container">
@@ -643,12 +668,30 @@
         </a>
       </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <p class="copyright">&copy; <script>document.write(new Date().getFullYear());</script> Aditya Pandya</p>
+          <div class="footer-links">
+            <a href="https://linkedin.com/in/adityapandya" class="footer-link" target="_blank">LinkedIn</a>
+            <button class="theme-toggle" id="footerThemeToggle" aria-label="Toggle dark/light mode">
+              <i class="fas fa-sun"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
   </div>
 
-  <!-- JavaScript for password protection and theme toggle -->
+  <!-- JavaScript -->
+  <script src="assets/js/analytics.js"></script>
+  <script src="assets/js/browser-detect.js"></script>
+  <script src="assets/js/main.js"></script>
   <script>
     // Password protection
-    const correctPassword = 'partnership2025'; // Change this to your desired password
+    const correctPassword = 'appartnership'; // Change this to your desired password
     const passwordForm = document.getElementById('passwordForm');
     const passwordInput = document.getElementById('passwordInput');
     const passwordOverlay = document.getElementById('passwordOverlay');
