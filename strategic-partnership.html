@@ -714,15 +714,15 @@
   <script src="assets/js/main.js"></script>
   <script>
     // Password protection
-    const correctPassword = 'partnership'; // Change this to your desired password
+    const correctPassword = 'partnership2025'; // Change this to your desired password
     const passwordForm = document.getElementById('passwordForm');
     const passwordInput = document.getElementById('passwordInput');
     const passwordOverlay = document.getElementById('passwordOverlay');
     const mainContent = document.getElementById('mainContent');
     const errorMessage = document.getElementById('errorMessage');
 
-    // Check if user is already authenticated (session storage)
-    if (sessionStorage.getItem('partnershipAccess') === 'granted') {
+    // Check if user is already authenticated (localStorage for persistence across sessions)
+    if (localStorage.getItem('partnershipAccess') === 'granted') {
       showMainContent();
     }
 
@@ -731,7 +731,7 @@
       const enteredPassword = passwordInput.value.trim();
       
       if (enteredPassword === correctPassword) {
-        sessionStorage.setItem('partnershipAccess', 'granted');
+        localStorage.setItem('partnershipAccess', 'granted');
         showMainContent();
       } else {
         showError();
@@ -772,10 +772,8 @@
       }
     });
 
-    // Clear session when tab/window is closed
-    window.addEventListener('beforeunload', function() {
-      sessionStorage.removeItem('partnershipAccess');
-    });
+    // Optional: Add function to clear access (you can call this manually if needed)
+    // localStorage.removeItem('partnershipAccess');
   </script>
 </body>
 </html>
