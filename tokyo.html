@@ -1,0 +1,1446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan Recommendations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #08060b;
+    --bg-card: rgba(22,18,28,0.7);
+    --surface: #1e1926;
+    --border: rgba(255,255,255,0.05);
+    --border-hover: rgba(249,168,212,0.25);
+    --text: #ece8f0;
+    --text-secondary: #b0a8bc;
+    --text-muted: #706880;
+    --sakura-300: #f9a8d4;
+    --sakura-400: #f472b6;
+    --sakura-500: #ec4899;
+    --sakura-600: #db2777;
+    --sakura-700: #be185d;
+    --accent-warm: #fbbf24;
+    --accent-red: #fb7185;
+    --accent-green: #34d399;
+    --accent-blue: #67e8f9;
+    --accent-purple: #c084fc;
+    --accent-orange: #fb923c;
+    --radius: 20px;
+    --radius-sm: 14px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.75;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ════════════════════════════════
+     LUCIDE ICON SIZING
+     ════════════════════════════════ */
+  .card-icon-wrap svg,
+  .nav-link svg {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.75;
+  }
+
+  .card-icon-wrap svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--sakura-400);
+  }
+
+  .nav-link svg {
+    stroke: currentColor;
+  }
+
+  .transit-card .card-icon-wrap svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .city-name svg {
+    width: 16px;
+    height: 16px;
+    stroke: var(--city-color, var(--sakura-400));
+    stroke-width: 1.75;
+  }
+
+  .hero-cta svg {
+    width: 16px;
+    height: 16px;
+    stroke: #fff;
+    stroke-width: 2;
+    transition: transform 0.3s ease;
+  }
+
+  .hero-cta:hover svg { transform: translateY(3px); }
+
+  .hero-badge svg {
+    width: 14px;
+    height: 14px;
+    stroke: var(--sakura-400);
+    stroke-width: 2;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* ════════════════════════════════
+     CURSOR GLOW
+     ════════════════════════════════ */
+  .cursor-glow {
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    background: radial-gradient(circle, rgba(236,72,153,0.07) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease;
+    opacity: 0;
+  }
+
+  .cursor-glow.visible { opacity: 1; }
+
+  /* ════════════════════════════════
+     SAKURA PETALS
+     ════════════════════════════════ */
+  .sakura-canvas {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    overflow: hidden;
+  }
+
+  .sakura-petal {
+    position: absolute;
+    opacity: 0;
+    will-change: transform, opacity;
+  }
+
+  @keyframes sakura-fall {
+    0%   { opacity: 0; transform: translate(0, -10px) rotate(0deg) scale(0.8); }
+    8%   { opacity: 0.7; }
+    80%  { opacity: 0.4; }
+    100% { opacity: 0; transform: translate(var(--drift), calc(100vh + 40px)) rotate(var(--spin)) scale(0.5); }
+  }
+
+  /* ════════════════════════════════
+     HERO
+     ════════════════════════════════ */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 2rem;
+  }
+
+  .hero-mesh {
+    position: absolute;
+    inset: 0;
+    background: var(--bg);
+    z-index: 0;
+  }
+
+  .hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    will-change: transform;
+    mix-blend-mode: screen;
+  }
+
+  .hero-blob-1 {
+    width: 50vw; height: 50vw;
+    max-width: 700px; max-height: 700px;
+    background: radial-gradient(circle, rgba(190,24,93,0.25) 0%, transparent 70%);
+    top: -10%; left: -10%;
+    animation: blob1 16s ease-in-out infinite;
+  }
+
+  .hero-blob-2 {
+    width: 40vw; height: 40vw;
+    max-width: 550px; max-height: 550px;
+    background: radial-gradient(circle, rgba(249,168,212,0.18) 0%, transparent 70%);
+    bottom: -5%; right: -5%;
+    animation: blob2 20s ease-in-out infinite;
+  }
+
+  .hero-blob-3 {
+    width: 30vw; height: 30vw;
+    max-width: 400px; max-height: 400px;
+    background: radial-gradient(circle, rgba(192,132,252,0.12) 0%, transparent 70%);
+    top: 40%; left: 50%;
+    animation: blob3 14s ease-in-out infinite;
+  }
+
+  @keyframes blob1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(60px, 40px) scale(1.1); }
+    66% { transform: translate(-30px, 60px) scale(0.95); }
+  }
+  @keyframes blob2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-50px, -30px) scale(1.15); }
+    66% { transform: translate(40px, -50px) scale(0.9); }
+  }
+  @keyframes blob3 {
+    0%, 100% { transform: translate(-50%, 0) scale(1); }
+    50% { transform: translate(-50%, -40px) scale(1.2); }
+  }
+
+  .hero-mouse-gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+  }
+
+  .hero-mouse-gradient.active { opacity: 1; }
+
+  .hero-noise {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .hero-kanji {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(5rem, 18vw, 14rem);
+    color: rgba(255,255,255,0.02);
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    user-select: none;
+    letter-spacing: 0.12em;
+    z-index: 2;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 3;
+    max-width: 750px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.1rem;
+    border: 1px solid rgba(249,168,212,0.2);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--sakura-300);
+    background: rgba(249,168,212,0.06);
+    margin-bottom: 2.5rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    backdrop-filter: blur(12px);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero h1 .accent {
+    background: linear-gradient(135deg, var(--sakura-300) 0%, var(--sakura-500) 50%, var(--accent-purple) 100%);
+    background-size: 200% 200%;
+    animation: gradient-shift 6s ease-in-out infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 480px;
+    margin: 0 auto 3rem;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+
+  .hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.85rem 1.8rem;
+    background: linear-gradient(135deg, var(--sakura-600), var(--sakura-500), var(--accent-purple));
+    background-size: 200% 200%;
+    animation: gradient-shift 4s ease-in-out infinite;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.35s cubic-bezier(0.25,0.46,0.45,0.94);
+    box-shadow: 0 4px 24px rgba(236,72,153,0.3);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-cta::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--sakura-400), var(--accent-purple), var(--sakura-400));
+    background-size: 300% 300%;
+    animation: gradient-shift 3s ease-in-out infinite;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero-cta:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 32px rgba(236,72,153,0.4), 0 0 60px rgba(236,72,153,0.15);
+  }
+
+  .hero-cta:hover::before { opacity: 1; }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 56px;
+    background: linear-gradient(180deg, rgba(249,168,212,0.4), transparent);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-line::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(180deg, transparent, var(--sakura-400), transparent);
+    animation: scroll-drop 2.5s ease-in-out infinite;
+  }
+
+  @keyframes scroll-drop {
+    0%   { top: -40%; opacity: 0; }
+    20%  { opacity: 1; }
+    100% { top: 110%; opacity: 0; }
+  }
+
+  /* ════════════════════════════════
+     NAV
+     ════════════════════════════════ */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(8,6,11,0.6);
+    backdrop-filter: blur(24px) saturate(1.5);
+    border-bottom: 1px solid var(--border);
+    transition: all 0.4s ease;
+  }
+
+  .nav.scrolled {
+    background: rgba(8,6,11,0.88);
+    box-shadow: 0 8px 48px rgba(0,0,0,0.4);
+    border-color: rgba(249,168,212,0.06);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.6rem 1.5rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+  }
+
+  .nav-link:hover {
+    color: var(--sakura-300);
+    background: rgba(249,168,212,0.06);
+  }
+
+  .nav-link.active {
+    color: #fff;
+    background: rgba(249,168,212,0.12);
+    border-color: rgba(249,168,212,0.2);
+    box-shadow: 0 0 20px rgba(236,72,153,0.1);
+  }
+
+  /* ════════════════════════════════
+     MAIN CONTENT
+     ════════════════════════════════ */
+  .main {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 8rem;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-anchor { scroll-margin-top: 80px; }
+
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 6rem 0 2.25rem;
+    position: relative;
+  }
+
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(249,168,212,0.2), transparent 80%);
+  }
+
+  .section-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--sakura-400);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(249,168,212,0.2);
+    border-radius: 12px;
+    background: rgba(249,168,212,0.05);
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .section-num::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(249,168,212,0.2), transparent, rgba(192,132,252,0.15));
+    z-index: -1;
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    padding: 1px;
+  }
+
+  .section-head h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    color: #fff;
+    white-space: nowrap;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── Cards ── */
+  .card-grid { display: grid; gap: 0.85rem; }
+
+  .card {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem 2rem;
+    transition: all 0.45s cubic-bezier(0.25,0.46,0.45,0.94);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--sakura-400), transparent 40%, transparent 60%, var(--accent-purple));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(249,168,212,0.06) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .card:hover {
+    background: rgba(28,24,36,0.8);
+    border-color: transparent;
+    transform: translateY(-3px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 40px rgba(236,72,153,0.04);
+  }
+
+  .card:hover::after { opacity: 1; }
+  .card:hover::before { opacity: 1; }
+
+  .card-head {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .card-icon-wrap {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(249,168,212,0.1), rgba(192,132,252,0.06));
+    border: 1px solid rgba(249,168,212,0.1);
+    flex-shrink: 0;
+    transition: all 0.35s ease;
+  }
+
+  .card:hover .card-icon-wrap {
+    background: linear-gradient(135deg, rgba(249,168,212,0.15), rgba(192,132,252,0.1));
+    border-color: rgba(249,168,212,0.25);
+    box-shadow: 0 0 20px rgba(236,72,153,0.1);
+  }
+
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+
+  .card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.85;
+  }
+
+  .card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.3rem 0.7rem;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover .tag { border-color: rgba(255,255,255,0.1); }
+
+  .tag-sakura { background: rgba(249,168,212,0.08); border-color: rgba(249,168,212,0.12); color: var(--sakura-300); }
+  .tag-gold { background: rgba(251,191,36,0.08); border-color: rgba(251,191,36,0.12); color: var(--accent-warm); }
+  .tag-green { background: rgba(52,211,153,0.08); border-color: rgba(52,211,153,0.12); color: var(--accent-green); }
+  .tag-blue { background: rgba(103,232,249,0.08); border-color: rgba(103,232,249,0.12); color: var(--accent-blue); }
+  .tag-purple { background: rgba(192,132,252,0.08); border-color: rgba(192,132,252,0.12); color: var(--accent-purple); }
+
+  /* ── Card variants ── */
+  .card-warning { border-color: rgba(251,113,133,0.12); background: rgba(251,113,133,0.03); }
+  .card-warning::after { background: linear-gradient(135deg, var(--accent-red), transparent 40%, transparent 60%, rgba(251,113,133,0.5)) !important; }
+  .card-warning .card-icon-wrap { background: linear-gradient(135deg, rgba(251,113,133,0.12), rgba(251,113,133,0.06)); border-color: rgba(251,113,133,0.15); }
+  .card-warning .card-icon-wrap svg { stroke: var(--accent-red); }
+  .card-warning .card-title { color: var(--accent-red); }
+  .card-warning:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 40px rgba(251,113,133,0.06); }
+
+  .card-tip { border-color: rgba(251,191,36,0.1); background: rgba(251,191,36,0.03); }
+  .card-tip::after { background: linear-gradient(135deg, var(--accent-warm), transparent 40%, transparent 60%, rgba(251,191,36,0.4)) !important; }
+  .card-tip .card-icon-wrap { background: linear-gradient(135deg, rgba(251,191,36,0.12), rgba(251,191,36,0.04)); border-color: rgba(251,191,36,0.15); }
+  .card-tip .card-icon-wrap svg { stroke: var(--accent-warm); }
+  .card-tip:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 40px rgba(251,191,36,0.04); }
+
+  .card-dark {
+    background: linear-gradient(135deg, rgba(30,20,45,0.9), rgba(20,12,32,0.95));
+    border-color: rgba(249,168,212,0.08);
+  }
+  .card-dark::before { background: radial-gradient(ellipse at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(192,132,252,0.08) 0%, transparent 60%) !important; }
+  .card-dark:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 60px rgba(236,72,153,0.06); }
+
+  .transit-card {
+    border-color: rgba(52,211,153,0.12);
+    background: rgba(52,211,153,0.03);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+  .transit-card::after { background: linear-gradient(135deg, var(--accent-green), transparent 40%, transparent 60%, rgba(52,211,153,0.4)) !important; }
+  .transit-card .card-icon-wrap {
+    background: linear-gradient(135deg, rgba(52,211,153,0.12), rgba(52,211,153,0.04));
+    border-color: rgba(52,211,153,0.15);
+    width: 52px; height: 52px; border-radius: 16px;
+  }
+  .transit-card .card-icon-wrap svg { stroke: var(--accent-green); }
+  .transit-card:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.35), 0 0 40px rgba(52,211,153,0.04); }
+  .transit-content { flex: 1; }
+  .transit-content .card-title { margin-bottom: 0.5rem; }
+
+  /* ── Layouts ── */
+  .card-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+
+  .city-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .card-city {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem 1.65rem;
+    transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-city::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--city-color, var(--sakura-400)), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+  }
+
+  .card-city::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 20%, var(--city-glow, rgba(249,168,212,0.04)), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .card-city:hover {
+    background: rgba(28,24,36,0.8);
+    border-color: var(--border-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.3);
+  }
+
+  .card-city:hover::before, .card-city:hover::after { opacity: 1; }
+
+  .city-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .card-city p { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.75; }
+
+  .tip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.85rem; }
+
+  .section-divider {
+    text-align: center;
+    padding: 5rem 0 1rem;
+    position: relative;
+  }
+
+  .section-divider::before {
+    content: '';
+    position: absolute;
+    top: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sakura-500), transparent);
+  }
+
+  .section-divider span {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ════════════════════════════════
+     FOOTER
+     ════════════════════════════════ */
+  footer {
+    text-align: center;
+    padding: 5rem 1.5rem;
+    position: relative;
+  }
+
+  footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 250px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--sakura-500), transparent);
+  }
+
+  .footer-blossoms {
+    font-size: 1.3rem;
+    letter-spacing: 0.6em;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+  }
+
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 0.65rem;
+  }
+
+  .footer-credit {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .footer-credit .heart {
+    display: inline-block;
+    color: var(--sakura-500);
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
+
+  @keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    15% { transform: scale(1.2); }
+    30% { transform: scale(1); }
+    45% { transform: scale(1.15); }
+    60% { transform: scale(1); }
+  }
+
+  /* ════════════════════════════════
+     RESPONSIVE
+     ════════════════════════════════ */
+  @media (max-width: 700px) {
+    .main { padding: 1.5rem 1rem 6rem; }
+    .card { padding: 1.35rem 1.5rem; }
+    .card-duo, .tip-grid { grid-template-columns: 1fr; }
+    .city-grid { grid-template-columns: 1fr; }
+    .section-head { margin: 4rem 0 1.75rem; }
+    .hero-badge { font-size: 0.68rem; }
+    .transit-card { flex-direction: column; gap: 0.75rem; }
+  }
+
+  [data-aos] { transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1) !important; }
+</style>
+</head>
+<body>
+
+<div class="cursor-glow" id="cursorGlow"></div>
+<div class="sakura-canvas" id="sakuraCanvas"></div>
+
+<!-- ════ HERO ════ -->
+<section class="hero" id="heroSection">
+  <div class="hero-mesh">
+    <div class="hero-blob hero-blob-1"></div>
+    <div class="hero-blob hero-blob-2"></div>
+    <div class="hero-blob hero-blob-3"></div>
+  </div>
+  <div class="hero-mouse-gradient" id="heroMouseGradient"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-kanji">日本</div>
+
+  <div class="hero-content" data-aos="fade-up" data-aos-duration="1200" data-aos-delay="200">
+    <div class="hero-badge">
+      <i data-lucide="compass"></i>
+      Insider's guide
+    </div>
+    <h1>Japan<br><span class="accent">Recommendations</span></h1>
+    <p class="subtitle">Neighborhoods, food, day trips, and practical tips from someone who lived there.</p>
+    <a href="#neighborhoods" class="hero-cta">
+      Start exploring
+      <i data-lucide="arrow-down"></i>
+    </a>
+  </div>
+
+  <div class="hero-scroll"><div class="scroll-line"></div></div>
+</section>
+
+<!-- ════ NAV ════ -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#neighborhoods" class="nav-link"><i data-lucide="map-pin"></i> Neighborhoods</a>
+    <a href="#food" class="nav-link"><i data-lucide="utensils-crossed"></i> Food</a>
+    <a href="#experiences" class="nav-link"><i data-lucide="sparkles"></i> Experiences</a>
+    <a href="#drinks" class="nav-link"><i data-lucide="wine"></i> Drinks</a>
+    <a href="#transit" class="nav-link"><i data-lucide="train-front"></i> Getting around</a>
+    <a href="#beyond" class="nav-link"><i data-lucide="map"></i> Beyond Tokyo</a>
+    <a href="#tips" class="nav-link"><i data-lucide="lightbulb"></i> Tips</a>
+  </div>
+</nav>
+
+<!-- ════ MAIN ════ -->
+<main class="main">
+
+  <!-- ── NEIGHBORHOODS ── -->
+  <div class="section-anchor" id="neighborhoods"></div>
+  <div class="section-head" data-aos="fade-up">
+    <div class="section-num">01</div>
+    <h2>Neighborhoods & areas</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="building-2"></i></div>
+        <div class="card-title">Shibuya & surroundings</div>
+      </div>
+      <p>A great home base for exploring. Miyashita Park and the Shibuya Scramble mall both offer solid views of the Scramble crossing, the busiest intersection in the world. For shopping, Loft and Tokyu Hands will eat up 3-4 hours with their endless quirky goods (Loft also has a MoMA store inside). From here you can walk to Harajuku for Meiji Jingumae shrine and Takeshita Street, or head to Yoyogi Park, which is Tokyo's answer to Central Park but much calmer. Omotesando, also nearby, has a Fifth Avenue feel with upscale boutiques lining a tree-lined boulevard.</p>
+      <div class="card-tags">
+        <span class="tag tag-sakura">Shopping</span>
+        <span class="tag tag-sakura">Temples</span>
+        <span class="tag tag-sakura">Parks</span>
+        <span class="tag">Half day+</span>
+      </div>
+    </div>
+
+    <div class="card-duo">
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="shirt"></i></div>
+          <div class="card-title">Shimokitazawa</div>
+        </div>
+        <p>Tokyo's thrifting capital. A bohemian neighborhood full of vintage shops, independent cafes, and small theaters tucked into narrow streets. Great if you want a break from the city's more polished areas.</p>
+        <div class="card-tags">
+          <span class="tag tag-sakura">Thrifting</span>
+          <span class="tag">Chill vibes</span>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="book-open"></i></div>
+          <div class="card-title">Daikanyama</div>
+        </div>
+        <p>A lovely, walkable neighborhood between Shibuya and Ebisu. Home to Kinokuniya, arguably the best (and weirdest) bookstore in the world. It spans multiple buildings and is an experience in itself.</p>
+        <div class="card-tags">
+          <span class="tag tag-gold">Kinokuniya</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="flower-2"></i></div>
+        <div class="card-title">Nakameguro</div>
+      </div>
+      <p>The best spot in Tokyo for cherry blossoms when they're in bloom, with trees lining both sides of the Meguro River. One of only six Starbucks Reserve Roasteries in the world sits right along the water with views of the blossoms. Expect a multi-hour wait, so grab a queue ticket and explore the neighborhood while you wait. While you're in the area, Seirinkan serves some of the best Napolitan-style pizza you'll find anywhere.</p>
+      <div class="card-tags">
+        <span class="tag tag-sakura">Cherry blossoms</span>
+        <span class="tag tag-gold">Seirinkan pizza</span>
+        <span class="tag">Starbucks Reserve</span>
+      </div>
+    </div>
+
+    <div class="card-duo">
+      <div class="card" data-aos="fade-up">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="grape"></i></div>
+          <div class="card-title">Ebisu</div>
+        </div>
+        <p>One of Tokyo's most livable neighborhoods, with an excellent yokocho (a narrow alley lined with small bars and eateries) and some of the city's best cocktail bars. Yebisu Garden Place has good shopping, and the observatory on the 39th floor offers free panoramic views.</p>
+        <div class="card-tags">
+          <span class="tag tag-sakura">Bars</span>
+          <span class="tag tag-gold">Free views</span>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="landmark"></i></div>
+          <div class="card-title">Asakusa</div>
+        </div>
+        <p>Sensoji temple is a must-see, and it's even better if you arrive by ferry from Odaiba rather than by train. Tokyo Skytree is a short walk away and offers some of the best panoramic city views you'll get.</p>
+        <div class="card-tags">
+          <span class="tag tag-sakura">Sensoji</span>
+          <span class="tag tag-green">Ferry ride</span>
+          <span class="tag">Skytree</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="palmtree"></i></div>
+        <div class="card-title">Odaiba</div>
+      </div>
+      <p>Worth a half-day or full day. There's a giant Gundam statue, an artificial beach, tons of shopping, and solid food options. Fugetsu does great okonomiyaki, and there's a ramen lane where you can try bowls from different prefectures across Japan. TeamLab, the immersive digital art experience, is nearby and worth making time for.</p>
+      <div class="card-tags">
+        <span class="tag tag-sakura">Gundam</span>
+        <span class="tag tag-gold">TeamLab</span>
+        <span class="tag">Ramen lane</span>
+        <span class="tag">Half day+</span>
+      </div>
+    </div>
+
+    <div class="card-duo">
+      <div class="card" data-aos="fade-up">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="gem"></i></div>
+          <div class="card-title">Ginza</div>
+        </div>
+        <p>Tokyo's upscale district, but not just for luxury shopping. The world's largest Muji is here (along with a Muji hotel), plus Loft and Tokyu Hands. Ginza also has excellent cocktail bars, atmospheric yokochos, and a great soup curry spot.</p>
+        <div class="card-tags">
+          <span class="tag tag-sakura">Muji flagship</span>
+          <span class="tag">Cocktail bars</span>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="gamepad-2"></i></div>
+          <div class="card-title">Akihabara</div>
+        </div>
+        <p>The go-to for anime, manga, figurines, and electronics. Multi-story arcades, retro game shops, and maid cafes if you're curious. It's on the Yamanote line, so easy to reach from most neighborhoods.</p>
+        <div class="card-tags">
+          <span class="tag tag-sakura">Anime</span>
+          <span class="tag">Electronics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-duo">
+      <div class="card" data-aos="fade-up">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="warehouse"></i></div>
+          <div class="card-title">Yokohama</div>
+        </div>
+        <p>The Gundam Factory features a moving, life-size Gundam that's worth the trip alone. Nearby, the Red Brick Warehouse has good shops and the Ramen Museum lets you sample styles from across the country. Don't miss Garlic Joe's, a specialty garlic restaurant in one of the malls that lives up to the hype.</p>
+        <div class="card-tags">
+          <span class="tag tag-gold">Garlic Joe's</span>
+          <span class="tag">Ramen Museum</span>
+          <span class="tag">Life-size Gundam</span>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="trees"></i></div>
+          <div class="card-title">Shinjuku</div>
+        </div>
+        <p>Shinjuku Gyoen has gorgeous gardens that feel miles from the city. A great place to slow down for an afternoon, especially during cherry blossom season.</p>
+        <div class="card-tags">
+          <span class="tag tag-green">Gardens</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card card-warning" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="alert-triangle"></i></div>
+        <div class="card-title">Avoid Roppongi</div>
+      </div>
+      <p>Extremely overhyped and a tourist trap, like Times Square. Locals stay away, and you should too.</p>
+    </div>
+
+    <div class="card card-warning" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="alert-triangle"></i></div>
+        <div class="card-title">Skip Golden Gai</div>
+      </div>
+      <p>It's become too touristy to enjoy properly. There are plenty of yokochos around the city (Ebisu, Ginza, and newer ones) that offer the same small-bar-alley experience without the crowds and markups.</p>
+    </div>
+
+  </div>
+
+  <!-- ── FOOD ── -->
+  <div class="section-anchor" id="food"></div>
+  <div class="section-head" data-aos="fade-up">
+    <div class="section-num">02</div>
+    <h2>Food</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="soup"></i></div>
+        <div class="card-title">Ramen</div>
+      </div>
+      <p>Danbo's Rekka ramen at their Ebisu location is a standout, and noticeably better than their Seattle outpost. Afuri is the go-to for yuzu-based ramen, with locations in Ebisu, Shibuya, and Hiroo. Their yuzu tsukemen (broth and noodles served separately for dipping) is particularly good.</p>
+      <div class="card-tags">
+        <span class="tag tag-gold">Danbo</span>
+        <span class="tag tag-gold">Afuri</span>
+        <span class="tag">Ebisu</span>
+      </div>
+    </div>
+
+    <div class="card-duo">
+      <div class="card" data-aos="fade-up">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="flame"></i></div>
+          <div class="card-title">Yakiniku (grilled beef)</div>
+        </div>
+        <p>Japanese beef is on another level, and even chain restaurants like Toraji or Yakiniku Champion are excellent. No need to overthink this one or chase reservations at fancy spots.</p>
+        <div class="card-tags">
+          <span class="tag tag-gold">Toraji</span>
+          <span class="tag tag-gold">Yakiniku Champion</span>
+        </div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="cooking-pot"></i></div>
+          <div class="card-title">Soup curry</div>
+        </div>
+        <p>Hard to find in the US, so take advantage while you're there. There's a great spot in Ginza, and if you make it up to Sapporo, that's the spiritual home of the dish.</p>
+        <div class="card-tags">
+          <span class="tag tag-sakura">Ginza</span>
+          <span class="tag">Rare find</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-duo">
+      <div class="card" data-aos="fade-up">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="fish"></i></div>
+          <div class="card-title">Sushi</div>
+        </div>
+        <p>Toyosu Market is the place for fresh sushi. Going early for a sushi breakfast there is one of those Tokyo experiences you won't forget.</p>
+        <div class="card-tags"><span class="tag tag-gold">Toyosu Market</span></div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="shell"></i></div>
+          <div class="card-title">Uni (sea urchin)</div>
+        </div>
+        <p>If you're at all open to it, try it here. Uni in Japan is a completely different experience from what you'll find stateside.</p>
+        <div class="card-tags"><span class="tag">Must try</span></div>
+      </div>
+    </div>
+
+    <div class="card-duo">
+      <div class="card" data-aos="fade-up">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="egg-fried"></i></div>
+          <div class="card-title">Okonomiyaki</div>
+        </div>
+        <p>Fugetsu in Odaiba is a good pick for this savory pancake/omelette hybrid. Fun to watch them make it on the griddle in front of you.</p>
+        <div class="card-tags"><span class="tag tag-sakura">Odaiba</span></div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="pizza"></i></div>
+          <div class="card-title">Pizza</div>
+        </div>
+        <p>Seirinkan in Nakameguro does Napolitan-style pizza that holds its own against anything in Italy. One of those places you wouldn't expect in Tokyo, but there it is.</p>
+        <div class="card-tags"><span class="tag tag-gold">Seirinkan</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── EXPERIENCES ── -->
+  <div class="section-anchor" id="experiences"></div>
+  <div class="section-head" data-aos="fade-up">
+    <div class="section-num">03</div>
+    <h2>Experiences & attractions</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="castle"></i></div>
+        <div class="card-title">Ghibli Museum</div>
+      </div>
+      <p>Located in Mitaka and worth the trip for any Ghibli fan. Tickets sell out fast, but third-party resellers usually have them, and the markup is worth paying. Book as early as you can.</p>
+      <div class="card-tags"><span class="tag tag-sakura">Book ahead</span><span class="tag">Mitaka</span></div>
+    </div>
+
+    <div class="card-duo">
+      <div class="card" data-aos="fade-up">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="palette"></i></div>
+          <div class="card-title">TeamLab</div>
+        </div>
+        <p>Interactive, immersive digital art near Odaiba that's unlike anything else you'll experience. Rooms of light, water, and projections that respond to your movement. Make time for this one.</p>
+        <div class="card-tags"><span class="tag tag-gold">Must-do</span></div>
+      </div>
+
+      <div class="card" data-aos="fade-up" data-aos-delay="50">
+        <div class="card-head">
+          <div class="card-icon-wrap"><i data-lucide="cherry"></i></div>
+          <div class="card-title">Cherry blossoms</div>
+        </div>
+        <p>If they're in bloom during your visit, head to Nakameguro and walk along the Meguro River. The timing is everything with these, so check the forecast.</p>
+        <div class="card-tags"><span class="tag tag-sakura">Seasonal</span></div>
+      </div>
+    </div>
+
+    <div class="card" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="mountain-snow"></i></div>
+        <div class="card-title">Day trips: Hakone & Nikko</div>
+      </div>
+      <p>Hakone is your best bet for Mt. Fuji views from the Tokyo side, while Nikko offers stunning shrines and a completely different atmosphere from the city. Both work as day trips and are well connected by train.</p>
+      <div class="card-tags">
+        <span class="tag tag-green">Fuji views</span>
+        <span class="tag tag-green">Shrines</span>
+        <span class="tag">Day trip</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── DRINKS ── -->
+  <div class="section-anchor" id="drinks"></div>
+  <div class="section-head" data-aos="fade-up">
+    <div class="section-num">04</div>
+    <h2>Cocktails & drinking</h2>
+  </div>
+
+  <div class="card-grid">
+
+    <div class="card card-dark" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="martini"></i></div>
+        <div class="card-title">World-class cocktail bars</div>
+      </div>
+      <p>Tokyo has some of the world's best cocktail bars. They're a bit pricey but worth every yen. Bar Tram and Bar Trench in Ebisu are standouts, and Ginza has several worth seeking out. Look up a few lists and pick the ones that appeal to you.</p>
+      <div class="card-tags">
+        <span class="tag tag-sakura">Bar Tram</span>
+        <span class="tag tag-sakura">Bar Trench</span>
+        <span class="tag">Ebisu</span>
+        <span class="tag">Ginza</span>
+      </div>
+    </div>
+
+    <div class="card card-tip" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="beer"></i></div>
+        <div class="card-title">Open container? No problem.</div>
+      </div>
+      <p>Japan has no open container laws, so you can walk and drink anywhere. You'll mostly see foreigners doing it, but it's not frowned upon. Grab a Strong Zero from any convenience store and enjoy the stroll.</p>
+    </div>
+
+  </div>
+
+  <!-- ── GETTING AROUND ── -->
+  <div class="section-anchor" id="transit"></div>
+  <div class="section-head" data-aos="fade-up">
+    <div class="section-num">05</div>
+    <h2>Getting around</h2>
+  </div>
+
+  <div class="card-grid">
+    <div class="card transit-card" data-aos="fade-up">
+      <div class="card-icon-wrap"><i data-lucide="train-front"></i></div>
+      <div class="transit-content">
+        <div class="card-title">The Yamanote line</div>
+        <p>This loop line connects most neighborhoods in this guide and will quickly become your best friend. It hits Shibuya, Harajuku, Shinjuku, Ebisu, Akihabara, and many other stops mentioned here.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BEYOND TOKYO ── -->
+  <div class="section-divider" data-aos="fade-up"><span>Beyond Tokyo</span></div>
+
+  <div class="section-anchor" id="beyond"></div>
+  <div class="section-head" data-aos="fade-up">
+    <div class="section-num">06</div>
+    <h2>Other cities</h2>
+  </div>
+
+  <div class="city-grid">
+
+    <div class="card-city" data-aos="fade-up" style="--city-color: #fb923c; --city-glow: rgba(251,146,60,0.06);">
+      <div class="city-name"><i data-lucide="snowflake"></i> Sapporo</div>
+      <p>Soup curry that might be the best dish in all of Japan, great sights, and fun winter activities. Worth the trip north.</p>
+    </div>
+
+    <div class="card-city" data-aos="fade-up" data-aos-delay="50" style="--city-color: #fb7185; --city-glow: rgba(251,113,133,0.06);">
+      <div class="city-name"><i data-lucide="beef"></i> Kobe</div>
+      <p>Museums, a distinctive harbor skyline, and world-famous Wagyu beef you'll be thinking about long after.</p>
+    </div>
+
+    <div class="card-city" data-aos="fade-up" data-aos-delay="100" style="--city-color: #c084fc; --city-glow: rgba(192,132,252,0.06);">
+      <div class="city-name"><i data-lucide="landmark"></i> Kyoto</div>
+      <p>Castles, temples, and the famous Fushimi Inari shrine with its thousands of torii gates winding up the mountainside.</p>
+    </div>
+
+    <div class="card-city" data-aos="fade-up" style="--city-color: #34d399; --city-glow: rgba(52,211,153,0.06);">
+      <div class="city-name"><i data-lucide="heart"></i> Nara</div>
+      <p>Known for the bowing deer that roam freely through the park. An easy and fun day trip from Kyoto.</p>
+    </div>
+
+    <div class="card-city" data-aos="fade-up" data-aos-delay="50" style="--city-color: #fbbf24; --city-glow: rgba(251,191,36,0.06);">
+      <div class="city-name"><i data-lucide="utensils"></i> Fukuoka</div>
+      <p>Birthplace of Hakata-style tonkotsu ramen and home to yatai (open-air food stalls) along the river. Laid-back energy.</p>
+    </div>
+
+    <div class="card-city" data-aos="fade-up" data-aos-delay="100" style="--city-color: #67e8f9; --city-glow: rgba(103,232,249,0.06);">
+      <div class="city-name"><i data-lucide="droplets"></i> Beppu</div>
+      <p>Hot spring capital of Japan. Volcanic steam rises everywhere, the caramel custard is to die for, and the onsens are world-class.</p>
+    </div>
+
+    <div class="card-city" data-aos="fade-up" style="--city-color: #f9a8d4; --city-glow: rgba(249,168,212,0.06);">
+      <div class="city-name"><i data-lucide="mountain"></i> Kawaguchiko</div>
+      <p>The best views of Mt. Fuji, bar none. Try the local specialty Dango-jiru (thick noodle soup) while you're there.</p>
+    </div>
+
+  </div>
+
+  <!-- ── PRACTICAL TIPS ── -->
+  <div class="section-anchor" id="tips"></div>
+  <div class="section-head" data-aos="fade-up">
+    <div class="section-num">07</div>
+    <h2>Practical tips</h2>
+  </div>
+
+  <div class="tip-grid">
+
+    <div class="card card-tip" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="credit-card"></i></div>
+        <div class="card-title">Get a Pasmo or Suica card</div>
+      </div>
+      <p>Pick one up at any train station vending machine. It works for transit and at most convenience stores, vending machines, and many restaurants. Saves a lot of fumbling with cash.</p>
+    </div>
+
+    <div class="card card-tip" data-aos="fade-up" data-aos-delay="50">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="languages"></i></div>
+        <div class="card-title">Google Translate & Maps</div>
+      </div>
+      <p>Google Translate's camera mode is a lifesaver for menus that don't have English. Google Maps is excellent in Japan with detailed transit directions down to the platform number.</p>
+    </div>
+
+    <div class="card card-tip" data-aos="fade-up">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="trash-2"></i></div>
+        <div class="card-title">Carry a bag for trash</div>
+      </div>
+      <p>Public trashcans are rare. Keep a small bag with you for wrappers and bottles. Convenience stores like 7-Eleven and Family Mart usually have bins you can use, though.</p>
+    </div>
+
+    <div class="card card-tip" data-aos="fade-up" data-aos-delay="50">
+      <div class="card-head">
+        <div class="card-icon-wrap"><i data-lucide="banknote"></i></div>
+        <div class="card-title">Keep cash on hand</div>
+      </div>
+      <p>ATMs at Family Mart and 7-Eleven work with foreign cards. Many smaller places (especially ramen shops) only take cash via vending machine ordering. Afuri and Danbo both accept cards, though.</p>
+    </div>
+
+  </div>
+
+</main>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-blossoms">&#x1F338; &#x1F338; &#x1F338;</div>
+  <p class="footer-tagline">Safe travels and good eating.</p>
+  <p class="footer-credit">Curated with <span class="heart">&#10084;&#65039;</span> by Shweta & Aditya</p>
+</footer>
+
+<!-- ════ SCRIPTS ════ -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  // ── Init Lucide icons ──
+  lucide.createIcons();
+
+  // ── Init AOS ──
+  AOS.init({ duration: 800, offset: 80, once: true, easing: 'ease-out-cubic' });
+
+  // ── Sticky nav ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }, { passive: true });
+
+  // ── Active nav link ──
+  const ids = ['neighborhoods','food','experiences','drinks','transit','beyond','tips'];
+  const links = document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top <= 130) current = id;
+    });
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + current));
+  }, { passive: true });
+
+  // ── Cursor glow ──
+  const glow = document.getElementById('cursorGlow');
+  let glowX = 0, glowY = 0, currentX = 0, currentY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    glowX = e.clientX;
+    glowY = e.clientY;
+    glow.classList.add('visible');
+  });
+
+  document.addEventListener('mouseleave', () => glow.classList.remove('visible'));
+
+  function animateGlow() {
+    currentX += (glowX - currentX) * 0.08;
+    currentY += (glowY - currentY) * 0.08;
+    glow.style.left = currentX + 'px';
+    glow.style.top = currentY + 'px';
+    requestAnimationFrame(animateGlow);
+  }
+  animateGlow();
+
+  // ── Hero mouse-reactive gradient ──
+  const heroSection = document.getElementById('heroSection');
+  const heroGradient = document.getElementById('heroMouseGradient');
+
+  heroSection.addEventListener('mousemove', (e) => {
+    const rect = heroSection.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    heroGradient.style.background = 'radial-gradient(ellipse 50% 50% at ' + x + '% ' + y + '%, rgba(236,72,153,0.12) 0%, rgba(192,132,252,0.06) 30%, transparent 70%)';
+    heroGradient.classList.add('active');
+  });
+
+  heroSection.addEventListener('mouseleave', () => {
+    heroGradient.classList.remove('active');
+  });
+
+  // ── Card mouse spotlight ──
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      card.style.setProperty('--mouse-x', x + '%');
+      card.style.setProperty('--mouse-y', y + '%');
+    });
+  });
+
+  // ── SVG Sakura petals ──
+  const canvas = document.getElementById('sakuraCanvas');
+  const colors = [
+    'rgba(249,168,212,0.55)',
+    'rgba(244,114,182,0.45)',
+    'rgba(236,72,153,0.35)',
+    'rgba(252,207,232,0.45)',
+    'rgba(192,132,252,0.2)',
+  ];
+
+  function spawnPetal() {
+    const el = document.createElement('div');
+    el.className = 'sakura-petal';
+    const size = 12 + Math.random() * 14;
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.setAttribute('width', size);
+    svg.setAttribute('height', size);
+    svg.setAttribute('viewBox','0 0 24 24');
+    svg.innerHTML = '<path d="M12 2C12 2 8 7 8 10.5C8 12.5 9.8 13 12 13C14.2 13 16 12.5 16 10.5C16 7 12 2 12 2Z" fill="'+color+'"/><path d="M12 22C12 22 8 17 8 13.5C8 11.5 9.8 11 12 11C14.2 11 16 11.5 16 13.5C16 17 12 22 12 22Z" fill="'+color+'"/><path d="M2 12C2 12 7 8 10.5 8C12.5 8 13 9.8 13 12C13 14.2 12.5 16 10.5 16C7 16 2 12 2 12Z" fill="'+color+'"/><path d="M22 12C22 12 17 8 13.5 8C11.5 8 11 9.8 11 12C11 14.2 11.5 16 13.5 16C17 16 22 12 22 12Z" fill="'+color+'"/><circle cx="12" cy="12" r="1.5" fill="'+color+'" opacity="0.7"/>';
+    el.appendChild(svg);
+    el.style.left = (Math.random() * 100) + 'vw';
+    el.style.top = '-30px';
+    el.style.setProperty('--drift', (-60 + Math.random() * 120) + 'px');
+    el.style.setProperty('--spin', (180 + Math.random() * 360) + 'deg');
+    const dur = 9 + Math.random() * 12;
+    el.style.animation = 'sakura-fall ' + dur + 's linear forwards';
+    canvas.appendChild(el);
+    setTimeout(() => el.remove(), dur * 1000 + 200);
+  }
+
+  for (let i = 0; i < 4; i++) setTimeout(spawnPetal, i * 500);
+  setInterval(spawnPetal, 2800);
+
+})();
+</script>
+</body>
+</html>
