@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const THEME_ORDER = ['print', 'neon', 'terminal'];
-  let currentTheme = localStorage.getItem('retro-theme') || 'print';
+  let currentTheme = 'print';
 
   function getTheme() { return THEMES[currentTheme]; }
   function getColors() { return getTheme().colors; }
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', () => {
       flash.style.cssText = 'position:fixed;inset:0;background:#fff;opacity:0;z-index:99999;pointer-events:none;transition:opacity 0.3s;';
       document.body.appendChild(flash);
       requestAnimationFrame(() => { flash.style.opacity = '1'; });
-      setTimeout(() => { window.location.href = '../index.html'; }, 350);
+      setTimeout(() => { window.location.href = '/classic/'; }, 350);
       return;
     }
     applyTheme(THEME_ORDER[nextIdx], true);
