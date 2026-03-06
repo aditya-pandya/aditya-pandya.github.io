@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aditya Pandya • RETRO</title>
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+  <link rel="manifest" href="../assets/manifest/site.webmanifest">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="retro.css">
+</head>
+<body>
+
+  <!-- SVG defs: filters + rounded hexagon clipPath -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <!-- Photo posterization filter (PRINT only) -->
+      <filter id="posterize">
+        <feComponentTransfer>
+          <feFuncR type="discrete" tableValues="0 0.25 0.5 0.75 1"/>
+          <feFuncG type="discrete" tableValues="0 0.25 0.5 0.75 1"/>
+          <feFuncB type="discrete" tableValues="0 0.25 0.5 0.75 1"/>
+        </feComponentTransfer>
+      </filter>
+      <!-- Regular hexagon with rounded corners (flat-top, properly proportioned in square box) -->
+      <clipPath id="rounded-hex" clipPathUnits="objectBoundingBox">
+        <path d="M0.29,0.067 L0.71,0.067 Q0.75,0.067,0.77,0.102 L0.98,0.465 Q1,0.5,0.98,0.535 L0.77,0.898 Q0.75,0.933,0.71,0.933 L0.29,0.933 Q0.25,0.933,0.23,0.898 L0.02,0.535 Q0,0.5,0.02,0.465 L0.23,0.102 Q0.25,0.067,0.29,0.067 Z"/>
+      </clipPath>
+    </defs>
+  </svg>
+
+  <!-- Global overlay elements -->
+  <div id="vhs-line"></div>
+  <div class="halftone-overlay"></div>
+
+  <!-- Terminal frame overlay (visible only in TERMINAL theme) -->
+  <div id="terminal-frame">
+    <div class="terminal-titlebar">
+      <span class="terminal-dot red"></span>
+      <span class="terminal-dot yellow"></span>
+      <span class="terminal-dot green"></span>
+      <span class="terminal-title">aditya@pandya:~/portfolio — bash — 80x24</span>
+    </div>
+  </div>
+
+  <!-- ── BBS Ticker Bar ────────────────────────────────────── -->
+  <div class="ticker-bar" aria-hidden="true">
+    <div class="ticker-track">
+      ◆ ADITYA PANDYA &nbsp;·&nbsp; PRODUCT LEADER &amp; ADVISOR &nbsp;·&nbsp; BUILDING PRODUCTS THAT IMPROVE HOW PEOPLE LIVE AND WORK &nbsp;·&nbsp; INDIA → JAPAN → USA &nbsp;·&nbsp; INDEED &nbsp;·&nbsp; MAKEMYTRIP &nbsp;·&nbsp; TOTALBARCA 780K+ &nbsp;·&nbsp; UNICEF PARTNER &nbsp;·&nbsp; AI-FIRST PRODUCT STRATEGY &nbsp;·&nbsp; FOLLOW THE SUN &nbsp;·&nbsp; SMART APPLY &nbsp;·&nbsp; 350M+ JOB SEEKERS SERVED &nbsp;·&nbsp; ZERO-TO-ONE BUILDER &nbsp;·&nbsp; ADVISOR &nbsp;·&nbsp; SIGNALS STRONG &nbsp;·&nbsp; SYSTEM ONLINE &nbsp;·&nbsp; ◆ ADITYA PANDYA &nbsp;·&nbsp; PRODUCT LEADER &amp; ADVISOR &nbsp;·&nbsp; BUILDING PRODUCTS THAT IMPROVE HOW PEOPLE LIVE AND WORK &nbsp;·&nbsp; INDIA → JAPAN → USA &nbsp;·&nbsp; INDEED &nbsp;·&nbsp; MAKEMYTRIP &nbsp;·&nbsp; TOTALBARCA 780K+ &nbsp;·&nbsp; UNICEF PARTNER &nbsp;·&nbsp; AI-FIRST PRODUCT STRATEGY &nbsp;·&nbsp; FOLLOW THE SUN &nbsp;·&nbsp; SMART APPLY &nbsp;·&nbsp; 350M+ JOB SEEKERS SERVED &nbsp;·&nbsp; ZERO-TO-ONE BUILDER &nbsp;·&nbsp; ADVISOR &nbsp;·&nbsp; SIGNALS STRONG &nbsp;·&nbsp; SYSTEM ONLINE &nbsp;·&nbsp;
+    </div>
+  </div>
+
+  <!-- ── Navigation ──────────────────────────────────────────── -->
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">AP://</a>
+      <button class="mobile-menu-toggle" aria-label="Toggle menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="#about"        class="nav-link">About</a>
+        <a href="#philosophy"   class="nav-link">Philosophy</a>
+        <a href="#achievements" class="nav-link">Achievements</a>
+        <a href="#contact"      class="nav-link">Contact</a>
+        <button class="theme-toggle" aria-label="Switch theme">NEON</button>
+        <a href="../index.html" class="nav-link nav-classic-link">Classic Site</a>
+      </div>
+    </div>
+    <div class="progress-container">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+  </nav>
+
+  <!-- ── Hero ──────────────────────────────────────────────────── -->
+  <header id="home">
+    <!-- ASCII background canvas -->
+    <canvas id="ascii-canvas"></canvas>
+
+    <div class="container">
+      <div class="header-content">
+
+        <!-- Profile photo — rounded hexagon via SVG clipPath -->
+        <div class="hex-wrapper">
+          <canvas id="hex-backdrop"></canvas>
+          <div class="hex-photo">
+            <img class="hex-photo-img" src="../assets/images/ap.jpeg" alt="Aditya Pandya">
+          </div>
+        </div>
+
+        <!-- Text -->
+        <div class="header-text">
+          <div class="header-intro">Hello, I'm</div>
+          <h1 class="name-title glitch" data-text="Aditya Pandya">Aditya Pandya</h1>
+          <p class="header-subtitle">I'm a Product Leader &amp; Advisor who builds thoughtful products that improve how people live and work.</p>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ── ASCII divider ────────────────────────────────────────── -->
+  <div class="ascii-divider"></div>
+
+  <!-- ── About ─────────────────────────────────────────────────── -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="about-content">
+        <div class="section-heading-container">
+          <h2 class="section-heading glitch" data-text="About Me">About Me</h2>
+        </div>
+        <p><b>How do you scale products to serve millions without compromising quality? How do you meaningfully integrate AI to transform experiences?</b></p>
+        <br>
+        <p>Throughout my career, I've tackled these challenges head-on, building intuitive products that genuinely improve lives — whether simplifying how people plan their travels, streamlining hiring, or enabling better team collaboration.</p>
+        <br>
+        <p>My journey spans three countries and a singular mission: building products with genuine purpose. What drives me is the challenge of creating experiences so intuitive they feel invisible, yet powerful enough to transform how people work, connect, and thrive.</p>
+        <br>
+        <p>With experience leading teams across India, Japan, and the US, my approach to building products is deeply collaborative. I partner closely across engineering, design, and data science teams, aligning technical innovation with clear product vision and genuine customer needs.</p>
+        <br>
+        <p>Leadership, for me, is about creating environments where teams feel empowered to consistently outperform expectations. I invest in building clear frameworks that foster autonomy and creativity, allowing teams — large or small — to deliver impactful results.</p>
+        <br>
+        <p>Today, I advise forward-thinking companies to navigate strategic growth challenges, refine impactful product strategies, and build effective, empowered teams that drive results at scale.</p>
+
+        <div class="highlight-box">
+          <p>Beyond work, I'm passionate about community-building. I founded totalBarça, a globally renowned community for FC Barcelona fans, with over 780,000 followers. What makes me proudest isn't the scale, but the impact — channeling all revenue to UNICEF in alignment with the club's philanthropic mission. This experience reinforced my belief that technology can bring people together across boundaries in meaningful ways and create positive societal impact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ASCII divider ────────────────────────────────────────── -->
+  <div class="ascii-divider"></div>
+
+  <!-- ── Philosophy ───────────────────────────────────────────── -->
+  <section id="philosophy" class="section philosophy-section">
+    <div class="container">
+      <div class="section-heading-container">
+        <h2 class="section-heading glitch" data-text="Leadership Philosophy">Leadership Philosophy</h2>
+      </div>
+
+      <div class="philosophy-intro">
+        <p>My leadership approach is built on three core principles that have guided me across industries and challenges:</p>
+      </div>
+
+      <div class="philosophy-cards">
+
+        <div class="philosophy-card">
+          <div class="card-header">
+            <div class="principle-label">PRINCIPLE 01</div>
+            <h3>Start With Purpose</h3>
+          </div>
+          <div class="card-body">
+            <p>Great products begin with clearly understanding and solving real human problems. I consistently emphasize clarity of purpose and deep customer insight. At Indeed, this meant questioning our "ease above all" approach when data showed it no longer served our job seekers and employers. At MakeMyTrip, it guided our mobile-first strategy that simplified trip planning for millions of travelers. This principle ensures we build what truly matters to customers.</p>
+          </div>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="card-header">
+            <div class="principle-label">PRINCIPLE 02</div>
+            <h3>Empower Through Structure</h3>
+          </div>
+          <div class="card-body">
+            <p>I create environments that balance clear frameworks with autonomy, enabling teams to innovate and consistently achieve outstanding results. When scaling Indeed Apply from 5 to 150+ people across six countries, I implemented a "follow the sun" model with clear ownership boundaries. This balance between clarity and autonomy consistently unlocks extraordinary team performance and sustainable growth.</p>
+          </div>
+        </div>
+
+        <div class="philosophy-card">
+          <div class="card-header">
+            <div class="principle-label">PRINCIPLE 03</div>
+            <h3>Measure What Matters</h3>
+          </div>
+          <div class="card-body">
+            <p>I establish cultures driven by clear, outcome-focused metrics, ensuring teams deliver real customer and business value rather than just outputs. Whether introducing AI-powered job matching at Indeed or driving mobile growth at MakeMyTrip, I establish clear success metrics tied to customer and business impact. This approach ensures teams remain focused on outcomes rather than activity and delivers measurable results.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Mission ──────────────────────────────────────────────── -->
+  <section class="accent-section">
+    <div class="container">
+      <div class="quote-mark quote-left">"</div>
+      <div class="quote-mark quote-right">"</div>
+      <div class="accent-content">
+        <div class="section-heading-container">
+          <h2 class="accent-heading">My Mission</h2>
+        </div>
+        <p class="accent-text">
+          Create meaningful societal impact through thoughtful technology, simplify everyday experiences and inspire teams to achieve what once seemed impossible.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ASCII divider ────────────────────────────────────────── -->
+  <div class="ascii-divider"></div>
+
+  <!-- ── Achievements ─────────────────────────────────────────── -->
+  <section id="achievements" class="section">
+    <div class="container">
+      <div class="section-heading-container">
+        <h2 class="section-heading glitch" data-text="Transformative Achievements">Transformative Achievements</h2>
+      </div>
+
+      <div class="grid">
+
+        <div class="card">
+          <div class="card-number-bg">01</div>
+          <div class="card-content" data-num="01">
+            <h3 class="card-title">Reinventing Marketplace Dynamics</h3>
+            <div class="card-paragraph">At Indeed, I led a fundamental shift that transformed the company's flagship job application platform from a quantity-focused to a quality-centered marketplace, challenging a decade and a half of company orthodoxy around "ease above all else."</div>
+            <div class="card-paragraph">This vision required aligning over a dozen teams across six countries and reimagining the job seeking and hiring journey for tens of millions of job seekers and employers. The result was "Smart Apply," a tailored, guidance-driven job application process that drove a significant increase in hiring outcomes.</div>
+            <div class="card-paragraph">The impact was exceptional: over a million more people found meaningful work annually, substantial business growth, and a complete shift in Indeed's product philosophy. By extending this platform to power job applications across Glassdoor, SimplyHired and partner sites, I established market leadership that created a sustainable competitive advantage in HR Tech.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-number-bg">02</div>
+          <div class="card-content" data-num="02">
+            <h3 class="card-title">Transforming Team Performance</h3>
+            <div class="card-paragraph">My leadership approach consistently transforms team performance at every scale. I evolved Indeed Apply from a 5-person startup-like team into a thriving 150+ person organization across six countries, implementing a "follow the sun" model that enabled continuous innovation and drove 13x product growth.</div>
+            <div class="card-paragraph">When I inherited Indeed's Profile team — the foundation of the company's billion-dollar sourcing business — it was on the verge of a collapse. I executed a comprehensive turnaround by restructuring into focused pods, rebuilding leadership capabilities, and establishing frameworks that fostered both accountability and innovation.</div>
+            <div class="card-paragraph">Within 18 months, this once-struggling team became central to Indeed's marketplace strategy and a key driver of business growth. The true testament to my leadership approach is how well my teams performed after my departure, maintaining momentum and continuing to innovate independently.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-number-bg">03</div>
+          <div class="card-content" data-num="03">
+            <h3 class="card-title">AI Innovation &amp; Partnerships</h3>
+            <div class="card-paragraph">I drove Indeed's shift to AI-first user experiences, creating an intelligent content platform that collected hundreds of millions of qualifications and preferences every month to improve matching for tens of millions of job seekers. This transformed Indeed from a search-first job board to a recommendations-driven job marketplace.</div>
+            <div class="card-paragraph">One of my most game-changing contributions was building the foundation for the AI-powered Indeed Profile. Instead of being just a static resume, Profile became a dynamic, intelligent job-seeking tool, allowing 350M+ job seekers to showcase their skills, preferences, and experience in a way that made hiring faster and smarter.</div>
+            <div class="card-paragraph">I also drove the first strategic integration between Indeed and Glassdoor, navigating complex stakeholder dynamics to align two sister companies with completely different priorities and cultures. This partnership strengthened both companies' market positions and created a more unified experience for tens of millions of people.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-number-bg">04</div>
+          <div class="card-content" data-num="04">
+            <h3 class="card-title">Zero-to-One Product Creation</h3>
+            <div class="card-paragraph">At MakeMyTrip, I spearheaded the creation of a mobile-first experience when India's smartphone adoption was rapidly accelerating. Starting with extensive customer research in emerging markets, we built a lightweight app optimized for slow internet connections and mid-tier devices — resulting in featured placements by Apple and Google, and nearly double year-over-year growth in shoppers.</div>
+            <div class="card-paragraph">At Indeed, I conceived and built the Interview Scheduling platform from scratch, taking it from concept to facilitating millions of interviews annually. By focusing on core customer needs, rapid validation cycles, and iterative improvement, I simplified the hiring process while significantly reducing time to hire.</div>
+            <div class="card-paragraph">I bring this product creation experience to my advisory work, helping early-stage founders define MVPs, find product-market fit, and build with capital efficiency — reducing time to market while focusing resources on features that directly accelerate customer acquisition and retention.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ASCII divider ────────────────────────────────────────── -->
+  <div class="ascii-divider"></div>
+
+  <!-- ── Contact ──────────────────────────────────────────────── -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-heading-container">
+        <h2 class="section-heading glitch" data-text="Start a Conversation">Start a Conversation</h2>
+      </div>
+
+      <div class="contact-form-container">
+        <p>Throughout my career, I've helped businesses solve their most critical challenges:</p>
+
+        <div class="tag-container contact-tags">
+          <div class="tag">Building and scaling products from zero to millions of people</div>
+          <div class="tag">Building high-performing teams across multiple continents</div>
+          <div class="tag">Creating experiences that drive customer satisfaction and growth</div>
+          <div class="tag">Implementing evidence-driven cultures that enable better decisions</div>
+        </div>
+
+        <p>If any of these align with your current goals or challenges, let's talk. The best collaborations start with a simple conversation.</p>
+
+        <form class="contact-form" action="https://formspree.io/f/mwplknwn" method="POST">
+          <div style="display:none">
+            <label for="honeypot">Leave this field empty if you're human:</label>
+            <input type="text" name="honeypot" id="honeypot">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="name">Name</label>
+            <input type="text" id="name" name="name" class="form-control" placeholder="John Smith" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="hello@example.com" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" class="form-control" placeholder="What's on your mind?">
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="message">Message</label>
+            <textarea id="message" name="message" rows="5" class="form-control" placeholder="Tell me about your challenge..." required></textarea>
+          </div>
+          <div class="form-button-container">
+            <button type="submit" class="btn">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p class="copyright">
+          &copy; <script>document.write(new Date().getFullYear());</script>
+          Aditya Pandya &nbsp;·&nbsp; Transforming Products, Empowering Teams
+        </p>
+        <div class="footer-links">
+          <a href="https://linkedin.com/in/adityapandya" class="footer-link" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="../index.html" class="footer-link">← Classic</a>
+          <button class="theme-toggle" aria-label="Theme toggle">NEON</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── BBS Status Bar ────────────────────────────────────────── -->
+  <div class="status-bar" aria-hidden="true">
+    <span class="status-label">SEC:</span>
+    <span id="statusSection">HOME</span>
+    <span class="status-sep">◆</span>
+    <span class="status-label">TIME:</span>
+    <span id="statusTime">00:00:00</span>
+    <span class="status-blink"></span>
+    <span class="status-sep">◆</span>
+    <span class="status-label">MODE:</span>
+    <span id="statusTheme">PRINT</span>
+    <span class="status-sep">◆</span>
+    <span class="status-msg">SIGNAL CONNECTED // UPLINK ACTIVE</span>
+  </div>
+
+  <!-- GSAP + ScrollTrigger for professional scroll animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="retro.js"></script>
+</body>
+</html>
