@@ -1031,16 +1031,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelector('.nav-links');
 
   if (mobileToggle && navLinks) {
-    const icon = mobileToggle.querySelector('i');
+    const icon = mobileToggle.querySelector('.mobile-menu-glyph');
     mobileToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       const open = navLinks.classList.toggle('active');
-      if (icon) icon.className = open ? 'fas fa-times' : 'fas fa-bars';
+      if (icon) icon.textContent = open ? 'CLOSE' : 'MENU';
     });
     document.addEventListener('click', (e) => {
       if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && e.target !== mobileToggle) {
         navLinks.classList.remove('active');
-        if (icon) icon.className = 'fas fa-bars';
+        if (icon) icon.textContent = 'MENU';
       }
     });
   }

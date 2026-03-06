@@ -3,8 +3,6 @@
    Three RADICALLY distinct visual systems: NEON · TERMINAL · PRINT
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Space+Mono:wght@400;700&family=Bebas+Neue&display=swap');
-
 /* ═══════════════════════════════════════════════════════════════════
    THEME VARIABLES
    ═══════════════════════════════════════════════════════════════════ */
@@ -15,7 +13,7 @@
   --c1: #A855F7; --c2: #00FF9F; --c3: #FF8906; --c4: #FF3E9D; --c5: #00CFFF; --c6: #FFE600;
   --text: #DDD6FE; --text-dim: #7B6A9C; --white: #FFFFFF;
   --ticker-bg: var(--c1); --ticker-fg: #060014; --status-accent: var(--c2);
-  --font-display: 'VT323', monospace; --font-mono: 'Share Tech Mono', monospace;
+  --font-display: 'Courier New', 'Lucida Console', monospace; --font-mono: 'Courier New', 'Lucida Console', monospace;
   --ticker-h: 26px; --status-h: 26px;
   /* NEON: virtually no photo filter — preserve the original image */
   --photo-filter: brightness(1.02) contrast(1.03);
@@ -396,6 +394,12 @@ body[data-theme="terminal"] { animation: screenFlicker 6s infinite; }
   font-family: var(--font-display); font-size: 1.1rem;
 }
 
+.mobile-menu-glyph {
+  display: inline-block;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+}
+
 .theme-toggle {
   background: none; border: 1px solid var(--border);
   color: var(--text-dim);
@@ -410,6 +414,12 @@ body[data-theme="terminal"] { animation: screenFlicker 6s infinite; }
   font-family: 'Space Mono', monospace;
 }
 [data-theme="print"] .theme-toggle:hover { background: var(--c1); color: #fff; border-color: var(--c1); box-shadow: none; }
+
+.button-icon {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-weight: 700;
+}
 
 /* ═══════════════════════════════════════════════════════════════════
    HERO — NEON (default)
