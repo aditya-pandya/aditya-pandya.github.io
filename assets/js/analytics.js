@@ -44,11 +44,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const themeToggles = document.querySelectorAll('.theme-toggle');
   themeToggles.forEach(toggle => {
     toggle.addEventListener('click', function() {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const currentTheme =
+        document.body.getAttribute('data-theme') ||
+        document.documentElement.getAttribute('data-theme') ||
+        'neon';
       gtag('event', 'theme_toggle', {
-        'old_theme': currentTheme,
-        'new_theme': newTheme
+        'old_theme': currentTheme
       });
     });
   });
@@ -81,7 +82,8 @@ document.addEventListener('DOMContentLoaded', function() {
           'depth_percentage': marker,
           'page_section': getCurrentSection()
         });
-        });
+      }
+    });
   });
   
   function getCurrentSection() {
