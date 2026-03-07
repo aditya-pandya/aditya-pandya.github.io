@@ -83,12 +83,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Flash effect
       const flash = document.createElement('div');
-      flash.style.cssText = 'position:fixed;inset:0;background:white;opacity:0.18;z-index:99999;pointer-events:none;transition:opacity 0.35s;';
+      flash.style.cssText = 'position:fixed;inset:0;background:white;opacity:0.18;z-index:99999;pointer-events:none;transition:opacity 0.18s;';
       document.body.appendChild(flash);
       requestAnimationFrame(() => {
         requestAnimationFrame(() => { flash.style.opacity = '0'; });
       });
-      setTimeout(() => { flash.remove(); document.body.classList.remove('theme-switching'); }, 450);
+      setTimeout(() => { flash.remove(); document.body.classList.remove('theme-switching'); }, 225);
 
       // Glitch bars during transition
       for (let i = 0; i < 5; i++) {
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const h = 2 + Math.random() * 8;
         bar.style.cssText = `position:fixed;top:${top}%;left:0;right:0;height:${h}px;background:${getColors()[Math.floor(Math.random() * 6)]};opacity:0.5;z-index:99998;pointer-events:none;mix-blend-mode:screen;`;
         document.body.appendChild(bar);
-        setTimeout(() => bar.remove(), 100 + Math.random() * 200);
+        setTimeout(() => bar.remove(), 50 + Math.random() * 100);
       }
     }
 
