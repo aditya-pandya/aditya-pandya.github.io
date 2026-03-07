@@ -1114,25 +1114,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLogo = document.querySelector('.nav-logo');
   let logoClickCount = 0;
   let logoClickTimer = null;
+  let logoRouletteActive = false;
   if (navLogo) {
     navLogo.addEventListener('click', (e) => {
       e.preventDefault();
+      if (logoRouletteActive) return;
       logoClickCount++;
       if (logoClickTimer) clearTimeout(logoClickTimer);
       logoClickTimer = setTimeout(() => { logoClickCount = 0; }, 500);
 
       if (logoClickCount >= 5) {
         logoClickCount = 0;
-        // Rapid theme roulette — cycle through all themes fast then land on a random one
+        logoRouletteActive = true;
+
+        // Retro-only logo roulette: never exits to the classic site.
         let spins = 0;
-        const maxSpins = 12;
-        const spinInterval = setInterval(() => {
-          cycleTheme();
+        const maxSpins = 22;
+        let rouletteTheme = currentTheme;
+
+        const spinRoulette = () => {
+          rouletteTheme = THEME_ORDER[(THEME_ORDER.indexOf(rouletteTheme) + 1) % THEME_ORDER.length];
+          applyTheme(rouletteTheme, true);
           spins++;
-          if (spins >= maxSpins) {
-            clearInterval(spinInterval);
+
+          if (spins < maxSpins) {
+            const delay = 120 + (spins * 35);
+            setTimeout(spinRoulette, delay);
+            return;
           }
-        }, 120);
+
+          logoRouletteActive = false;
+        };
+
+        spinRoulette();
       }
     });
   }
