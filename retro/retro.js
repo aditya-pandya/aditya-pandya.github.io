@@ -69,10 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Button shows what you'll get NEXT when you click
     const idx = THEME_ORDER.indexOf(name);
-    const nextIdx = idx + 1;
-    const btnLabel = nextIdx >= THEME_ORDER.length
-      ? '← CLASSIC'
-      : THEMES[THEME_ORDER[nextIdx]].label;
+    const nextIdx = (idx + 1) % THEME_ORDER.length;
+    const btnLabel = THEMES[THEME_ORDER[nextIdx]].label;
     document.querySelectorAll('.theme-toggle').forEach(btn => {
       btn.textContent = btnLabel;
     });
@@ -117,17 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function cycleTheme() {
     const idx = THEME_ORDER.indexOf(currentTheme);
-    const nextIdx = idx + 1;
-    // After cycling through all retro themes, offer the classic site
-    if (nextIdx >= THEME_ORDER.length) {
-      // Brief flash to signal transition
-      const flash = document.createElement('div');
-      flash.style.cssText = 'position:fixed;inset:0;background:#fff;opacity:0;z-index:99999;pointer-events:none;transition:opacity 0.3s;';
-      document.body.appendChild(flash);
-      requestAnimationFrame(() => { flash.style.opacity = '1'; });
-      setTimeout(() => { window.location.href = '/classic/'; }, 350);
-      return;
-    }
+    const nextIdx = (idx + 1) % THEME_ORDER.length;
     applyTheme(THEME_ORDER[nextIdx], true);
   }
 
